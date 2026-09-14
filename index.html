@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.LABS - Powered by RoboAI Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-container">
+                    <div class="logo-image">
+                        <img src="images/logo.png" alt="AI.LABS Logo">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main"><span class="logo-ai">AI.</span><span class="logo-labs">LABS</span></span>
+                        <span class="logo-sub">Powered by RoboAI Hub</span>
+                    </div>
+                </div>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                    <li><a href="index.html#our-labs">Our Labs</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-overlay-glow"></div>
+            <div class="hero-container">
+                <!-- Left Side: Visual Area (matching AI Lab Robot Reference) -->
+                <div class="hero-left-spacer"></div>
+
+                <!-- Right Side: Hero Content -->
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="hero-line-dark">Building Tomorrow’s</span>
+                        <span class="hero-line-blue">AI Innovators.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        AI labs built for schools — with curriculum, mentors, real projects and continuous innovation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How We Solve It Section -->
+        <section class="ecosystem-section" id="about-us">
+            <!-- Left & Right Circuit Backgrounds (SVG) -->
+            <svg class="ecosystem-circuit-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 60 L 70 60 L 100 90 L 100 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="100" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 0 110 L 40 110 L 60 130 L 120 130" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            
+            <svg class="ecosystem-circuit-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 200 60 L 130 60 L 100 90 L 100 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="100" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 200 110 L 160 110 L 140 130 L 80 130" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+
+            <div class="ecosystem-container">
+                <!-- Top Badge & Heading -->
+                <div class="ecosystem-header">
+                    <div class="ecosystem-badge-container">
+                        <span class="badge-line-left"></span>
+                        <div class="ecosystem-badge">
+                            <span>HOW WE SOLVE IT</span>
+                        </div>
+                        <span class="badge-line-right"></span>
+                    </div>
+                    <h2 class="ecosystem-title">
+                        We don’t install a lab,<br>
+                        We build <span class="gradient-text">a living ecosystem</span><br>
+                        inside your institution.
+                    </h2>
+                    <p class="ecosystem-desc">
+                        Our vision and mission drive the core value delivered to your school.
+                    </p>
+                </div>
+
+                <!-- Vision Card (Large Horizontal Card) -->
+                <div class="vision-card">
+                    <div class="vision-card-left">
+                        <div class="vision-icon-container">
+                            <div class="vision-icon-bg"></div>
+                            <div class="vision-icon-ring-inner"></div>
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="vision-card-divider"></div>
+                    <div class="vision-card-right">
+                        <h3 class="vision-title">Our Vision</h3>
+                        <div class="vision-card-line"></div>
+                        <p class="vision-desc">
+                            To transform every school into a future-ready<br>
+                            innovation hub where students learn by building,<br>
+                            experimenting, and creating with Artificial Intelligence.
+                        </p>
+                    </div>
+                    <div class="vision-card-right-visual">
+                        <img src="images/vision_visual.png" alt="Futuristic City Innovation Graphic">
+                    </div>
+                </div>
+
+                <!-- Our Mission Section -->
+                <div class="mission-section">
+                    <h3 class="mission-header-title">Our Mission</h3>
+                    <div class="mission-header-line"></div>
+                    
+                    <!-- Mission Grid -->
+                    <div class="mission-grid">
+                        <!-- Card 1: Educate -->
+                        <div class="mission-card">
+                            <div class="mission-card-left">
+                                <div class="mission-icon-container">
+                                    <div class="mission-icon-bg"></div>
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+                            </div>
+                            <div class="mission-card-right">
+                                <h4 class="mission-title">Educate</h4>
+                                <div class="mission-card-line"></div>
+                                <p class="mission-desc">Hands-on learning<br>from school to industry.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Certify -->
+                        <div class="mission-card">
+                            <div class="mission-card-left">
+                                <div class="mission-icon-container">
+                                    <div class="mission-icon-bg"></div>
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                            </div>
+                            <div class="mission-card-right">
+                                <h4 class="mission-title">Certify</h4>
+                                <div class="mission-card-line"></div>
+                                <p class="mission-desc">Industry-ready mentors<br>and professionals.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Build -->
+                        <div class="mission-card">
+                            <div class="mission-card-left">
+                                <div class="mission-icon-container">
+                                    <div class="mission-icon-bg"></div>
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                            </div>
+                            <div class="mission-card-right">
+                                <h4 class="mission-title">Build</h4>
+                                <div class="mission-card-line"></div>
+                                <p class="mission-desc">Advanced labs with<br>full infrastructure.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Automate -->
+                        <div class="mission-card">
+                            <div class="mission-card-left">
+                                <div class="mission-icon-container">
+                                    <div class="mission-icon-bg"></div>
+                                    <i class="fa-solid fa-gear"></i>
+                                </div>
+                            </div>
+                            <div class="mission-card-right">
+                                <h4 class="mission-title">Automate</h4>
+                                <div class="mission-card-line"></div>
+                                <p class="mission-desc">Intelligent solutions for<br>real businesses.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Innovate -->
+                        <div class="mission-card">
+                            <div class="mission-card-left">
+                                <div class="mission-icon-container">
+                                    <div class="mission-icon-bg"></div>
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                            </div>
+                            <div class="mission-card-right">
+                                <h4 class="mission-title">Innovate</h4>
+                                <div class="mission-card-line"></div>
+                                <p class="mission-desc">Continuous R&D and<br>product development.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Empower -->
+                        <div class="mission-card">
+                            <div class="mission-card-left">
+                                <div class="mission-icon-container">
+                                    <div class="mission-icon-bg"></div>
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                            </div>
+                            <div class="mission-card-right">
+                                <h4 class="mission-title">Empower</h4>
+                                <div class="mission-card-line"></div>
+                                <p class="mission-desc">Skills, jobs, and opportunities<br>through deep-tech.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosystem Footer Decoration -->
+            <div class="ecosystem-footer-deco">
+                <span class="deco-line"></span>
+                <i class="fa-solid fa-robot"></i>
+                <span class="deco-line"></span>
+            </div>
+
+            <!-- Digital Wave/Tech Dot Pattern at bottom -->
+            <div class="ecosystem-bottom-pattern"></div>
+        </section>
+
+        <!-- AI Lab Packages Section (Section 4) -->
+        <section class="packages-section" id="our-labs">
+            <!-- Left & Right Circuit Backgrounds (SVG) -->
+            <svg class="packages-circuit-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 60 L 70 60 L 100 90 L 100 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="100" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 0 110 L 40 110 L 60 130 L 120 130" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            
+            <svg class="packages-circuit-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 200 60 L 130 60 L 100 90 L 100 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="100" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 200 110 L 160 110 L 140 130 L 80 130" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+
+            <div class="packages-container">
+                <!-- Section Badge & Heading -->
+                <div class="packages-header">
+                    <div class="packages-badge-container">
+                        <span class="badge-line-left"></span>
+                        <div class="packages-badge">
+                            <span>AI LAB PACKAGES</span>
+                        </div>
+                        <span class="badge-line-right"></span>
+                    </div>
+                    <h2 class="packages-title">
+                        Choose the <span class="gradient-text">Right AI Lab</span>
+                    </h2>
+                    <div class="packages-title-line">
+                        <span class="line-dot"></span>
+                    </div>
+                    <p class="packages-desc">
+                        Scalable lab implementations tailored for small to large scale school operations.
+                    </p>
+                </div>
+
+                <!-- Package Card Grid -->
+                <div class="packages-grid">
+                    <!-- Card 1: Basic AI Lab -->
+                    <div class="package-card">
+                        <div class="package-card-header">
+                            <div class="package-icon-container">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div class="package-header-text">
+                                <h3 class="package-name">Basic AI Lab</h3>
+                                <div class="student-badge">8–10 Students per Session</div>
+                            </div>
+                        </div>
+                        <div class="package-divider"></div>
+                        <div class="package-pricing-area">
+                            <span class="package-price gradient-text">₹2,00,000</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fa-regular fa-circle-check"></i><span>Full curriculum — 1 year</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Certified mentors training support</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>21 Total Components</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>All software is free</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Annual new projects</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Annual lab review</span></li>
+                        </ul>
+                        <button class="package-btn">View Details</button>
+                    </div>
+
+                    <!-- Card 2: Advanced AI Lab (Recommended) -->
+                    <div class="package-card recommended">
+                        <div class="recommended-badge">RECOMMENDED</div>
+                        <div class="package-card-header">
+                            <div class="package-icon-container">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="package-header-text">
+                                <h3 class="package-name">Advanced AI Lab</h3>
+                                <div class="student-badge">15–18 Students per Session</div>
+                            </div>
+                        </div>
+                        <div class="package-divider"></div>
+                        <div class="package-pricing-area">
+                            <span class="package-price gradient-text">₹4,00,000</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fa-regular fa-circle-check"></i><span>Full curriculum — 1 year</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Certified mentors training support</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>53 Total Components</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>All software is free</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Annual new projects</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Annual lab review</span></li>
+                        </ul>
+                        <button class="package-btn recommended-btn">View Details</button>
+                    </div>
+
+                    <!-- Card 3: Premium AI Lab -->
+                    <div class="package-card">
+                        <div class="package-card-header">
+                            <div class="package-icon-container">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div class="package-header-text">
+                                <h3 class="package-name">Premium AI Lab</h3>
+                                <div class="student-badge">25–30 Students per Session</div>
+                            </div>
+                        </div>
+                        <div class="package-divider"></div>
+                        <div class="package-pricing-area">
+                            <span class="package-price gradient-text">₹9,00,000</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fa-regular fa-circle-check"></i><span>Full curriculum — 1 year</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Certified mentors training support</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>66 Total Components</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>All software is free</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Annual new projects</span></li>
+                            <li><i class="fa-regular fa-circle-check"></i><span>Annual lab review</span></li>
+                        </ul>
+                        <button class="package-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dotted grid technology pattern at bottom -->
+            <div class="packages-bottom-pattern"></div>
+        </section>
+
+        <!-- Student Builds Section (Section 5) -->
+        <section class="builds-section" id="projects">
+            <!-- Left & Right Circuit Backgrounds (SVG) -->
+            <svg class="builds-circuit-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 50 L 80 50 L 110 80 L 110 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="110" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 0 100 L 40 100 L 60 120 L 130 120" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            
+            <svg class="builds-circuit-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 200 50 L 120 50 L 90 80 L 90 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="90" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 200 100 L 160 100 L 140 120 L 70 120" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+
+            <div class="builds-container">
+                <!-- Section Badge & Heading -->
+                <div class="builds-header">
+                    <div class="builds-badge-container">
+                        <span class="badge-line-left"></span>
+                        <div class="builds-badge">
+                            <span>STUDENT BUILDS</span>
+                        </div>
+                        <span class="badge-line-right"></span>
+                    </div>
+                    <h2 class="builds-title">
+                        What Your <span class="gradient-text">Students</span> Will Build
+                    </h2>
+                    <div class="builds-title-line">
+                        <span class="line-dot"></span>
+                    </div>
+                    <p class="builds-desc">
+                        Real projects. Real technology. Real pride.
+                    </p>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="builds-grid">
+                    <!-- Project 1: Emotion Detector -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/emotion-detector.jpg" alt="Emotion Detector" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-face-smile"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">COMPUTER VISION</span>
+                            <h3 class="project-title">Emotion Detector</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Waste Sorter Robot -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/waste-sorter.jpg" alt="Waste Sorter Robot" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-recycle"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">AI HARDWARE & AUTOMATION</span>
+                            <h3 class="project-title">Waste Sorter Robot</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Smart Attendance System -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/smart-attendance.jpg" alt="Smart Attendance System" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-clipboard-user"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">AI & COMPUTER VISION</span>
+                            <h3 class="project-title">Smart Attendance System</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Sign Language Translator -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/sign-language.jpg" alt="Sign Language Translator" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-hands-asl-interpreting"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">COMPUTER VISION</span>
+                            <h3 class="project-title">Sign Language Translator</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: AI Vision Bot -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/ai-vision-bot.jpg" alt="AI Vision Bot" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">AI VISION & EMBEDDED</span>
+                            <h3 class="project-title">AI Vision Bot</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: People Counting System -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/people-counter.jpg" alt="People Counting System" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">COMPUTER VISION</span>
+                            <h3 class="project-title">People Counting System</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Smart Traffic Management System -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/smart-traffic.jpg" alt="Smart Traffic Management System" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-traffic-light"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">AI & SMART CITY</span>
+                            <h3 class="project-title">Smart Traffic System</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: AI Tutor Assistant -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/ai-tutor.jpg" alt="AI Tutor Assistant" onerror="this.classList.add('hide-img');">
+                            <div class="placeholder-gradient">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">NLP & AI TUTOR</span>
+                            <h3 class="project-title">AI Tutor Assistant</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Center Decoration (Robot Icon flanked by lines and dots) -->
+                <div class="builds-footer-deco">
+                    <span class="deco-line"></span>
+                    <span class="deco-dot"></span>
+                    <i class="fa-solid fa-robot"></i>
+                    <span class="deco-dot"></span>
+                    <span class="deco-line"></span>
+                </div>
+            </div>
+
+            <!-- Dotted grid technology pattern at bottom corners -->
+            <div class="builds-bottom-pattern-left"></div>
+            <div class="builds-bottom-pattern-right"></div>
+        </section>
+
+        <!-- Benefits Section (Section 6) -->
+        <section class="benefits-section">
+            <!-- Left & Right Circuit Backgrounds (SVG) -->
+            <svg class="benefits-circuit-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 50 L 80 50 L 120 90 M 120 90 L 120 150" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="120" cy="150" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 0 100 L 50 100 L 80 130 L 150 130" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            
+            <svg class="benefits-circuit-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 200 50 L 120 50 L 80 90 M 80 90 L 80 150" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="80" cy="150" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 200 100 L 150 100 L 120 130 L 50 130" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+
+            <div class="benefits-container">
+                <!-- Section Header -->
+                <div class="benefits-header">
+                    <div class="benefits-badge">
+                        <span>BENEFITS</span>
+                    </div>
+                    <h2 class="benefits-title">
+                        Everything Your <span class="gradient-text">School Gets</span>
+                    </h2>
+                    <p class="benefits-desc">
+                        Every AI Dot Labs lab is a complete, living ecosystem — not just equipment.
+                    </p>
+                </div>
+
+                <!-- Benefit Card Grid -->
+                <div class="benefits-grid">
+                    <!-- Card 1 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <h3 class="benefit-card-title">AI &amp; Smart Hardware</h3>
+                        <p class="benefit-card-desc">Purpose-built kits — students build real projects from session one.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Structured Curriculum</h3>
+                        <p class="benefit-card-desc">Progressive, hands-on projects with clear outcomes every session.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Certified Mentors Training</h3>
+                        <p class="benefit-card-desc">Training support for mentors inside your school.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-chalkboard"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Project Showcases</h3>
+                        <p class="benefit-card-desc">Students present real builds to real audiences every term.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Certifications</h3>
+                        <p class="benefit-card-desc">For students and teachers — industry-recognised.</p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Annual Updates</h3>
+                        <p class="benefit-card-desc">New projects and challenges added every year.</p>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Annual Lab Review</h3>
+                        <p class="benefit-card-desc">We revisit, upgrade and realign your lab every year.</p>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon-container">
+                            <i class="fa-solid fa-life-ring"></i>
+                        </div>
+                        <h3 class="benefit-card-title">Ongoing Support & Upgrades</h3>
+                        <p class="benefit-card-desc">Providing technical assistance and hardware repairs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (Section 7) -->
+        <section class="gallery-section">
+            <!-- Left & Right Circuit Backgrounds (SVG) -->
+            <svg class="gallery-circuit-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 50 L 80 50 L 110 80 L 110 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="110" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 0 100 L 40 100 L 60 120 L 130 120" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            
+            <svg class="gallery-circuit-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 200 50 L 120 50 L 90 80 L 90 140" stroke="rgba(0, 195, 255, 0.08)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="90" cy="140" r="3" fill="rgba(0, 195, 255, 0.2)"/>
+                <path d="M 200 100 L 160 100 L 140 120 L 70 120" stroke="rgba(0, 85, 255, 0.06)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+
+            <div class="gallery-container">
+                <!-- Section Badge & Heading -->
+                <div class="gallery-header">
+                    <div class="gallery-badge-container">
+                        <span class="badge-line-left"></span>
+                        <div class="gallery-badge">
+                            <span>INTERACTIVE TOUR</span>
+                        </div>
+                        <span class="badge-line-right"></span>
+                    </div>
+                    <h2 class="gallery-title">
+                        Explore Our <span class="gradient-text">Gallery</span>
+                    </h2>
+                    <div class="gallery-title-line">
+                        <span class="line-dot"></span>
+                    </div>
+                    <p class="gallery-desc">
+                        See moments of learning, building and innovation in our AI innovation labs.
+                    </p>
+                    <div style="margin-top: 18px;">
+                        <a href="gallery.html" class="view-gallery-link text-gradient" style="color: var(--primary-blue); font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 6px;">
+                            <span>View Full Gallery</span>
+                            <i class="fa-solid fa-arrow-right" style="font-size: 0.85rem; transition: transform 0.25s ease;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Horizontal Timeline Connected Layout wrapper -->
+                <div class="timeline-wrapper">
+                    <!-- SVG Connecting Line -->
+                    <svg class="timeline-svg-line" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <!-- Path 1 (Card 1 -> 2) -->
+                        <path d="M 310 360 L 322 360 L 330 368 L 330 392 L 338 400 L 350 400" stroke="rgba(0, 195, 255, 0.4)" stroke-width="2" class="pulse-path"/>
+                        <circle cx="322" cy="360" r="4" fill="var(--primary-cyan)" class="node-glow"/>
+                        
+                        <!-- Path 2 (Card 2 -> 3) -->
+                        <path d="M 650 400 L 662 400 L 670 392 L 670 368 L 678 360 L 690 360" stroke="rgba(0, 195, 255, 0.4)" stroke-width="2" class="pulse-path"/>
+                        <circle cx="662" cy="400" r="4" fill="var(--primary-cyan)" class="node-glow"/>
+                    </svg>
+
+                    <!-- Gallery Cards Grid / Row -->
+                    <div class="gallery-grid">
+                        <!-- Card 1: AI & Innovation Lab -->
+                        <div class="gallery-card card-up reveal">
+                            <div class="gallery-image-container">
+                                <img src="images/gallery-ai-lab.jpg" alt="AI & Innovation Lab" onerror="this.classList.add('hide-img');">
+                                <div class="placeholder-gradient">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                            </div>
+                            <div class="gallery-info-panel">
+                                <div class="info-left">
+                                    <div class="gallery-icon-circle">
+                                        <i class="fa-solid fa-lightbulb"></i>
+                                    </div>
+                                </div>
+                                <div class="info-right">
+                                    <div class="card-meta">
+                                        <span class="meta-number">01</span>
+                                        <span class="meta-code">A1</span>
+                                        <span class="meta-action">EXPLORE</span>
+                                    </div>
+                                    <h3 class="card-title">AI & Innovation Lab</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: AI & Coding Zone -->
+                        <div class="gallery-card card-down reveal">
+                            <div class="gallery-image-container">
+                                <img src="images/gallery-coding.jpg" alt="AI & Coding Zone" onerror="this.classList.add('hide-img');">
+                                <div class="placeholder-gradient">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                            </div>
+                            <div class="gallery-info-panel">
+                                <div class="info-left">
+                                    <div class="gallery-icon-circle">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+                                </div>
+                                <div class="info-right">
+                                    <div class="card-meta">
+                                        <span class="meta-number">02</span>
+                                        <span class="meta-code">A2</span>
+                                        <span class="meta-action">CREATE</span>
+                                    </div>
+                                    <h3 class="card-title">AI & Coding Zone</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Student Innovation Space -->
+                        <div class="gallery-card card-up reveal">
+                            <div class="gallery-image-container">
+                                <img src="images/gallery-showcase.jpg" alt="Student Innovation Space" onerror="this.classList.add('hide-img');">
+                                <div class="placeholder-gradient">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                            </div>
+                            <div class="gallery-info-panel">
+                                <div class="info-left">
+                                    <div class="gallery-icon-circle">
+                                        <i class="fa-solid fa-trophy"></i>
+                                    </div>
+                                </div>
+                                <div class="info-right">
+                                    <div class="card-meta">
+                                        <span class="meta-number">03</span>
+                                        <span class="meta-code">A3</span>
+                                        <span class="meta-action">SHOWCASE</span>
+                                    </div>
+                                    <h3 class="card-title">Student Innovation Space</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Feature Bar -->
+                <div class="gallery-feature-bar">
+                    <!-- Feature 1 -->
+                    <div class="feature-bar-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Modern Labs</h4>
+                            <p>Future Ready</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-divider-y"></div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-bar-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Hands-on</h4>
+                            <p>Learning</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-divider-y"></div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-bar-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>AI Powered</h4>
+                            <p>Education</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-divider-y"></div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-bar-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Collaborate</h4>
+                            <p>& Innovate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dotted grid technology pattern at bottom corners -->
+            <div class="gallery-bottom-pattern-left"></div>
+            <div class="gallery-bottom-pattern-right"></div>
+        </section>
+
+        <!-- Footer Contact & Info Section (Mockup Panel 9) -->
+        <section class="footer-contact-section" id="contact-us">
+            <div class="footer-contact-container">
+                <!-- Header -->
+                <div class="footer-contact-header">
+                    <h2 class="footer-contact-title">We're Here to Help!</h2>
+                    <p class="footer-contact-desc">Reach out to us anytime.</p>
+                    <div class="footer-cta-wrapper">
+                        <a href="book-demo.html" class="cta-demo-btn">
+                            <span>Book a Demo Session</span>
+                            <i class="fa-solid fa-arrow-right cta-btn-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Information Grid -->
+                <div class="footer-contact-grid">
+                    <!-- Card 1: Office Address -->
+                    <div class="footer-contact-card">
+                        <div class="footer-card-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="footer-card-title">Office Address</h3>
+                        <p class="footer-card-text">
+                            T-1, 426 B, 4th Floor, Indiabulls Mega Mall, Jodhpur
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Contact Number -->
+                    <a href="tel:+917727002970" class="footer-contact-card">
+                        <div class="footer-card-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h3 class="footer-card-title">Contact Number</h3>
+                        <p class="footer-card-text">
+                            +91 7727002970
+                        </p>
+                    </a>
+
+                    <!-- Card 3: Office Email -->
+                    <a href="mailto:aidotlabs1@gmail.com" class="footer-contact-card">
+                        <div class="footer-card-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h3 class="footer-card-title">Office Email</h3>
+                        <p class="footer-card-text">
+                            aidotlabs1@gmail.com
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Sub Footer Bottom Bar -->
+                <div class="sub-footer-bar">
+                    <div class="sub-footer-left">
+                        <div class="logo-container">
+                            <div class="logo-image">
+                                <img src="images/logo.png" alt="AI.LABS Logo">
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-main" style="color: var(--dark-navy); font-weight:800; font-size: 1.1rem;"><span class="logo-ai">AI.</span><span class="logo-labs">LABS</span></span>
+                                <span class="logo-sub" style="font-size:0.68rem; display:block; opacity:0.6; margin-top:-2px;">Powered by RoboAI Hub</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-footer-right">
+                        <span class="copyright-text">© 2025 AI.LABS. All rights reserved.</span>
+                        <div class="footer-socials">
+                            <a href="#" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reusable Dynamic Modal -->
+    <div id="package-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <!-- Left: Package Summary Panel (Dark Navy) -->
+                <div class="modal-summary-panel">
+                    <span id="modal-badge" class="modal-badge">QUOTATION — TIER 1</span>
+                    <h3 id="modal-heading" class="modal-heading">Basic AI LAB</h3>
+                    
+                    <div class="summary-meta-group">
+                        <div class="summary-meta-item">
+                            <span class="meta-label">Investment</span>
+                            <span id="modal-investment" class="meta-value gradient-text">₹2,00,000</span>
+                        </div>
+                        <div class="summary-meta-item">
+                            <span class="meta-label">Students per Session</span>
+                            <span id="modal-students" class="meta-value">8–10 working simultaneously</span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-benefits-area">
+                        <h4>What Your School Gets</h4>
+                        <ul id="modal-benefits-list" class="modal-benefits-list">
+                            <!-- Populated dynamically -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Right: Equipment Table -->
+                <div class="modal-table-panel">
+                    <h4 class="table-heading">Required Lab Infrastructure & Equipment</h4>
+                    <div class="table-wrapper">
+                        <table id="modal-equipment-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">S.No</th>
+                                    <th style="width: 70%;">Item</th>
+                                    <th style="width: 20%;">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody id="modal-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

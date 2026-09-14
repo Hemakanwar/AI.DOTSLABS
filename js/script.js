@@ -1,0 +1,528 @@
+// Main JavaScript for AI.LABS
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Navigation Menu Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const toggleIcon = navToggle ? navToggle.querySelector('i') : null;
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            
+            // Toggle hamburger icon between bars and close X
+            if (toggleIcon) {
+                if (navLinks.classList.contains('active')) {
+                    toggleIcon.className = 'fa-solid fa-xmark';
+                } else {
+                    toggleIcon.className = 'fa-solid fa-bars';
+                }
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                if (toggleIcon) {
+                    toggleIcon.className = 'fa-solid fa-bars';
+                }
+            }
+        });
+    }
+
+    // 2. Active Link Underline Handling
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Remove active class from all links
+            links.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
+            link.classList.add('active');
+            
+            // Close mobile menu after clicking a link
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                if (toggleIcon) {
+                    toggleIcon.className = 'fa-solid fa-bars';
+                }
+            }
+        });
+    });
+
+    // 3. Package Detail Popups & Modal Interaction
+    const packageData = {
+        basic: {
+            badge: "QUOTATION — TIER 1",
+            name: "Basic AI LAB",
+            investment: "₹2,00,000",
+            students: "8–10 working simultaneously",
+            benefits: [
+                "Full curriculum — 1 year",
+                "Certified mentors training support",
+                "21 Total Components",
+                "All software is free",
+                "Annual new projects",
+                "Annual lab review"
+            ],
+            equipment: [
+                { no: 1, item: "Robonari V1", qty: "1" },
+                { no: 2, item: "Raspberry Pi Kit (2GB, Case, SD Card, Power Supply)", qty: "5" },
+                { no: 3, item: "Basic Sensor Pack (Light, Temperature, Motion, Ultrasonic)", qty: "2 Sets" },
+                { no: 4, item: "Breadboard + Jumper Wires + LED Component Kit", qty: "5 Sets" },
+                { no: 5, item: "USB Webcam 720p", qty: "2" },
+                { no: 6, item: "Component Storage Boxes", qty: "5" },
+                { no: 7, item: "Lab Stationery, Posters & Printed Worksheets", qty: "—" },
+                { no: 8, item: "Tablets", qty: "1" },
+                { no: 9, item: "Curriculum and LMS", qty: "—" }
+            ]
+        },
+        advanced: {
+            badge: "QUOTATION — TIER 2",
+            name: "Advanced AI LAB",
+            investment: "₹4,00,000",
+            students: "15–18 working simultaneously",
+            benefits: [
+                "Full curriculum — 1 year",
+                "Certified mentors training support",
+                "53 Total Components",
+                "All software is free",
+                "Annual new projects",
+                "Annual lab review"
+            ],
+            equipment: [
+                { no: 1, item: "Robonari V2", qty: "1" },
+                { no: 2, item: "Arduino Uno Starter Kit (Sensors + Components)", qty: "10" },
+                { no: 3, item: "Raspberry Pi Kit (4GB)", qty: "5" },
+                { no: 4, item: "IoT Sensor Expansion Set (DHT11, PIR, Soil, Gas Sensors)", qty: "8" },
+                { no: 5, item: "Full HD 1080p Webcam + Mic", qty: "4" },
+                { no: 6, item: "3D Printer", qty: "1" },
+                { no: 7, item: "3D Filament PLA (1kg Rolls)", qty: "10" },
+                { no: 8, item: "Breadboard + Component Kits", qty: "10" },
+                { no: 9, item: "Lab Branding, Signage & Stationery", qty: "—" },
+                { no: 10, item: "Tablets", qty: "4" },
+                { no: 11, item: "Curriculum and LMS", qty: "—" }
+            ]
+        },
+        premium: {
+            badge: "QUOTATION — TIER 3",
+            name: "Premium AI LAB",
+            investment: "₹9,00,000",
+            students: "25–30 working simultaneously",
+            benefits: [
+                "Full curriculum — 1 year",
+                "Certified mentors training support",
+                "66 Total Components",
+                "All software is free",
+                "Annual new projects",
+                "Annual lab review"
+            ],
+            equipment: [
+                { no: 1, item: "Robonari", qty: "1" },
+                { no: 2, item: "3D Printer", qty: "1" },
+                { no: 3, item: "Arduino Advanced Kit (Sensors + Shields)", qty: "10" },
+                { no: 4, item: "Raspberry Pi (4GB) Kit", qty: "10" },
+                { no: 5, item: "Drone", qty: "3" },
+                { no: 6, item: "Full HD Webcam + Mic (AI Vision Stations)", qty: "10" },
+                { no: 7, item: "IoT Sensor Expansion Kit (Full Set)", qty: "6 Sets" },
+                { no: 8, item: "Lab Branding, Showcase Wall & Safety Setup", qty: "—" },
+                { no: 9, item: "Tablets", qty: "25" },
+                { no: 10, item: "Curriculum and LMS", qty: "—" }
+            ]
+        }
+    };
+
+    const modal = document.getElementById('package-modal');
+    const modalCloseBtn = modal ? modal.querySelector('.modal-close') : null;
+    const viewDetailsButtons = document.querySelectorAll('.packages-grid .package-btn');
+
+    function openModal(type) {
+        const data = packageData[type];
+        if (!data || !modal) return;
+
+        // Populate summary panel
+        const modalBadge = document.getElementById('modal-badge');
+        const modalHeading = document.getElementById('modal-heading');
+        const modalInvestment = document.getElementById('modal-investment');
+        const modalStudents = document.getElementById('modal-students');
+        
+        if (modalBadge) modalBadge.textContent = data.badge;
+        if (modalHeading) modalHeading.textContent = data.name;
+        if (modalInvestment) modalInvestment.textContent = data.investment;
+        if (modalStudents) modalStudents.textContent = data.students;
+
+        // Populate benefits list
+        const benefitsList = document.getElementById('modal-benefits-list');
+        if (benefitsList) {
+            benefitsList.innerHTML = '';
+            data.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-circle-check"></i><span>${benefit}</span>`;
+                benefitsList.appendChild(li);
+            });
+        }
+
+        // Populate table body
+        const tableBody = document.getElementById('modal-table-body');
+        if (tableBody) {
+            tableBody.innerHTML = '';
+            data.equipment.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="font-weight: 700;">${item.no}</td>
+                    <td>${item.item}</td>
+                    <td style="font-weight: 700;">${item.qty}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // Show modal and disable background scrolling
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    }
+
+    // Attach click handlers to the View Details buttons
+    viewDetailsButtons.forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let type = 'basic';
+            if (index === 1) type = 'advanced';
+            else if (index === 2) type = 'premium';
+            openModal(type);
+        });
+    });
+
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeModal);
+    }
+
+    // Close when clicking outside of modal container
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // 4. Scroll Reveal Intersection Observer for Gallery Cards
+    const revealCards = document.querySelectorAll('.gallery-card.reveal');
+    if (revealCards.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealCards.forEach(card => {
+            revealObserver.observe(card);
+        });
+    }
+
+    // 5. Dedicated Gallery Category Filtering & Lightbox Modal
+    const filterButtons = document.querySelectorAll('.gallery-filter-bar .filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-showcase-grid .gallery-item-card');
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxBadge = document.getElementById('lightbox-badge');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    let currentVisibleItems = [];
+    let currentLightboxIndex = 0;
+
+    function updateVisibleGalleryItems() {
+        currentVisibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hide'));
+    }
+
+    // Category filter switching
+    if (filterButtons.length > 0 && galleryItems.length > 0) {
+        updateVisibleGalleryItems();
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hide');
+                        item.style.animation = 'fadeIn 0.4s ease forwards';
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+
+                updateVisibleGalleryItems();
+            });
+        });
+    }
+
+    // Lightbox modal logic
+    function openLightbox(index) {
+        if (!lightbox || currentVisibleItems.length === 0) return;
+        
+        currentLightboxIndex = (index + currentVisibleItems.length) % currentVisibleItems.length;
+        const currentItem = currentVisibleItems[currentLightboxIndex];
+        const img = currentItem.querySelector('.gallery-item-img-wrapper img');
+        const title = currentItem.getAttribute('data-title') || currentItem.querySelector('.gallery-item-title')?.textContent;
+        const categoryLabel = currentItem.getAttribute('data-category-label') || currentItem.querySelector('.gallery-item-category')?.textContent;
+        const desc = currentItem.getAttribute('data-desc') || currentItem.querySelector('.gallery-item-desc')?.textContent;
+
+        if (lightboxImg && img) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+        }
+        if (lightboxTitle) lightboxTitle.textContent = title || '';
+        if (lightboxBadge) lightboxBadge.textContent = categoryLabel || '';
+        if (lightboxDesc) lightboxDesc.textContent = desc || '';
+        if (lightboxCounter) lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${currentVisibleItems.length}`;
+
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    }
+
+    if (galleryItems.length > 0) {
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                updateVisibleGalleryItems();
+                const itemIndex = currentVisibleItems.indexOf(item);
+                if (itemIndex !== -1) {
+                    openLightbox(itemIndex);
+                }
+            });
+        });
+    }
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(currentLightboxIndex - 1);
+        });
+    }
+
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(currentLightboxIndex + 1);
+        });
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-backdrop')) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Lightbox keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            openLightbox(currentLightboxIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            openLightbox(currentLightboxIndex + 1);
+        }
+    });
+
+    // 6. Contact Form Validation and Success Modal Handling
+    const contactForm = document.getElementById('contact-enquiry-form');
+    const successModal = document.getElementById('contact-success-modal');
+    const successModalClose = document.getElementById('success-modal-close');
+
+    if (contactForm) {
+        const nameInput = document.getElementById('contact-name');
+        const emailInput = document.getElementById('contact-email');
+        const phoneInput = document.getElementById('contact-phone');
+        const orgInput = document.getElementById('contact-org');
+        const typeSelect = document.getElementById('contact-type');
+        const messageInput = document.getElementById('contact-message');
+        const submitBtn = document.getElementById('contact-submit-btn');
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function validatePhone(phone) {
+            return phone.trim().length >= 8;
+        }
+
+        function setFieldStatus(inputElement, isValid) {
+            const group = inputElement ? inputElement.closest('.form-group') : null;
+            if (!group) return;
+
+            if (isValid) {
+                group.classList.remove('has-error');
+            } else {
+                group.classList.add('has-error');
+            }
+        }
+
+        // Real-time input error clearing
+        [nameInput, emailInput, phoneInput, orgInput, typeSelect, messageInput].forEach(field => {
+            if (field) {
+                field.addEventListener('input', () => {
+                    setFieldStatus(field, true);
+                });
+                field.addEventListener('change', () => {
+                    setFieldStatus(field, true);
+                });
+            }
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let hasError = false;
+
+            // Validate Name
+            if (!nameInput.value.trim()) {
+                setFieldStatus(nameInput, false);
+                hasError = true;
+            } else {
+                setFieldStatus(nameInput, true);
+            }
+
+            // Validate Email
+            if (!emailInput.value.trim() || !validateEmail(emailInput.value)) {
+                setFieldStatus(emailInput, false);
+                hasError = true;
+            } else {
+                setFieldStatus(emailInput, true);
+            }
+
+            // Validate Phone
+            if (!phoneInput.value.trim() || !validatePhone(phoneInput.value)) {
+                setFieldStatus(phoneInput, false);
+                hasError = true;
+            } else {
+                setFieldStatus(phoneInput, true);
+            }
+
+            // Validate Org
+            if (!orgInput.value.trim()) {
+                setFieldStatus(orgInput, false);
+                hasError = true;
+            } else {
+                setFieldStatus(orgInput, true);
+            }
+
+            // Validate Type
+            if (!typeSelect.value) {
+                setFieldStatus(typeSelect, false);
+                hasError = true;
+            } else {
+                setFieldStatus(typeSelect, true);
+            }
+
+            // Validate Message
+            if (!messageInput.value.trim()) {
+                setFieldStatus(messageInput, false);
+                hasError = true;
+            } else {
+                setFieldStatus(messageInput, true);
+            }
+
+            if (hasError) return;
+
+            // Show loading state on button
+            if (submitBtn) {
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnArrow = submitBtn.querySelector('.btn-arrow');
+                const btnSpinner = submitBtn.querySelector('.btn-spinner');
+
+                if (btnText) btnText.textContent = 'Sending...';
+                if (btnArrow) btnArrow.style.display = 'none';
+                if (btnSpinner) btnSpinner.style.display = 'inline-block';
+                submitBtn.disabled = true;
+
+                // Simulate asynchronous form submission
+                setTimeout(() => {
+                    // Populate success modal summary
+                    const modalType = document.getElementById('modal-summary-type');
+                    const modalOrg = document.getElementById('modal-summary-org');
+
+                    if (modalType) modalType.textContent = typeSelect.value;
+                    if (modalOrg) modalOrg.textContent = orgInput.value.trim();
+
+                    // Open success modal
+                    if (successModal) {
+                        successModal.classList.add('active');
+                        successModal.setAttribute('aria-hidden', 'false');
+                        document.body.classList.add('modal-open');
+                    }
+
+                    // Reset form and button
+                    contactForm.reset();
+                    if (btnText) btnText.textContent = 'Submit Enquiry';
+                    if (btnArrow) btnArrow.style.display = 'inline-block';
+                    if (btnSpinner) btnSpinner.style.display = 'none';
+                    submitBtn.disabled = false;
+                }, 600);
+            }
+        });
+    }
+
+    if (successModalClose && successModal) {
+        successModalClose.addEventListener('click', () => {
+            successModal.classList.remove('active');
+            successModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+        });
+
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal || e.target.classList.contains('success-modal-backdrop')) {
+                successModal.classList.remove('active');
+                successModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+            }
+        });
+    }
+
+    console.log('AI.LABS initialized successfully.');
+});
