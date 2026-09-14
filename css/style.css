@@ -395,13 +395,12 @@ html, body {
     .hero-section {
         min-height: auto;
         padding: 50px 0 60px 0;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.96) 100%),
-                    url('../images/hero-bg.jpg') top center / cover no-repeat;
+        background: url('../images/hero-bg.jpg') center center / cover no-repeat;
     }
     
     .hero-overlay-glow {
         width: 100%;
-        background: rgba(255, 255, 255, 0.88);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.65) 100%);
     }
     
     .hero-container {
