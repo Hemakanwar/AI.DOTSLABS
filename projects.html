@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.LABS - Our Work & Projects</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-container">
+                    <div class="logo-image">
+                        <img src="images/logo.png" alt="AI.LABS Logo">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main"><span class="logo-ai">AI.</span><span class="logo-labs">LABS</span></span>
+                        <span class="logo-sub">Powered by RoboAI Hub</span>
+                    </div>
+                </div>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                    <li><a href="index.html#our-labs">Our Labs</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Projects Carousel Section ("Built. Tested. Taught.") -->
+        <section class="projects-carousel-section" id="projects" style="min-height: calc(100vh - 80px); display: flex; align-items: center; padding: 100px 24px 110px 24px;">
+            <!-- Background Decorative Technology Waves & Grid -->
+            <div class="projects-bg-wave-left"></div>
+            <div class="projects-bg-wave-right"></div>
+            <div class="projects-dot-grid-left"></div>
+            <div class="projects-dot-grid-right"></div>
+
+            <div class="projects-carousel-container" style="width: 100%;">
+                <!-- Section Header -->
+                <div class="projects-header">
+                    <div class="projects-sublabel">
+                        <span class="sublabel-dash"></span>
+                        <span>OUR WORK, REAL IMPACT.</span>
+                        <span class="sublabel-dash"></span>
+                    </div>
+                    <h1 class="projects-title">
+                        Built. <span class="highlight-blue">Tested.</span> Taught.
+                    </h1>
+                    
+                    <!-- Tagline Pill -->
+                    <div class="projects-tagline-pill">
+                        <div class="tagline-icon-box">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <span class="tagline-divider"></span>
+                        <span class="tagline-text">Real students. Real projects. <strong class="tagline-blue">Real technology.</strong></span>
+                    </div>
+                </div>
+
+                <!-- Carousel Wrapper -->
+                <div class="projects-carousel-wrapper">
+                    <!-- Navigation Arrow: Previous -->
+                    <button class="carousel-arrow-btn prev-btn" id="projCarouselPrev" aria-label="Previous Projects">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Carousel Viewport / Track -->
+                    <div class="projects-viewport" id="projCarouselViewport">
+                        <div class="projects-track" id="projCarouselTrack">
+                            <!-- Card 1: AI Car -->
+                            <div class="project-slide-card" data-index="0">
+                                <div class="project-slide-img-box">
+                                    <img src="images/project-ai-car.jpg" alt="AI Car" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-car-side"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">AI Car</h3>
+                                            <p class="project-subtitle">Arduino + Sensors + AI</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">Arduino</span>
+                                        <span class="project-tag">HC-05</span>
+                                        <span class="project-tag">Ultrasonic</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: SCARA Arm -->
+                            <div class="project-slide-card" data-index="1">
+                                <div class="project-slide-img-box">
+                                    <img src="images/project-scara-arm.jpg" alt="SCARA Arm" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-robot"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">SCARA Arm</h3>
+                                            <p class="project-subtitle">Precision Motion Control</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">Arduino Mega</span>
+                                        <span class="project-tag">Stepper Motor</span>
+                                        <span class="project-tag">Servo</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Sign Language Interpreter -->
+                            <div class="project-slide-card" data-index="2">
+                                <div class="project-slide-img-box">
+                                    <img src="images/sign-language.jpg" alt="Sign Language Interpreter" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">Sign Language Interpreter</h3>
+                                            <p class="project-subtitle">OpenCV + MediaPipe + AI</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">Computer Vision</span>
+                                        <span class="project-tag">ML</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: IoT Environment Monitor -->
+                            <div class="project-slide-card" data-index="3">
+                                <div class="project-slide-img-box">
+                                    <img src="images/project-iot-monitor.jpg" alt="IoT Environment Monitor" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">IoT Environment Monitor</h3>
+                                            <p class="project-subtitle">Raspberry Pi + Sensors</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">DHT11</span>
+                                        <span class="project-tag">MQ-135</span>
+                                        <span class="project-tag">MQ-2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrow: Next -->
+                    <button class="carousel-arrow-btn next-btn" id="projCarouselNext" aria-label="Next Projects">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="projects-pagination" id="projCarouselPagination">
+                    <button class="pagination-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="pagination-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="pagination-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="pagination-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-col brand-col">
+                    <div class="logo-container footer-logo">
+                        <div class="logo-image">
+                            <img src="images/logo.png" alt="AI.LABS Logo">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main"><span class="logo-ai">AI.</span><span class="logo-labs">LABS</span></span>
+                            <span class="logo-sub">Powered by RoboAI Hub</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Empowering schools with cutting-edge AI and technology laboratories, comprehensive curriculum, and certified mentorship.
+                    </p>
+                </div>
+                
+                <div class="footer-col links-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about-us">About Us</a></li>
+                        <li><a href="index.html#our-labs">Our Labs</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col contact-col">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:aidotlabs1@gmail.com">aidotlabs1@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:+917727002970">+91 7727002970</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 AI.LABS. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
