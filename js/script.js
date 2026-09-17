@@ -524,5 +524,167 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 7. "Built. Tested. Taught." Project Carousel
+    const projTrack = document.getElementById('projCarouselTrack');
+    const projViewport = document.getElementById('projCarouselViewport');
+    const projPrevBtn = document.getElementById('projCarouselPrev');
+    const projNextBtn = document.getElementById('projCarouselNext');
+    const projPagination = document.getElementById('projCarouselPagination');
+    const projDots = projPagination ? projPagination.querySelectorAll('.pagination-dot') : [];
+    const projCards = projTrack ? projTrack.querySelectorAll('.project-slide-card') : [];
+
+    if (projTrack && projCards.length > 0) {
+        let currentProjIndex = 0;
+        let isPaused = false;
+        let autoPlayTimer = null;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function getVisibleCardsCount() {
+            const width = window.innerWidth;
+            if (width <= 600) return 1;
+            if (width <= 1024) return 2;
+            return 4;
+        }
+
+        function getMaxIndex() {
+            const visible = getVisibleCardsCount();
+            return Math.max(0, projCards.length - visible);
+        }
+
+        function updateCarousel(instant = false) {
+            const maxIndex = getMaxIndex();
+            if (currentProjIndex > maxIndex) {
+                currentProjIndex = 0;
+            }
+            if (currentProjIndex < 0) {
+                currentProjIndex = maxIndex;
+            }
+
+            const card = projCards[0];
+            const gap = window.innerWidth <= 1024 ? 20 : 24;
+            const cardWidth = card ? card.offsetWidth : 0;
+            const offset = currentProjIndex * (cardWidth + gap);
+
+            projTrack.style.transition = instant ? 'none' : 'transform 0.55s cubic-bezier(0.25, 1, 0.5, 1)';
+            projTrack.style.transform = `translateX(-${offset}px)`;
+
+            // Update pagination dots
+            projDots.forEach((dot, idx) => {
+                if (idx === currentProjIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            const maxIndex = getMaxIndex();
+            if (currentProjIndex >= maxIndex) {
+                currentProjIndex = 0;
+            } else {
+                currentProjIndex++;
+            }
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            const maxIndex = getMaxIndex();
+            if (currentProjIndex <= 0) {
+                currentProjIndex = maxIndex;
+            } else {
+                currentProjIndex--;
+            }
+            updateCarousel();
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayTimer = setInterval(() => {
+                if (!isPaused) {
+                    nextSlide();
+                }
+            }, 3500);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        // Arrow button listeners
+        if (projNextBtn) {
+            projNextBtn.addEventListener('click', () => {
+                nextSlide();
+                startAutoPlay();
+            });
+        }
+
+        if (projPrevBtn) {
+            projPrevBtn.addEventListener('click', () => {
+                prevSlide();
+                startAutoPlay();
+            });
+        }
+
+        // Pagination dot listeners
+        projDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetSlide = parseInt(dot.getAttribute('data-slide'), 10);
+                const maxIndex = getMaxIndex();
+                currentProjIndex = Math.min(targetSlide, maxIndex);
+                updateCarousel();
+                startAutoPlay();
+            });
+        });
+
+        // Pause on mouse hover
+        if (projViewport) {
+            projViewport.addEventListener('mouseenter', () => {
+                isPaused = true;
+            });
+
+            projViewport.addEventListener('mouseleave', () => {
+                isPaused = false;
+            });
+
+            // Touch event listeners for mobile swipe
+            projViewport.addEventListener('touchstart', (e) => {
+                isPaused = true;
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            projViewport.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diffX = touchStartX - touchEndX;
+                if (Math.abs(diffX) > 40) {
+                    if (diffX > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+                setTimeout(() => { isPaused = false; }, 1000);
+            }, { passive: true });
+        }
+
+        // Recalculate on window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                updateCarousel(true);
+            }, 100);
+        });
+
+        // Initial setup
+        updateCarousel(true);
+        startAutoPlay();
+    }
+
     console.log('AI.LABS initialized successfully.');
 });
+
