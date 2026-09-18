@@ -68,6 +68,156 @@
             </div>
         </section>
 
+        <!-- "Built. Tested. Taught." Project Section -->
+        <section class="projects-carousel-section" id="built-tested-taught">
+            <!-- Background Decorative Technology Waves & Grid -->
+            <div class="projects-bg-wave-left"></div>
+            <div class="projects-bg-wave-right"></div>
+            <div class="projects-dot-grid-left"></div>
+            <div class="projects-dot-grid-right"></div>
+
+            <div class="projects-carousel-container">
+                <!-- Section Header -->
+                <div class="projects-header">
+                    <div class="projects-sublabel">
+                        <span class="sublabel-dash"></span>
+                        <span>OUR WORK, REAL IMPACT.</span>
+                        <span class="sublabel-dash"></span>
+                    </div>
+                    <h2 class="projects-title">
+                        Built. <span class="highlight-blue">Tested.</span> Taught.
+                    </h2>
+                    
+                    <!-- Tagline Pill -->
+                    <div class="projects-tagline-pill">
+                        <div class="tagline-icon-box">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <span class="tagline-divider"></span>
+                        <span class="tagline-text">Real students. Real projects. <strong class="tagline-blue">Real technology.</strong></span>
+                    </div>
+                </div>
+
+                <!-- Carousel Wrapper -->
+                <div class="projects-carousel-wrapper">
+                    <!-- Navigation Arrow: Previous -->
+                    <button class="carousel-arrow-btn prev-btn" id="projCarouselPrev" aria-label="Previous Projects">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Carousel Viewport / Track -->
+                    <div class="projects-viewport" id="projCarouselViewport">
+                        <div class="projects-track" id="projCarouselTrack">
+                            <!-- Card 1: AI Car -->
+                            <div class="project-slide-card" data-index="0">
+                                <div class="project-slide-img-box">
+                                    <img src="images/project-ai-car.jpg" alt="AI Car" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-car-side"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">AI Car</h3>
+                                            <p class="project-subtitle">Arduino + Sensors + AI</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">Arduino</span>
+                                        <span class="project-tag">HC-05</span>
+                                        <span class="project-tag">Ultrasonic</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: SCARA Arm -->
+                            <div class="project-slide-card" data-index="1">
+                                <div class="project-slide-img-box">
+                                    <img src="images/project-scara-arm.jpg" alt="SCARA Arm" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-robot"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">SCARA Arm</h3>
+                                            <p class="project-subtitle">Precision Motion Control</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">Arduino Mega</span>
+                                        <span class="project-tag">Stepper Motor</span>
+                                        <span class="project-tag">Servo</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Sign Language Interpreter -->
+                            <div class="project-slide-card" data-index="2">
+                                <div class="project-slide-img-box">
+                                    <img src="images/sign-language.jpg" alt="Sign Language Interpreter" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">Sign Language Interpreter</h3>
+                                            <p class="project-subtitle">OpenCV + MediaPipe + AI</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">Computer Vision</span>
+                                        <span class="project-tag">ML</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: IoT Environment Monitor -->
+                            <div class="project-slide-card" data-index="3">
+                                <div class="project-slide-img-box">
+                                    <img src="images/project-iot-monitor.jpg" alt="IoT Environment Monitor" loading="lazy">
+                                </div>
+                                <div class="project-slide-body">
+                                    <div class="project-title-row">
+                                        <div class="project-icon-box">
+                                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                                        </div>
+                                        <div class="project-title-meta">
+                                            <h3 class="project-name">IoT Environment Monitor</h3>
+                                            <p class="project-subtitle">Raspberry Pi + Sensors</p>
+                                        </div>
+                                    </div>
+                                    <div class="project-tags-row">
+                                        <span class="project-tag">DHT11</span>
+                                        <span class="project-tag">MQ-135</span>
+                                        <span class="project-tag">MQ-2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrow: Next -->
+                    <button class="carousel-arrow-btn next-btn" id="projCarouselNext" aria-label="Next Projects">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="projects-pagination" id="projCarouselPagination">
+                    <button class="pagination-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="pagination-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="pagination-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="pagination-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                </div>
+            </div>
+        </section>
+
         <!-- How We Solve It Section -->
         <section class="ecosystem-section" id="about-us">
             <!-- Left & Right Circuit Backgrounds (SVG) -->
