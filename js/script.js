@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('package-modal');
     const modalCloseBtn = modal ? modal.querySelector('.modal-close') : null;
-    const viewDetailsButtons = document.querySelectorAll('.packages-grid .package-btn');
+    const viewDetailsButtons = document.querySelectorAll('.package-btn');
 
     function openModal(type) {
         const data = packageData[type];
@@ -194,9 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     viewDetailsButtons.forEach((btn, index) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            let type = 'basic';
-            if (index === 1) type = 'advanced';
-            else if (index === 2) type = 'premium';
+            const type = btn.getAttribute('data-package-type') || (index === 1 ? 'advanced' : index === 2 ? 'premium' : 'basic');
             openModal(type);
         });
     });

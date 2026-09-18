@@ -531,85 +531,129 @@
                     </p>
                 </div>
 
-                <!-- Package Card Grid -->
-                <div class="packages-grid">
-                    <!-- Card 1: Basic AI Lab -->
-                    <div class="package-card">
-                        <div class="package-card-header">
-                            <div class="package-icon-container">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <div class="package-header-text">
-                                <h3 class="package-name">Basic AI Lab</h3>
-                                <div class="student-badge">8–10 Students per Session</div>
-                            </div>
-                        </div>
-                        <div class="package-divider"></div>
-                        <div class="package-pricing-area">
-                            <span class="package-price gradient-text">₹2,00,000</span>
-                        </div>
-                        <ul class="package-features">
-                            <li><i class="fa-regular fa-circle-check"></i><span>Full curriculum — 1 year</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Certified mentors training support</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>21 Total Components</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>All software is free</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Annual new projects</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Annual lab review</span></li>
-                        </ul>
-                        <button class="package-btn">View Details</button>
+                <!-- Professional Comparison Table -->
+                <div class="packages-table-responsive-wrapper">
+                    <!-- Mobile Scroll Indicator -->
+                    <div class="table-mobile-hint">
+                        <i class="fa-solid fa-arrows-left-right"></i>
+                        <span>Scroll horizontally to compare all plans</span>
                     </div>
 
-                    <!-- Card 2: Advanced AI Lab (Recommended) -->
-                    <div class="package-card recommended">
-                        <div class="recommended-badge">RECOMMENDED</div>
-                        <div class="package-card-header">
-                            <div class="package-icon-container">
-                                <i class="fa-solid fa-robot"></i>
-                            </div>
-                            <div class="package-header-text">
-                                <h3 class="package-name">Advanced AI Lab</h3>
-                                <div class="student-badge">15–18 Students per Session</div>
-                            </div>
-                        </div>
-                        <div class="package-divider"></div>
-                        <div class="package-pricing-area">
-                            <span class="package-price gradient-text">₹4,00,000</span>
-                        </div>
-                        <ul class="package-features">
-                            <li><i class="fa-regular fa-circle-check"></i><span>Full curriculum — 1 year</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Certified mentors training support</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>53 Total Components</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>All software is free</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Annual new projects</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Annual lab review</span></li>
-                        </ul>
-                        <button class="package-btn recommended-btn">View Details</button>
-                    </div>
-
-                    <!-- Card 3: Premium AI Lab -->
-                    <div class="package-card">
-                        <div class="package-card-header">
-                            <div class="package-icon-container">
-                                <i class="fa-solid fa-gem"></i>
-                            </div>
-                            <div class="package-header-text">
-                                <h3 class="package-name">Premium AI Lab</h3>
-                                <div class="student-badge">25–30 Students per Session</div>
-                            </div>
-                        </div>
-                        <div class="package-divider"></div>
-                        <div class="package-pricing-area">
-                            <span class="package-price gradient-text">₹9,00,000</span>
-                        </div>
-                        <ul class="package-features">
-                            <li><i class="fa-regular fa-circle-check"></i><span>Full curriculum — 1 year</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Certified mentors training support</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>66 Total Components</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>All software is free</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Annual new projects</span></li>
-                            <li><i class="fa-regular fa-circle-check"></i><span>Annual lab review</span></li>
-                        </ul>
-                        <button class="package-btn">View Details</button>
+                    <div class="packages-table-card">
+                        <table class="packages-comparison-table" aria-label="AI.LABS Packages Comparison Table">
+                            <thead>
+                                <tr>
+                                    <th class="col-feature-head" scope="col">
+                                        <div class="feature-head-content">
+                                            <span class="head-sub">AI LAB TIERS</span>
+                                            <h3 class="head-title">Features & Capabilities</h3>
+                                            <p class="head-desc">Compare turnkey packages tailored for school labs</p>
+                                        </div>
+                                    </th>
+                                    <th class="col-plan-head" scope="col">
+                                        <div class="plan-head-wrap">
+                                            <div class="plan-head-icon">
+                                                <i class="fa-solid fa-graduation-cap"></i>
+                                            </div>
+                                            <h3 class="plan-head-title">Basic AI Lab</h3>
+                                            <div class="table-price">₹2,00,000</div>
+                                            <span class="plan-head-capacity">8–10 Students / Session</span>
+                                        </div>
+                                    </th>
+                                    <th class="col-plan-head col-recommended" scope="col">
+                                        <div class="table-recommended-badge">RECOMMENDED</div>
+                                        <div class="plan-head-wrap">
+                                            <div class="plan-head-icon rec-icon">
+                                                <i class="fa-solid fa-robot"></i>
+                                            </div>
+                                            <h3 class="plan-head-title">Advanced AI Lab</h3>
+                                            <div class="table-price rec-price">₹4,00,000</div>
+                                            <span class="plan-head-capacity">15–18 Students / Session</span>
+                                        </div>
+                                    </th>
+                                    <th class="col-plan-head" scope="col">
+                                        <div class="plan-head-wrap">
+                                            <div class="plan-head-icon">
+                                                <i class="fa-solid fa-gem"></i>
+                                            </div>
+                                            <h3 class="plan-head-title">Premium AI Lab</h3>
+                                            <div class="table-price">₹9,00,000</div>
+                                            <span class="plan-head-capacity">25–30 Students / Session</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-users feature-row-icon"></i> Students per Session</th>
+                                    <td class="plan-cell"><strong>8–10</strong> Students</td>
+                                    <td class="plan-cell col-recommended"><strong>15–18</strong> Students</td>
+                                    <td class="plan-cell"><strong>25–30</strong> Students</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-microchip feature-row-icon"></i> Total Hardware Components</th>
+                                    <td class="plan-cell"><strong class="highlight-val">21</strong> Components</td>
+                                    <td class="plan-cell col-recommended"><strong class="highlight-val">53</strong> Components</td>
+                                    <td class="plan-cell"><strong class="highlight-val">66</strong> Components</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-book-open feature-row-icon"></i> Full Curriculum</th>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>1 Year Structured</span></div></td>
+                                    <td class="plan-cell col-recommended"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>1 Year Structured</span></div></td>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>1 Year Structured</span></div></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-user-graduate feature-row-icon"></i> Certified Mentor Training Support</th>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Included</span></div></td>
+                                    <td class="plan-cell col-recommended"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Included</span></div></td>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Included</span></div></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-code feature-row-icon"></i> Software & Development Tools</th>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>All Free & Open</span></div></td>
+                                    <td class="plan-cell col-recommended"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>All Free & Open</span></div></td>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>All Free & Open</span></div></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-layer-group feature-row-icon"></i> Annual New Projects</th>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Yearly Updates</span></div></td>
+                                    <td class="plan-cell col-recommended"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Yearly Updates</span></div></td>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Yearly Updates</span></div></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="feature-cell"><i class="fa-solid fa-arrows-rotate feature-row-icon"></i> Annual Lab Review</th>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Yearly Audit</span></div></td>
+                                    <td class="plan-cell col-recommended"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Yearly Audit</span></div></td>
+                                    <td class="plan-cell"><div class="feature-check-wrap"><i class="fa-solid fa-circle-check"></i><span>Yearly Audit</span></div></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="table-action-row">
+                                    <td class="feature-action-cell">
+                                        <span class="action-cell-label">Detailed Quotation</span>
+                                        <span class="action-cell-sub">Itemized equipment & component list</span>
+                                    </td>
+                                    <td class="plan-action-cell">
+                                        <button class="package-btn table-btn" data-package-type="basic" aria-label="View Details for Basic AI Lab">
+                                            <span>View Details</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </td>
+                                    <td class="plan-action-cell col-recommended">
+                                        <button class="package-btn table-btn recommended-btn" data-package-type="advanced" aria-label="View Details for Advanced AI Lab">
+                                            <span>View Details</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </td>
+                                    <td class="plan-action-cell">
+                                        <button class="package-btn table-btn" data-package-type="premium" aria-label="View Details for Premium AI Lab">
+                                            <span>View Details</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
