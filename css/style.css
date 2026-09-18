@@ -4886,8 +4886,8 @@ body.modal-open {
 
 .eco-photo-card {
     flex: 1 1 0;
-    max-width: 230px;
-    height: 180px;
+    max-width: 275px;
+    height: 195px;
     background: #ffffff;
     border-radius: 18px;
     overflow: hidden;
@@ -5053,17 +5053,12 @@ body.modal-open {
 
 @media (max-width: 1024px) {
     .eco-photos-showcase {
-        gap: 12px;
+        gap: 14px;
     }
     
     .eco-photo-card {
-        max-width: 180px;
-        height: 150px;
-    }
-    
-    .eco-photo-card.eco-photo-featured {
-        max-width: 240px;
-        height: 180px;
+        max-width: 210px;
+        height: 165px;
     }
 }
 
