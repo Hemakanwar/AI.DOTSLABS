@@ -571,6 +571,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Update pagination dots
             projDots.forEach((dot, idx) => {
+                if (idx > maxIndex) {
+                    dot.style.display = 'none';
+                } else {
+                    dot.style.display = 'inline-block';
+                }
                 if (idx === currentProjIndex) {
                     dot.classList.add('active');
                 } else {
