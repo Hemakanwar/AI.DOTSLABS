@@ -491,507 +491,613 @@ html, body {
 }
 
 /* ==========================================
-   ECOSYSTEM SECTION (SECTION 3)
+   ABOUT PAGE (WHY AI DOT LABS EXISTS)
    ========================================== */
-.ecosystem-section {
+.about-page-main {
     position: relative;
-    background-color: var(--body-bg);
-    padding: 90px 24px 100px 24px;
-    width: 100%;
+    background: linear-gradient(180deg, #f8fbff 0%, #ffffff 25%, #f4f8ff 75%, #ffffff 100%);
+    padding: 70px 24px 100px 24px;
+    min-height: calc(100vh - 160px);
     overflow: hidden;
-    border-top: 1px solid rgba(0, 85, 255, 0.03);
 }
 
-/* Left & Right Decorative Circuits */
-.ecosystem-circuit-left {
+/* Ambient Background Lights */
+.about-bg-glow-top {
     position: absolute;
-    top: 30px;
-    left: 0;
-    width: 220px;
-    height: 220px;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 195, 255, 0.12) 0%, rgba(0, 85, 255, 0.04) 50%, transparent 70%);
     pointer-events: none;
     z-index: 1;
 }
 
-.ecosystem-circuit-right {
+.about-bg-glow-bottom {
     position: absolute;
-    top: 30px;
-    right: 0;
-    width: 220px;
-    height: 220px;
+    bottom: 50px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 85, 255, 0.06) 0%, transparent 70%);
     pointer-events: none;
     z-index: 1;
 }
 
-.ecosystem-container {
-    max-width: 1150px;
+/* Side Dots Matrix Patterns */
+.about-dots-pattern-left {
+    position: absolute;
+    top: 90px;
+    left: calc(50% - 460px);
+    width: 60px;
+    height: 120px;
+    background-image: radial-gradient(rgba(0, 85, 255, 0.3) 2px, transparent 2px);
+    background-size: 15px 15px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.75;
+}
+
+.about-dots-pattern-right {
+    position: absolute;
+    top: 90px;
+    right: calc(50% - 460px);
+    width: 60px;
+    height: 120px;
+    background-image: radial-gradient(rgba(0, 85, 255, 0.3) 2px, transparent 2px);
+    background-size: 15px 15px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.75;
+}
+
+.about-content-container {
+    max-width: 1040px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
-/* Badge with line and dot accent */
-.ecosystem-badge-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
+/* SECTION 1: ABOUT HERO (CENTERED) */
+.about-hero-section {
+    text-align: center;
+    margin-bottom: 75px;
+    position: relative;
 }
 
-.badge-line-left,
-.badge-line-right {
+.about-badge-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.about-badge-line-left,
+.about-badge-line-right {
     display: inline-block;
-    height: 2px;
-    width: 35px;
+    height: 1.5px;
+    width: 32px;
     background-color: var(--primary-blue);
     position: relative;
 }
 
-.badge-line-left::after {
+.about-badge-line-left::after {
     content: '';
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
     background-color: var(--primary-blue);
     border-radius: 50%;
 }
 
-.badge-line-right::after {
+.about-badge-line-right::after {
     content: '';
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
     background-color: var(--primary-blue);
     border-radius: 50%;
 }
 
-.ecosystem-badge {
+.about-pill-badge {
     background-color: #ffffff;
-    border: 2px solid var(--primary-blue);
-    padding: 5px 18px;
+    border: 1.5px solid var(--primary-blue);
+    padding: 5px 20px;
     border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 85, 255, 0.08);
 }
 
-.ecosystem-badge span {
-    font-size: 0.8rem;
-    font-weight: 700;
+.about-pill-badge span {
+    font-size: 0.76rem;
+    font-weight: 800;
     color: var(--primary-blue);
-    letter-spacing: 0.8px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 }
 
-.ecosystem-title {
-    font-size: 3rem;
+.about-main-heading {
+    font-size: 3.5rem;
     font-weight: 800;
     color: var(--dark-navy);
-    margin-bottom: 15px;
-    letter-spacing: -1px;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
     text-align: center;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.ecosystem-desc {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-dark);
+.about-highlight-blue {
+    color: var(--primary-blue);
+}
+
+.about-main-desc {
+    font-size: 1.08rem;
+    color: #4b5e76;
     font-weight: 500;
-    opacity: 0.85;
-    max-width: 600px;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* SECTION 2: OUR MISSION */
+.about-mission-section {
+    margin-bottom: 70px;
+}
+
+.about-section-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.about-section-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--dark-navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.about-section-bar {
+    width: 36px;
+    height: 3.5px;
+    background-color: var(--primary-blue);
+    border-radius: 2px;
     margin: 0 auto;
 }
 
-/* Vision Card with Graphic & Orbit HUD */
-.vision-card {
+.about-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.about-mission-card {
     position: relative;
     background-color: #ffffff;
-    border: 1px solid var(--panel-border);
-    border-right: 5px solid var(--primary-cyan);
+    border: 1px solid rgba(0, 85, 255, 0.1);
+    border-radius: 20px;
+    padding: 28px 24px 32px 24px;
+    box-shadow: 0 4px 18px rgba(13, 30, 61, 0.04);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.about-mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0, 85, 255, 0.09);
+    border-color: rgba(0, 85, 255, 0.25);
+}
+
+.mission-card-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ebf4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.mission-card-content {
+    flex: 1;
+}
+
+.mission-card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.mission-card-dash {
+    width: 18px;
+    height: 2px;
+    background-color: var(--primary-blue);
+    border-radius: 1px;
+    margin-bottom: 10px;
+}
+
+.mission-card-text {
+    font-size: 0.88rem;
+    color: #55677e;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.mission-card-corner-arrow {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    color: var(--primary-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.about-mission-card:hover .mission-card-corner-arrow {
+    color: var(--primary-blue);
+    transform: translate(2px, 2px);
+}
+
+/* SECTION 3: OUR VISION */
+.about-vision-section {
+    margin-bottom: 75px;
+}
+
+.about-vision-card {
+    position: relative;
+    background: linear-gradient(135deg, #f1f7ff 0%, #ffffff 40%, #f4faff 100%);
+    border: 1px solid rgba(0, 85, 255, 0.12);
     border-radius: 24px;
-    padding: 40px 50px;
-    box-shadow: var(--shadow-soft);
+    padding: 38px 48px;
     display: flex;
     align-items: center;
-    margin: 45px auto 70px auto;
-    transition: var(--transition-smooth);
+    box-shadow: 0 10px 32px rgba(0, 85, 255, 0.05);
     overflow: hidden;
+    min-height: 185px;
 }
 
-.vision-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 85, 255, 0.08);
-    border-color: rgba(0, 195, 255, 0.2);
+.about-vision-left {
+    flex: 0 0 86px;
+    margin-right: 32px;
 }
 
-.vision-card-left {
-    flex: 0 0 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about-vision-radar {
     position: relative;
-}
-
-.vision-icon-container {
-    position: relative;
-    width: 96px;
-    height: 96px;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(0, 195, 255, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: radial-gradient(circle, rgba(0, 195, 255, 0.1) 0%, transparent 70%);
 }
 
-.vision-icon-bg {
+.radar-outer-ring {
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 195, 255, 0.12) 0%, rgba(0, 85, 255, 0.02) 70%, transparent 100%);
-    border: 1px dashed rgba(0, 195, 255, 0.25);
-    animation: rotateHUD 25s linear infinite;
 }
 
-.vision-icon-ring-inner {
+.radar-inner-ring {
     position: absolute;
-    width: 76%;
-    height: 76%;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 85, 255, 0.12);
+    border: 1px solid rgba(0, 85, 255, 0.18);
 }
 
-/* Orbiting Dot */
-.vision-icon-container::after {
-    content: '';
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background-color: var(--primary-cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 6px var(--primary-cyan);
-    animation: orbitDot 10s linear infinite;
-}
-
-@keyframes orbitDot {
-    from { transform: rotate(0deg) translateX(38px) rotate(0deg); }
-    to { transform: rotate(360deg) translateX(38px) rotate(-360deg); }
-}
-
-.vision-icon-container i {
-    font-size: 2.2rem;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.radar-center-icon {
+    font-size: 1.6rem;
     color: var(--primary-blue);
     z-index: 2;
 }
 
-.vision-card-divider {
-    width: 1px;
-    height: 70px;
-    background-color: rgba(0, 85, 255, 0.1);
-    margin: 0 40px;
-}
-
-.vision-card-right {
+.about-vision-middle {
     flex: 1;
+    max-width: 480px;
     z-index: 2;
     position: relative;
-    max-width: 60%;
 }
 
-.vision-title {
-    font-size: 1.45rem;
-    font-weight: 700;
+.about-vision-title {
+    font-size: 1.65rem;
+    font-weight: 800;
     color: var(--dark-navy);
+    margin-bottom: 5px;
 }
 
-.vision-card-line {
-    width: 25px;
-    height: 2px;
+.about-vision-dash {
+    width: 26px;
+    height: 2.5px;
     background-color: var(--primary-blue);
-    margin: 6px 0 10px 0;
+    margin-bottom: 12px;
     border-radius: 1px;
 }
 
-.vision-desc {
-    font-size: 0.98rem;
-    color: var(--text-dark);
+.about-vision-text {
+    font-size: 0.94rem;
+    color: #41536b;
+    font-weight: 500;
     line-height: 1.6;
-    opacity: 0.9;
+    margin: 0;
 }
 
-/* Right Illustration */
-.vision-card-right-visual {
+.about-vision-right-visual {
     position: absolute;
+    right: 0;
     bottom: 0;
-    right: 25px;
-    height: 180px;
-    width: auto;
+    height: 100%;
+    width: 380px;
     pointer-events: none;
     z-index: 1;
     display: flex;
     align-items: flex-end;
+    justify-content: flex-end;
 }
 
-.vision-card-right-visual img {
-    height: 100%;
+.about-vision-right-visual img {
+    height: 90%;
     width: auto;
     object-fit: contain;
+    object-position: bottom right;
 }
 
-/* Mission Section Header */
-.mission-section {
-    width: 100%;
+/* SECTION 4: FOUNDER */
+.about-founder-section {
+    margin-bottom: 20px;
 }
 
-.mission-header-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--dark-navy);
-}
-
-.mission-header-line {
-    width: 45px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--primary-cyan));
-    border-radius: 2px;
-    margin-top: 8px;
-    margin-bottom: 35px;
-}
-
-/* Mission Grid & Cards */
-.mission-grid {
+.about-founder-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: 290px 1fr;
+    gap: 45px;
+    align-items: center;
 }
 
-.mission-card {
+.founder-image-column {
     position: relative;
-    background-color: #ffffff;
-    border: 1px solid var(--panel-border);
-    border-radius: 16px;
-    padding: 30px 24px;
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    transition: var(--transition-smooth);
+    max-width: 290px;
 }
 
-.mission-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 35px rgba(0, 85, 255, 0.08);
-    border-color: rgba(0, 85, 255, 0.2);
-}
-
-/* Decorative corner L-line */
-.mission-card::after {
-    content: '';
+.founder-image-backdrop {
     position: absolute;
-    right: 12px;
-    bottom: 12px;
-    width: 12px;
-    height: 12px;
-    border-right: 2px solid var(--primary-cyan);
-    border-bottom: 2px solid var(--primary-cyan);
-    border-bottom-right-radius: 4px;
-    opacity: 0.55;
-    transition: var(--transition-smooth);
+    top: -12px;
+    left: -12px;
+    width: calc(100% + 24px);
+    height: calc(100% + 24px);
+    background: #e8f3ff;
+    border-radius: 28px;
+    z-index: 1;
 }
 
-.mission-card:hover::after {
-    border-color: var(--primary-blue);
-    opacity: 1;
-    transform: translate(2px, 2px);
-}
-
-.mission-card-left {
-    flex: 0 0 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mission-icon-container {
+.founder-image-card {
     position: relative;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--badge-bg);
-    border-radius: 50%;
-}
-
-.mission-icon-container i {
-    font-size: 1.4rem;
-    color: var(--primary-blue);
     z-index: 2;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 36px rgba(13, 30, 61, 0.12);
+    border: 2.5px solid #ffffff;
+    background-color: #ffffff;
 }
 
-.mission-card-right {
-    flex: 1;
+.founder-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
 }
 
-.mission-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--dark-navy);
-    line-height: 1.2;
-}
-
-.mission-card-line {
-    width: 20px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--primary-cyan));
-    border-radius: 1px;
-    margin: 8px 0 10px 0;
-}
-
-.mission-desc {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    line-height: 1.45;
-    opacity: 0.85;
-}
-
-/* Footer decorative robot element */
-.ecosystem-footer-deco {
+.founder-content-column {
     display: flex;
+    flex-direction: column;
+}
+
+.founder-tag-wrap {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 70px;
+    gap: 8px;
+    margin-bottom: 6px;
 }
 
-.ecosystem-footer-deco i {
-    font-size: 1.3rem;
-    color: var(--primary-blue);
-}
-
-.ecosystem-footer-deco .deco-line {
-    width: 45px;
+.founder-tag-line {
+    width: 18px;
     height: 2px;
     background-color: var(--primary-blue);
     border-radius: 1px;
 }
 
-/* Bottom corner dotted matrix grids */
-.ecosystem-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 250px;
-    height: 80px;
-    background-image: radial-gradient(rgba(0, 85, 255, 0.08) 1.5px, transparent 1.5px);
-    background-size: 16px 16px;
-    pointer-events: none;
-    z-index: 1;
+.founder-tag-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 0.5px;
 }
 
-.ecosystem-section::before {
-    content: '';
+.founder-name {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--dark-navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.founder-role {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 18px;
+}
+
+.founder-quote-box {
+    background-color: #f0f7ff;
+    border-radius: 18px;
+    padding: 22px 26px 22px 34px;
+    position: relative;
+    border: 1px solid rgba(0, 85, 255, 0.08);
+    margin-bottom: 18px;
+}
+
+.quote-icon-mark {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 250px;
-    height: 80px;
-    background-image: radial-gradient(rgba(0, 85, 255, 0.08) 1.5px, transparent 1.5px);
-    background-size: 16px 16px;
-    pointer-events: none;
-    z-index: 1;
+    top: 18px;
+    left: 14px;
+    color: var(--primary-blue);
+    font-size: 1.15rem;
+    opacity: 0.85;
+}
+
+.founder-quote-text {
+    font-size: 0.94rem;
+    font-style: italic;
+    color: #3b4e65;
+    line-height: 1.65;
+    font-weight: 500;
+    margin: 0;
+    padding-left: 12px;
+}
+
+.founder-signature-wrap {
+    margin-top: 8px;
+}
+
+.founder-signature-image {
+    height: 44px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 /* ==========================================
-   ECOSYSTEM RESPONSIVENESS
+   ABOUT PAGE RESPONSIVENESS
    ========================================== */
 @media (max-width: 1024px) {
-    .ecosystem-title {
-        font-size: 2.5rem;
+    .about-main-heading {
+        font-size: 3rem;
     }
-    
-    .mission-grid {
+
+    .about-mission-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
+        gap: 20px;
     }
-    
-    .vision-card-right-visual {
-        height: 140px;
+
+    .about-dots-pattern-left,
+    .about-dots-pattern-right {
+        display: none;
     }
-    
-    .vision-card-right {
-        max-width: 55%;
+
+    .about-vision-card {
+        padding: 32px 36px;
+    }
+
+    .about-vision-middle {
+        max-width: 50%;
+    }
+
+    .about-founder-grid {
+        grid-template-columns: 260px 1fr;
+        gap: 35px;
     }
 }
 
 @media (max-width: 768px) {
-    .vision-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 35px 30px;
+    .about-page-main {
+        padding: 50px 16px 80px 16px;
     }
-    
-    .vision-card-left {
-        flex: auto;
-        margin-bottom: 15px;
-    }
-    
-    .vision-card-divider {
-        width: 60px;
-        height: 1px;
-        margin: 15px auto;
-    }
-    
-    .vision-card-right {
-        max-width: 100%;
-    }
-    
-    .vision-card-right-visual {
-        display: none; /* Hide visual on mobile to avoid overlap */
-    }
-    
-    .ecosystem-circuit-left,
-    .ecosystem-circuit-right {
-        width: 160px;
-        height: 160px;
-    }
-}
 
-@media (max-width: 600px) {
-    .ecosystem-section {
-        padding: 60px 16px 80px 16px;
+    .about-main-heading {
+        font-size: 2.5rem;
     }
-    
-    .ecosystem-title {
-        font-size: 2rem;
+
+    .about-main-desc {
+        font-size: 1rem;
     }
-    
-    .ecosystem-desc {
-        font-size: 0.95rem;
-    }
-    
-    .mission-grid {
+
+    .about-mission-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
-    
-    .mission-card {
-        padding: 24px;
+
+    .about-vision-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
     }
-    
-    .ecosystem-circuit-left,
-    .ecosystem-circuit-right {
+
+    .about-vision-left {
+        margin: 0 auto 16px auto;
+    }
+
+    .about-vision-dash {
+        margin: 6px auto 12px auto;
+    }
+
+    .about-vision-middle {
+        max-width: 100%;
+    }
+
+    .about-vision-right-visual {
         display: none;
+    }
+
+    .about-founder-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .founder-image-column {
+        margin: 0 auto;
+        max-width: 250px;
+    }
+
+    .founder-tag-wrap {
+        justify-content: center;
+    }
+
+    .founder-signature-image {
+        margin: 0 auto;
+    }
+
+    .founder-quote-box {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-main-heading {
+        font-size: 2.1rem;
+    }
+
+    .about-pill-badge span {
+        font-size: 0.7rem;
+    }
+
+    .about-section-heading {
+        font-size: 1.8rem;
+    }
+
+    .founder-name {
+        font-size: 1.8rem;
     }
 }
 
