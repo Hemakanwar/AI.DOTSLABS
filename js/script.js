@@ -688,6 +688,58 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoPlay();
     }
 
+    // ==========================================
+    // 8. Trusted Institutions Slider Controls
+    // ==========================================
+    const instTrackWrap = document.getElementById('instTrackWrap');
+    const instPrevBtn = document.getElementById('instPrevBtn');
+    const instNextBtn = document.getElementById('instNextBtn');
+    const instDots = document.querySelectorAll('#instSliderDots .slider-dot');
+
+    if (instTrackWrap) {
+        const scrollDistance = 240;
+
+        if (instPrevBtn) {
+            instPrevBtn.addEventListener('click', () => {
+                instTrackWrap.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
+            });
+        }
+
+        if (instNextBtn) {
+            instNextBtn.addEventListener('click', () => {
+                instTrackWrap.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+            });
+        }
+
+        // Active dot tracking on scroll
+        if (instDots.length > 0) {
+            instTrackWrap.addEventListener('scroll', () => {
+                const maxScroll = instTrackWrap.scrollWidth - instTrackWrap.clientWidth;
+                if (maxScroll <= 0) return;
+                const scrollProgress = instTrackWrap.scrollLeft / maxScroll;
+                const activeIndex = Math.min(
+                    instDots.length - 1,
+                    Math.floor(scrollProgress * instDots.length)
+                );
+                instDots.forEach((dot, idx) => {
+                    if (idx === activeIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }, { passive: true });
+
+            instDots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    const maxScroll = instTrackWrap.scrollWidth - instTrackWrap.clientWidth;
+                    const targetScroll = (idx / (instDots.length - 1)) * maxScroll;
+                    instTrackWrap.scrollTo({ left: targetScroll, behavior: 'smooth' });
+                });
+            });
+        }
+    }
+
     console.log('AI.LABS initialized successfully.');
 });
 

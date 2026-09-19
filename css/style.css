@@ -5384,5 +5384,478 @@ body.modal-open {
     }
 }
 
+/* ==========================================
+   POWERED BY ROBOAI HUB & TRUSTED INSTITUTIONS
+   ========================================== */
+.roboai-hub-section {
+    position: relative;
+    background: linear-gradient(180deg, #f7faff 0%, #ffffff 30%, #f4f8ff 70%, #ffffff 100%);
+    padding: 85px 24px 95px 24px;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 85, 255, 0.05);
+}
+
+.roboai-bg-glow-top {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 195, 255, 0.12) 0%, rgba(0, 85, 255, 0.03) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.roboai-bg-glow-bottom {
+    position: absolute;
+    bottom: -100px;
+    right: 5%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(0, 85, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.roboai-dots-left {
+    position: absolute;
+    top: 60px;
+    left: calc(50% - 460px);
+    width: 60px;
+    height: 120px;
+    background-image: radial-gradient(rgba(0, 85, 255, 0.25) 2px, transparent 2px);
+    background-size: 15px 15px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.roboai-dots-right {
+    position: absolute;
+    top: 60px;
+    right: calc(50% - 460px);
+    width: 60px;
+    height: 120px;
+    background-image: radial-gradient(rgba(0, 85, 255, 0.25) 2px, transparent 2px);
+    background-size: 15px 15px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.roboai-hub-container {
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Intro Branding Card */
+.roboai-hub-intro-card {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.roboai-badge-wrap,
+.institutions-badge-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.roboai-badge-line-left,
+.roboai-badge-line-right {
+    display: inline-block;
+    height: 1.5px;
+    width: 32px;
+    background-color: var(--primary-blue);
+    position: relative;
+}
+
+.roboai-badge-line-left::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+}
+
+.roboai-badge-line-right::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+}
+
+.roboai-pill-badge,
+.institutions-pill-badge {
+    background-color: #ffffff;
+    border: 1.5px solid var(--primary-blue);
+    padding: 5px 20px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 85, 255, 0.08);
+}
+
+.roboai-pill-badge span,
+.institutions-pill-badge span {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.roboai-brand-logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 22px auto;
+}
+
+.roboai-logo-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(0, 85, 255, 0.08);
+    border: 1px solid rgba(0, 85, 255, 0.14);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roboai-logo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 85, 255, 0.14);
+}
+
+.roboai-main-logo {
+    height: 108px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 16px;
+}
+
+.roboai-hub-desc {
+    font-size: 1.12rem;
+    color: #33475b;
+    font-weight: 500;
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0 auto 24px auto;
+    text-align: center;
+}
+
+.roboai-text-highlight {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+/* Feature Badges */
+.roboai-features-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.roboai-feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 85, 255, 0.12);
+    box-shadow: 0 2px 8px rgba(13, 30, 61, 0.03);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.roboai-feature-pill:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-blue);
+}
+
+.roboai-feature-pill i {
+    font-size: 1.05rem;
+    color: var(--primary-blue);
+}
+
+.roboai-pill-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(0, 85, 255, 0.18);
+    display: inline-block;
+}
+
+/* Trusted Institutions Card */
+.roboai-institutions-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 85, 255, 0.12);
+    border-radius: 24px;
+    padding: 42px 36px 36px 36px;
+    box-shadow: 0 16px 45px rgba(0, 85, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.institutions-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.institutions-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--dark-navy);
+    margin: 8px 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.institutions-subdesc {
+    font-size: 0.94rem;
+    color: #5a6d88;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Slider Track & Wrapper */
+.institutions-slider-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 18px 0;
+}
+
+.slider-nav-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1.5px solid rgba(0, 85, 255, 0.2);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(13, 30, 61, 0.08);
+    transition: all 0.25s ease;
+    z-index: 10;
+    flex-shrink: 0;
+    position: absolute;
+}
+
+.slider-prev-btn {
+    left: -14px;
+}
+
+.slider-next-btn {
+    right: -14px;
+}
+
+.slider-nav-btn:hover {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    border-color: var(--primary-blue);
+    transform: scale(1.08);
+}
+
+.institutions-slider-track-wrap {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    cursor: grab;
+    padding: 8px 4px;
+}
+
+.institutions-slider-track-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.institutions-slider-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    align-items: stretch;
+    animation: marqueeScroll 35s linear infinite;
+}
+
+.institutions-slider-track-wrap:hover .institutions-slider-track {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Logo Card */
+.institution-logo-card {
+    width: 125px;
+    min-width: 125px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 85, 255, 0.1);
+    border-radius: 16px;
+    padding: 14px 10px 12px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 14px rgba(13, 30, 61, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    user-select: none;
+}
+
+.institution-logo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 85, 255, 0.12);
+    border-color: rgba(0, 85, 255, 0.25);
+}
+
+.institution-img-box {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.institution-img-box img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.institution-name {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #2c3e55;
+    text-align: center;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Progress Dots */
+.slider-dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d0e2ff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    width: 24px;
+    border-radius: 10px;
+    background-color: var(--primary-blue);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .roboai-dots-left,
+    .roboai-dots-right {
+        display: none;
+    }
+
+    .institutions-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .roboai-hub-section {
+        padding: 60px 16px 70px 16px;
+    }
+
+    .roboai-main-logo {
+        height: 85px;
+    }
+
+    .roboai-hub-desc {
+        font-size: 1rem;
+    }
+
+    .roboai-pill-sep {
+        display: none;
+    }
+
+    .roboai-features-row {
+        gap: 10px;
+    }
+
+    .roboai-institutions-card {
+        padding: 32px 18px 24px 18px;
+    }
+
+    .institutions-title {
+        font-size: 1.7rem;
+    }
+
+    .slider-prev-btn {
+        left: -8px;
+    }
+
+    .slider-next-btn {
+        right: -8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .roboai-main-logo {
+        height: 72px;
+    }
+
+    .institutions-title {
+        font-size: 1.45rem;
+    }
+
+    .institution-logo-card {
+        width: 110px;
+        min-width: 110px;
+        padding: 10px 8px;
+    }
+}
+
 
 
