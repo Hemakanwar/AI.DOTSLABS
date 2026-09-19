@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.LABS - Book a Demo Session</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/book-demo.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-container">
+                    <div class="logo-image">
+                        <img src="images/logo.png" alt="AI.LABS Logo">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main"><span class="logo-ai">AI.</span><span class="logo-labs">LABS</span></span>
+                        <span class="logo-sub">Powered by RoboAI Hub</span>
+                    </div>
+                </div>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#our-labs">Our Labs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Interactive Demo Flow Section -->
+        <section class="demo-section">
+            <div class="demo-container">
+                <!-- Section Header -->
+                <div class="demo-header">
+                    <div class="demo-badge-container">
+                        <div class="demo-badge">
+                            <span id="demo-main-badge">START SCREEN</span>
+                        </div>
+                    </div>
+                    <h1 class="demo-title">Book a <span class="gradient-text">Demo Session</span></h1>
+                    <div class="demo-title-line">
+                        <span class="line-dot"></span>
+                    </div>
+                    <p class="demo-desc">See how AI.LABS can transform learning in your school.</p>
+                </div>
+
+                <!-- Selections Panel for Mobile (Compact Expandable Summary) -->
+                <div class="selections-panel-mobile">
+                    <details class="mobile-summary-details">
+                        <summary>
+                            <span>Your Selections <strong id="mobile-selection-count">(0/3)</strong></span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </summary>
+                        <div class="mobile-summary-content">
+                            <div class="selection-item">
+                                <div class="selection-item-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                                <div class="selection-item-text">
+                                    <span class="selection-label">Category</span>
+                                    <span class="selection-val empty" id="mobile-sel-category">None selected</span>
+                                </div>
+                            </div>
+                            <div class="selection-item">
+                                <div class="selection-item-icon"><i class="fa-solid fa-users"></i></div>
+                                <div class="selection-item-text">
+                                    <span class="selection-label">For Whom</span>
+                                    <span class="selection-val empty" id="mobile-sel-target">None selected</span>
+                                </div>
+                            </div>
+                            <div class="selection-item">
+                                <div class="selection-item-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                <div class="selection-item-text">
+                                    <span class="selection-label">Planning Scale</span>
+                                    <span class="selection-val empty" id="mobile-sel-scale">None selected</span>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Two-Column Interactive Layout -->
+                <div class="demo-layout">
+                    <!-- Left: Card Deck -->
+                    <div class="demo-main-card" id="demo-main-card">
+                        
+                        <!-- Pusher Robot Actor (Enters from right on transition and physically pushes current card to left) -->
+                        <div class="stage-pusher-robot" id="stage-pusher-robot" aria-hidden="true">
+                            <div class="robot-shadow"></div>
+                            <div class="robot-sprite">
+                                <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <radialGradient id="bodyGradPusher" cx="45%" cy="35%" r="60%">
+                                            <stop offset="0%" stop-color="#ffffff"/>
+                                            <stop offset="70%" stop-color="#e2ecff"/>
+                                            <stop offset="100%" stop-color="#b0c8f5"/>
+                                        </radialGradient>
+                                        <linearGradient id="screenGradPusher" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#0d1b2a"/>
+                                            <stop offset="100%" stop-color="#1b263b"/>
+                                        </linearGradient>
+                                        <radialGradient id="coreGradPusher" cx="50%" cy="50%" r="50%">
+                                            <stop offset="0%" stop-color="#00ffff"/>
+                                            <stop offset="60%" stop-color="#00c3ff"/>
+                                            <stop offset="100%" stop-color="#0055ff"/>
+                                        </radialGradient>
+                                        <filter id="glowPusher" x="-20%" y="-20%" width="140%" height="140%">
+                                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                        </filter>
+                                    </defs>
+                                    
+                                    <!-- Ear Antennas -->
+                                    <rect class="robot-antenna-left" x="35" y="45" width="8" height="15" rx="3" fill="#0055ff"/>
+                                    <circle class="robot-antenna-left" cx="39" cy="40" r="4" fill="#00c3ff" filter="url(#glowPusher)"/>
+                                    
+                                    <rect class="robot-antenna-right" x="157" y="45" width="8" height="15" rx="3" fill="#0055ff"/>
+                                    <circle class="robot-antenna-right" cx="161" cy="40" r="4" fill="#00c3ff" filter="url(#glowPusher)"/>
+
+                                    <!-- Left Arm -->
+                                    <g class="robot-left-arm" id="pusher-left-arm">
+                                        <rect x="25" y="115" width="16" height="50" rx="8" fill="url(#bodyGradPusher)" stroke="#0055ff" stroke-width="2"/>
+                                        <circle cx="33" cy="120" r="8" fill="#0055ff"/>
+                                        <path d="M 23 162 C 23 172, 43 172, 43 162" stroke="#0055ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    </g>
+
+                                    <!-- Right Arm -->
+                                    <g class="robot-right-arm" id="pusher-right-arm">
+                                        <rect x="159" y="115" width="16" height="50" rx="8" fill="url(#bodyGradPusher)" stroke="#0055ff" stroke-width="2"/>
+                                        <circle cx="167" cy="120" r="8" fill="#0055ff"/>
+                                        <path d="M 157 162 C 157 172, 177 172, 177 162" stroke="#0055ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    </g>
+
+                                    <!-- Jet Base -->
+                                    <g class="robot-legs">
+                                        <rect x="85" y="185" width="30" height="20" rx="5" fill="#0055ff"/>
+                                        <path d="M 80 205 L 120 205 L 110 215 L 90 215 Z" fill="#00c3ff" filter="url(#glowPusher)"/>
+                                        <path class="jet-flame" d="M 90 215 Q 100 240, 110 215 Q 100 230, 90 215" fill="#ffaa00" filter="url(#glowPusher)"/>
+                                    </g>
+
+                                    <!-- Torso -->
+                                    <rect class="robot-torso" x="55" y="105" width="90" height="85" rx="24" fill="url(#bodyGradPusher)" stroke="#0055ff" stroke-width="3"/>
+                                    <circle class="robot-power-core" cx="100" cy="145" r="14" fill="url(#coreGradPusher)" filter="url(#glowPusher)"/>
+
+                                    <!-- Neck -->
+                                    <rect x="85" y="93" width="30" height="15" rx="3" fill="#b0c8f5" stroke="#0055ff" stroke-width="2"/>
+
+                                    <!-- Head -->
+                                    <g class="robot-head">
+                                        <rect x="40" y="35" width="120" height="80" rx="36" fill="url(#bodyGradPusher)" stroke="#0055ff" stroke-width="3"/>
+                                        <rect class="robot-screen" x="50" y="45" width="100" height="60" rx="24" fill="url(#screenGradPusher)"/>
+                                        
+                                        <!-- Glowing Eyes -->
+                                        <g class="robot-eyes">
+                                            <circle class="eye eye-left normal-eye" cx="80" cy="75" r="7" fill="#00c3ff" filter="url(#glowPusher)"/>
+                                            <circle class="eye eye-right normal-eye" cx="120" cy="75" r="7" fill="#00c3ff" filter="url(#glowPusher)"/>
+                                        </g>
+                                        
+                                        <!-- Mouth -->
+                                        <path class="robot-mouth" d="M 90 92 Q 100 95, 110 92" stroke="#00c3ff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 1: Start Screen -->
+                        <div class="demo-screen active" id="screen-start">
+                            <h2 class="question-title">Ready to Experience AI.LABS?</h2>
+                            <p class="question-subtitle">Interact with our guide robot to customize your school's live demo session.</p>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button class="start-btn" id="btn-start">
+                                    <span>Start Demo</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Question 1 -->
+                        <div class="demo-screen" id="screen-q1">
+                            <div class="progress-bar-container">
+                                <span class="step-indicator-text">QUESTION 1</span>
+                                <div class="progress-dots">
+                                    <div class="progress-dot active"></div>
+                                    <div class="progress-dot"></div>
+                                    <div class="progress-dot"></div>
+                                </div>
+                            </div>
+                            <h2 class="question-title">What are you looking for?</h2>
+                            <p class="question-subtitle">Choose the option that best fits your need.</p>
+                            
+                            <div class="options-grid">
+                                <div class="option-card" data-val="School Partnership" data-step="1">
+                                    <div class="option-icon"><i class="fa-solid fa-school"></i></div>
+                                    <span class="option-text">School Partnership</span>
+                                </div>
+                                <div class="option-card" data-val="AI Lab Collaboration" data-step="1">
+                                    <div class="option-icon"><i class="fa-solid fa-robot"></i></div>
+                                    <span class="option-text">AI Lab Collaboration</span>
+                                </div>
+                                <div class="option-card" data-val="AI Industrial Training" data-step="1">
+                                    <div class="option-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <span class="option-text">AI Industrial Training</span>
+                                    <span class="option-subtext">(100% Placement Guarantee)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Question 2 -->
+                        <div class="demo-screen" id="screen-q2">
+                            <div class="progress-bar-container">
+                                <span class="step-indicator-text">QUESTION 2</span>
+                                <div class="progress-dots">
+                                    <div class="progress-dot completed"></div>
+                                    <div class="progress-dot active"></div>
+                                    <div class="progress-dot"></div>
+                                </div>
+                            </div>
+                            <h2 class="question-title">Who is this demo for?</h2>
+                            <p class="question-subtitle">Select the primary audience who will be attending.</p>
+                            
+                            <div class="options-grid">
+                                <div class="option-card" data-val="School" data-step="2">
+                                    <div class="option-icon"><i class="fa-solid fa-building-columns"></i></div>
+                                    <span class="option-text">School</span>
+                                </div>
+                                <div class="option-card" data-val="College" data-step="2">
+                                    <div class="option-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <span class="option-text">College</span>
+                                </div>
+                                <div class="option-card" data-val="Students" data-step="2">
+                                    <div class="option-icon"><i class="fa-solid fa-users"></i></div>
+                                    <span class="option-text">Students</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Question 3 -->
+                        <div class="demo-screen" id="screen-q3">
+                            <div class="progress-bar-container">
+                                <span class="step-indicator-text">QUESTION 3</span>
+                                <div class="progress-dots">
+                                    <div class="progress-dot completed"></div>
+                                    <div class="progress-dot completed"></div>
+                                    <div class="progress-dot active"></div>
+                                </div>
+                            </div>
+                            <h2 class="question-title">How many students are you planning for?</h2>
+                            <p class="question-subtitle">Select your estimated batch size.</p>
+                            
+                            <div class="options-grid">
+                                <div class="option-card" data-val="10–20" data-step="3">
+                                    <div class="option-icon"><i class="fa-solid fa-user-group"></i></div>
+                                    <span class="option-text">10–20</span>
+                                </div>
+                                <div class="option-card" data-val="20–50" data-step="3">
+                                    <div class="option-icon"><i class="fa-solid fa-users"></i></div>
+                                    <span class="option-text">20–50</span>
+                                </div>
+                                <div class="option-card" data-val="50–100" data-step="3">
+                                    <div class="option-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+                                    <span class="option-text">50–100</span>
+                                </div>
+                                <div class="option-card" data-val="100+" data-step="3">
+                                    <div class="option-icon"><i class="fa-solid fa-network-wired"></i></div>
+                                    <span class="option-text">100+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: User Details -->
+                        <div class="demo-screen" id="screen-details">
+                            <div class="progress-bar-container" style="margin-bottom: 20px;">
+                                <span class="step-indicator-text">5 YOUR DETAILS</span>
+                            </div>
+                            <h2 class="question-title">Almost there! 🚀</h2>
+                            <p class="question-subtitle">Just a few details and we're ready.</p>
+                            
+                            <form class="demo-form" id="details-form" novalidate>
+                                <div class="form-field">
+                                    <label for="fullName">Full Name *</label>
+                                    <div class="form-input-container" id="name-container">
+                                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                                    </div>
+                                    <span class="error-message">Name is required.</span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="orgName">School / Organization Name *</label>
+                                    <div class="form-input-container" id="org-container">
+                                        <input type="text" id="orgName" placeholder="Enter school or organization name" required>
+                                    </div>
+                                    <span class="error-message">Organization name is required.</span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="email">Email Address *</label>
+                                    <div class="form-input-container" id="email-container">
+                                        <input type="email" id="email" placeholder="Enter email address" required>
+                                    </div>
+                                    <span class="error-message">Please enter a valid email address.</span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="phone">Mobile Number *</label>
+                                    <div class="phone-wrapper">
+                                        <span class="phone-prefix">+91</span>
+                                        <div class="form-input-container" id="phone-container">
+                                            <input type="tel" id="phone" placeholder="Enter 10-digit number" pattern="[6-9][0-9]{9}" required>
+                                        </div>
+                                    </div>
+                                    <span class="error-message" style="margin-left: 80px;">Please enter a valid 10-digit mobile number.</span>
+                                </div>
+                                <button type="submit" class="submit-btn" id="btn-submit">
+                                    <span>Book My Demo</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Step 5.5: Submitting Loading Screen -->
+                        <div class="demo-screen" id="screen-submitting">
+                            <div class="progress-bar-container" style="margin-bottom: 20px;">
+                                <span class="step-indicator-text">6 SUBMITTING</span>
+                            </div>
+                            <h2 class="question-title">Submitting your request...</h2>
+                            <p class="question-subtitle">Please wait while we process your details.</p>
+                            <div class="spinner-loader"></div>
+                        </div>
+
+                        <!-- Step 6: Success Screen -->
+                        <div class="demo-screen" id="screen-success">
+                            <div class="progress-bar-container" style="margin-bottom: 20px;">
+                                <span class="step-indicator-text">7 SUCCESS SCREEN</span>
+                            </div>
+                            <div class="success-checkmark-wrapper">
+                                <div class="success-checkmark">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                            <h2 class="question-title">Demo Request Received! 🎉</h2>
+                            <p class="question-subtitle">Thank you! Our team will contact you shortly.</p>
+                            
+                            <div class="summary-card-success">
+                                <h4>Your Selections Summary</h4>
+                                <div class="summary-success-items">
+                                    <div class="summary-success-row">
+                                        <span class="success-row-label">Category:</span>
+                                        <span class="success-row-val" id="summary-success-category">School Partnership</span>
+                                    </div>
+                                    <div class="summary-success-row">
+                                        <span class="success-row-label">Target Audience:</span>
+                                        <span class="success-row-val" id="summary-success-target">School</span>
+                                    </div>
+                                    <div class="summary-success-row">
+                                        <span class="success-row-label">Batch Size:</span>
+                                        <span class="success-row-val" id="summary-success-scale">10–20</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="index.html" class="home-btn">
+                                <i class="fa-solid fa-house"></i>
+                                <span>Back to Home</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Selections Widget -->
+                    <div class="demo-sidebar-column">
+                        <!-- Sidebar Selections Summary Widget (Desktop Only) -->
+                        <div class="selections-panel">
+                            <h3>Your Selections</h3>
+                            <div class="selections-list">
+                                <div class="selection-item" data-step="1">
+                                    <div class="selection-item-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                                    <div class="selection-item-text">
+                                        <span class="selection-label">Category</span>
+                                        <span class="selection-val empty" id="sel-category">None selected</span>
+                                    </div>
+                                </div>
+                                <div class="selection-item" data-step="2">
+                                    <div class="selection-item-icon"><i class="fa-solid fa-users"></i></div>
+                                    <div class="selection-item-text">
+                                        <span class="selection-label">For Whom</span>
+                                        <span class="selection-val empty" id="sel-target">None selected</span>
+                                    </div>
+                                </div>
+                                <div class="selection-item" data-step="3">
+                                    <div class="selection-item-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                    <div class="selection-item-text">
+                                        <span class="selection-label">Planning Scale</span>
+                                        <span class="selection-val empty" id="sel-scale">None selected</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Next Steps Timeline Panel (Mockup Panel 8) -->
+                <div class="next-steps-container">
+                    <div class="demo-header" style="margin-bottom: 35px;">
+                        <h2 class="footer-contact-title">What happens next?</h2>
+                        <p class="footer-contact-desc">Our team will help you get started.</p>
+                    </div>
+                    <div class="next-steps-grid">
+                        <div class="next-step-card">
+                            <div class="next-step-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                            <h3 class="next-step-title">We'll Call You</h3>
+                            <p class="next-step-desc">Our experts will reach out to understand your requirements.</p>
+                        </div>
+                        <div class="next-step-card">
+                            <div class="next-step-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                            <h3 class="next-step-title">Free Consultation</h3>
+                            <p class="next-step-desc">Get a free demo and personalized AI lab recommendations.</p>
+                        </div>
+                        <div class="next-step-card">
+                            <div class="next-step-icon"><i class="fa-solid fa-rocket"></i></div>
+                            <h3 class="next-step-title">Build Your AI Lab</h3>
+                            <p class="next-step-desc">We'll help you build a future-ready AI Lab for your students.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Contact & Info Section (Mockup Panel 9) -->
+    <section class="footer-contact-section" id="contact-us">
+        <div class="footer-contact-container">
+            <!-- Header -->
+            <div class="footer-contact-header">
+                <h2 class="footer-contact-title">We're Here to Help!</h2>
+                <p class="footer-contact-desc">Reach out to us anytime.</p>
+            </div>
+
+            <!-- Contact Information Grid -->
+            <div class="footer-contact-grid">
+                <!-- Card 1: Office Address -->
+                <div class="footer-contact-card">
+                    <div class="footer-card-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="footer-card-title">Office Address</h3>
+                    <p class="footer-card-text">
+                        T-1, 426 B, 4th Floor, Indiabulls Mega Mall, Jodhpur
+                    </p>
+                </div>
+
+                <!-- Card 2: Contact Number -->
+                <a href="tel:+917727002970" class="footer-contact-card">
+                    <div class="footer-card-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="footer-card-title">Contact Number</h3>
+                    <p class="footer-card-text">
+                        +91 7727002970
+                    </p>
+                </a>
+
+                <!-- Card 3: Office Email -->
+                <a href="mailto:aidotlabs1@gmail.com" class="footer-contact-card">
+                    <div class="footer-card-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="footer-card-title">Office Email</h3>
+                    <p class="footer-card-text">
+                        aidotlabs1@gmail.com
+                    </p>
+                </a>
+            </div>
+
+            <!-- Sub Footer Bottom Bar -->
+            <div class="sub-footer-bar">
+                <div class="sub-footer-left">
+                    <div class="footer-brand-wrap">
+                        <div class="logo-container">
+                            <div class="logo-image">
+                                <img src="images/logo.png" alt="AI.LABS Logo">
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-main" style="color: var(--dark-navy); font-weight:800; font-size: 1.1rem;"><span class="logo-ai">AI.</span><span class="logo-labs">LABS</span></span>
+                                <span class="logo-sub" style="font-size:0.68rem; display:block; opacity:0.6; margin-top:-2px;">Powered by RoboAI Hub</span>
+                            </div>
+                        </div>
+                        <a href="admin/" class="footer-admin-link">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>Admin Portal</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sub-footer-right">
+                    <span class="copyright-text">© 2025 AI.LABS. All rights reserved.</span>
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- State Machine Booking Script Link -->
+    <script src="js/book-demo.js"></script>
+</body>
+</html>
