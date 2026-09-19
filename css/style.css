@@ -1241,11 +1241,11 @@ html, body {
     background-color: #ffffff;
     border: 1px solid rgba(0, 85, 255, 0.12);
     border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0, 85, 255, 0.07), 0 4px 16px rgba(13, 30, 61, 0.04);
+    box-shadow: 0 16px 45px rgba(0, 85, 255, 0.06), 0 4px 16px rgba(13, 30, 61, 0.03);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 85, 255, 0.3) rgba(0, 85, 255, 0.04);
+    scrollbar-color: rgba(0, 85, 255, 0.25) rgba(0, 85, 255, 0.04);
 }
 
 .packages-table-card::-webkit-scrollbar {
@@ -1283,8 +1283,8 @@ html, body {
 
 .col-feature-head {
     width: 34%;
-    padding: 36px 28px 28px 32px;
-    background: #fbfdff !important;
+    padding: 32px 24px 24px 30px;
+    background: #f8fbff !important;
     border-top-left-radius: 24px;
 }
 
@@ -1315,9 +1315,11 @@ html, body {
 
 .col-plan-head {
     width: 22%;
-    padding: 34px 16px 26px 16px;
+    padding: 30px 16px 24px 16px;
     text-align: center;
     position: relative;
+    border-left: 1px solid rgba(0, 85, 255, 0.08);
+    background: #ffffff;
 }
 
 .col-plan-head:last-child {
@@ -1332,21 +1334,23 @@ html, body {
 }
 
 .plan-head-icon {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: var(--badge-bg);
+    background-color: rgba(0, 85, 255, 0.07);
+    border: 1px solid rgba(0, 85, 255, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--primary-blue);
     margin-bottom: 2px;
-    transition: transform 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
 .col-plan-head:hover .plan-head-icon {
-    transform: scale(1.08);
+    transform: translateY(-2px);
+    background-color: rgba(0, 85, 255, 0.12);
 }
 
 .plan-head-title {
@@ -1359,7 +1363,7 @@ html, body {
 .table-price {
     font-size: 1.65rem;
     font-weight: 800;
-    color: var(--dark-navy);
+    color: var(--primary-blue);
     letter-spacing: -0.5px;
     line-height: 1.1;
 }
@@ -1369,50 +1373,9 @@ html, body {
     font-weight: 600;
     color: #506680;
     background-color: #f0f4f9;
-    padding: 3px 10px;
-    border-radius: 6px;
-}
-
-/* Recommended Highlight Column */
-.col-recommended {
-    background-color: #f7faff !important;
-    position: relative;
-}
-
-.packages-comparison-table thead th.col-recommended {
-    border-left: 2px solid var(--primary-blue);
-    border-right: 2px solid var(--primary-blue);
-    border-top: 3px solid var(--primary-blue);
-    background-color: #f4f9ff !important;
-}
-
-.table-recommended-badge {
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
-    color: #ffffff;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    padding: 4px 14px;
+    padding: 4px 12px;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 85, 255, 0.3);
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 3;
-}
-
-.rec-icon {
-    background: linear-gradient(135deg, #0055ff, #00c3ff);
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(0, 85, 255, 0.25);
-}
-
-.rec-price {
-    color: var(--primary-blue) !important;
-    font-size: 1.78rem;
+    border: 1px solid rgba(0, 85, 255, 0.06);
 }
 
 /* Table Body Rows */
@@ -1420,17 +1383,18 @@ html, body {
     transition: background-color 0.2s ease;
 }
 
-.packages-comparison-table tbody tr:hover {
-    background-color: rgba(0, 85, 255, 0.02);
+.packages-comparison-table tbody tr:hover th.feature-cell,
+.packages-comparison-table tbody tr:hover td.plan-cell {
+    background-color: #f7faff;
 }
 
 .packages-comparison-table tbody th.feature-cell {
-    padding: 18px 24px 18px 32px;
+    padding: 18px 24px 18px 30px;
     font-size: 0.94rem;
     font-weight: 600;
     color: var(--dark-navy);
-    border-bottom: 1px solid rgba(0, 85, 255, 0.06);
-    background: transparent;
+    border-bottom: 1px solid rgba(0, 85, 255, 0.07);
+    background: #fcfdfe;
     vertical-align: middle;
 }
 
@@ -1449,13 +1413,23 @@ html, body {
     vertical-align: middle;
     font-size: 0.92rem;
     color: #37475c;
-    border-bottom: 1px solid rgba(0, 85, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 85, 255, 0.07);
+    border-left: 1px solid rgba(0, 85, 255, 0.08);
+    background: #ffffff;
 }
 
-.packages-comparison-table tbody td.col-recommended {
-    border-left: 2px solid rgba(0, 85, 255, 0.25);
-    border-right: 2px solid rgba(0, 85, 255, 0.25);
-    background-color: #f7faff !important;
+/* Rounded bottom corners on last row */
+.packages-comparison-table tbody tr:last-child th.feature-cell {
+    border-bottom: none;
+    border-bottom-left-radius: 24px;
+}
+
+.packages-comparison-table tbody tr:last-child td.plan-cell {
+    border-bottom: none;
+}
+
+.packages-comparison-table tbody tr:last-child td.plan-cell:last-child {
+    border-bottom-right-radius: 24px;
 }
 
 .highlight-val {
@@ -1476,93 +1450,6 @@ html, body {
 .feature-check-wrap i {
     color: #059669;
     font-size: 1rem;
-}
-
-/* Table Footer Actions */
-.packages-comparison-table tfoot td {
-    padding: 24px 18px;
-    vertical-align: middle;
-    border-top: 1.5px solid rgba(0, 85, 255, 0.08);
-}
-
-.feature-action-cell {
-    padding-left: 32px !important;
-}
-
-.action-cell-label {
-    display: block;
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--dark-navy);
-}
-
-.action-cell-sub {
-    display: block;
-    font-size: 0.8rem;
-    color: #6b7a90;
-    margin-top: 2px;
-}
-
-.plan-action-cell {
-    text-align: center;
-}
-
-.packages-comparison-table tfoot td.col-recommended {
-    border-left: 2px solid var(--primary-blue);
-    border-right: 2px solid var(--primary-blue);
-    border-bottom: 2px solid var(--primary-blue);
-    background-color: #f4f9ff !important;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-/* Table Button */
-.package-btn {
-    width: 100%;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 12px;
-    background-color: var(--dark-navy);
-    color: #ffffff;
-    font-size: 0.92rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(13, 30, 61, 0.15);
-    transition: var(--transition-smooth);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.package-btn i {
-    font-size: 0.8rem;
-    transition: transform 0.2s ease;
-}
-
-.package-btn:hover {
-    background-color: var(--primary-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 85, 255, 0.25);
-}
-
-.package-btn:hover i {
-    transform: translateX(3px);
-}
-
-.table-btn {
-    max-width: 180px;
-    margin: 0 auto;
-}
-
-.recommended-btn {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
-    box-shadow: 0 4px 15px rgba(0, 85, 255, 0.2);
-}
-
-.recommended-btn:hover {
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
-    box-shadow: 0 6px 20px rgba(0, 195, 255, 0.35);
 }
 
 /* Bottom Patterns */
