@@ -1,5 +1,19 @@
 // Main JavaScript for AI.LABS
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Sticky Navbar Scroll State
+    const header = document.querySelector('.header');
+    if (header) {
+        const handleHeaderScroll = () => {
+            if (window.scrollY > 15) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        };
+        window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+        handleHeaderScroll();
+    }
+
     // 1. Mobile Navigation Menu Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
