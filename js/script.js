@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const instDots = document.querySelectorAll('#instSliderDots .slider-dot');
 
     if (instTrackWrap) {
-        const scrollDistance = 240;
+        const scrollDistance = 222;
 
         if (instPrevBtn) {
             instPrevBtn.addEventListener('click', () => {
