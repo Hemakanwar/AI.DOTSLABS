@@ -554,55 +554,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 8. Trusted Institutions Slider Controls
+    // 8. Trusted Institutions Single Row Horizontal Scroll Controls
     // ==========================================
     const instTrackWrap = document.getElementById('instTrackWrap');
     const instPrevBtn = document.getElementById('instPrevBtn');
     const instNextBtn = document.getElementById('instNextBtn');
-    const instDots = document.querySelectorAll('#instSliderDots .slider-dot');
 
     if (instTrackWrap) {
-        const scrollDistance = 222;
+        const getScrollStep = () => {
+            const card = instTrackWrap.querySelector('.institution-logo-card, .trusted-logo-card');
+            return card ? (card.offsetWidth + 20) * 2 : 420;
+        };
 
         if (instPrevBtn) {
             instPrevBtn.addEventListener('click', () => {
-                instTrackWrap.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
+                instTrackWrap.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
             });
         }
 
         if (instNextBtn) {
             instNextBtn.addEventListener('click', () => {
-                instTrackWrap.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+                instTrackWrap.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
             });
         }
 
-        // Active dot tracking on scroll
-        if (instDots.length > 0) {
-            instTrackWrap.addEventListener('scroll', () => {
-                const maxScroll = instTrackWrap.scrollWidth - instTrackWrap.clientWidth;
-                if (maxScroll <= 0) return;
-                const scrollProgress = instTrackWrap.scrollLeft / maxScroll;
-                const activeIndex = Math.min(
-                    instDots.length - 1,
-                    Math.floor(scrollProgress * instDots.length)
-                );
-                instDots.forEach((dot, idx) => {
-                    if (idx === activeIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            }, { passive: true });
+        // Drag to scroll on desktop
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-            instDots.forEach((dot, idx) => {
-                dot.addEventListener('click', () => {
-                    const maxScroll = instTrackWrap.scrollWidth - instTrackWrap.clientWidth;
-                    const targetScroll = (idx / (instDots.length - 1)) * maxScroll;
-                    instTrackWrap.scrollTo({ left: targetScroll, behavior: 'smooth' });
-                });
-            });
-        }
+        instTrackWrap.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - instTrackWrap.offsetLeft;
+            scrollLeft = instTrackWrap.scrollLeft;
+        });
+
+        instTrackWrap.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        instTrackWrap.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        instTrackWrap.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - instTrackWrap.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            instTrackWrap.scrollLeft = scrollLeft - walk;
+        });
     }
 
     console.log('AI.LABS initialized successfully.');
