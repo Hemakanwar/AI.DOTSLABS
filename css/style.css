@@ -4853,11 +4853,13 @@ body.modal-open {
 .roboai-institutions-card {
     background-color: #ffffff;
     border: 1px solid rgba(0, 85, 255, 0.12);
-    border-radius: 24px;
-    padding: 42px 36px 36px 36px;
+    border-radius: 28px;
+    padding: 44px 36px 40px 36px;
     box-shadow: 0 16px 45px rgba(0, 85, 255, 0.06);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .institutions-header {
@@ -4882,107 +4884,33 @@ body.modal-open {
     line-height: 1.5;
 }
 
-/* Slider Track & Wrapper */
-.institutions-slider-wrapper {
-    position: relative;
+/* 12 Logos Responsive Grid (6 cols desktop, 3 cols tablet, 2 cols mobile) */
+.institutions-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 22px 16px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 12px 0 20px 0;
-    padding: 0 45px;
+    margin: 26px 0 10px 0;
     box-sizing: border-box;
-}
-
-.slider-nav-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    border: 1.5px solid rgba(0, 85, 255, 0.2);
-    color: var(--primary-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(13, 30, 61, 0.1);
-    transition: all 0.25s ease;
-    z-index: 10;
-    flex-shrink: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.slider-prev-btn {
-    left: 0;
-}
-
-.slider-next-btn {
-    right: 0;
-}
-
-.slider-nav-btn:hover {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-    border-color: var(--primary-blue);
-    transform: translateY(-50%) scale(1.08);
-}
-
-.institutions-slider-track-wrap {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-    cursor: grab;
-    padding: 12px 6px;
-    box-sizing: border-box;
-}
-
-.institutions-slider-track-wrap::-webkit-scrollbar {
-    display: none;
-}
-
-.institutions-slider-track {
-    display: flex;
-    gap: 22px;
-    width: max-content;
     align-items: stretch;
-    animation: marqueeScroll 40s linear infinite;
-}
-
-.institutions-slider-track-wrap:hover .institutions-slider-track {
-    animation-play-state: paused;
-}
-
-@keyframes marqueeScroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
 }
 
 /* Logo Card */
 .institution-logo-card {
-    width: 200px;
-    min-width: 200px;
-    min-height: 220px;
     background-color: #ffffff;
     border: 1.5px solid rgba(0, 85, 255, 0.12);
     border-radius: 20px;
-    padding: 22px 16px 20px 16px;
+    padding: 20px 12px 18px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 8px 24px rgba(13, 30, 61, 0.05);
+    min-height: 210px;
+    box-shadow: 0 4px 16px rgba(13, 30, 61, 0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     user-select: none;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .institution-logo-card:hover {
@@ -4991,39 +4919,52 @@ body.modal-open {
     border-color: rgba(0, 85, 255, 0.28);
 }
 
+/* Dedicated Logo Area */
+.logo-wrapper,
 .institution-img-box {
     width: 100%;
-    height: 110px;
-    min-height: 110px;
+    height: 120px;
+    min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    padding: 10px 14px;
     overflow: visible;
     background: transparent;
+    box-sizing: border-box;
 }
 
+/* Perfect Image Fit: 100% visible, centered, proportional, no crop */
+.logo-wrapper img,
 .institution-img-box img,
 .institution-logo-card img {
-    width: 120px;
-    height: 100px;
-    max-width: 120px;
-    max-height: 100px;
+    width: 100%;
+    height: 115px;
+    max-height: 115px;
+    max-width: 100%;
     object-fit: contain !important;
-    object-position: center;
+    object-position: center center;
     display: block;
     margin: 0 auto;
     border: none;
     border-radius: 0;
     background: transparent;
+    transition: transform 0.25s ease;
 }
 
+.institution-logo-card:hover .logo-wrapper img,
+.institution-logo-card:hover .institution-img-box img {
+    transform: scale(1.04);
+}
+
+/* Organization Name */
 .institution-name {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: #1e293b;
     text-align: center;
     line-height: 1.35;
+    margin-top: 10px;
     display: block;
     width: 100%;
     word-break: normal;
@@ -5034,30 +4975,37 @@ body.modal-open {
     -webkit-box-orient: unset;
 }
 
-/* Progress Dots */
-.slider-dots-container {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .institutions-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px 10px;
+    }
+
+    .institution-logo-card {
+        min-height: 200px;
+        padding: 16px 8px 14px 8px;
+    }
+
+    .logo-wrapper,
+    .institution-img-box {
+        height: 110px;
+        min-height: 110px;
+        padding: 8px 10px;
+    }
+
+    .logo-wrapper img,
+    .institution-img-box img,
+    .institution-logo-card img {
+        height: 105px;
+        max-height: 105px;
+    }
+
+    .institution-name {
+        font-size: 0.85rem;
+    }
 }
 
-.slider-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #d0e2ff;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.slider-dot.active {
-    width: 24px;
-    border-radius: 10px;
-    background-color: var(--primary-blue);
-}
-
-/* Responsive */
 @media (max-width: 1024px) {
     .roboai-dots-left,
     .roboai-dots-right {
@@ -5066,6 +5014,34 @@ body.modal-open {
 
     .institutions-title {
         font-size: 2rem;
+    }
+
+    .institutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 16px;
+    }
+
+    .institution-logo-card {
+        min-height: 210px;
+        padding: 18px 14px 16px 14px;
+    }
+
+    .logo-wrapper,
+    .institution-img-box {
+        height: 120px;
+        min-height: 120px;
+        padding: 10px 14px;
+    }
+
+    .logo-wrapper img,
+    .institution-img-box img,
+    .institution-logo-card img {
+        height: 115px;
+        max-height: 115px;
+    }
+
+    .institution-name {
+        font-size: 0.92rem;
     }
 }
 
@@ -5098,47 +5074,73 @@ body.modal-open {
         font-size: 1.7rem;
     }
 
-    .institutions-slider-wrapper {
-        padding: 0 35px;
-    }
-
-    .slider-prev-btn {
-        left: 0;
-    }
-
-    .slider-next-btn {
-        right: 0;
-    }
-
-    .institutions-slider-track {
-        gap: 18px;
+    .institutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 12px;
     }
 
     .institution-logo-card {
-        width: 180px;
-        min-width: 180px;
         min-height: 195px;
-        padding: 18px 12px 16px 12px;
-        border-radius: 18px;
+        padding: 16px 10px 14px 10px;
+        border-radius: 16px;
     }
 
+    .logo-wrapper,
     .institution-img-box {
-        height: 95px;
-        min-height: 95px;
-        margin-bottom: 10px;
+        height: 105px;
+        min-height: 105px;
+        padding: 8px 10px;
     }
 
+    .logo-wrapper img,
     .institution-img-box img,
     .institution-logo-card img {
-        width: 110px;
-        height: 90px;
-        max-width: 110px;
-        max-height: 90px;
+        height: 100px;
+        max-height: 100px;
     }
 
     .institution-name {
         font-size: 0.85rem;
         line-height: 1.3;
+    }
+}
+
+@media (max-width: 576px) {
+    .roboai-institutions-card {
+        padding: 26px 14px 22px 14px;
+        border-radius: 20px;
+    }
+
+    .institutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px 10px;
+        margin-top: 18px;
+    }
+
+    .institution-logo-card {
+        min-height: 180px;
+        padding: 14px 8px 12px 8px;
+        border-radius: 14px;
+    }
+
+    .logo-wrapper,
+    .institution-img-box {
+        height: 95px;
+        min-height: 95px;
+        padding: 6px 8px;
+    }
+
+    .logo-wrapper img,
+    .institution-img-box img,
+    .institution-logo-card img {
+        height: 90px;
+        max-height: 90px;
+    }
+
+    .institution-name {
+        font-size: 0.8rem;
+        line-height: 1.25;
+        margin-top: 6px;
     }
 }
 
@@ -5149,47 +5151,6 @@ body.modal-open {
 
     .institutions-title {
         font-size: 1.45rem;
-    }
-
-    .institutions-slider-wrapper {
-        padding: 0 28px;
-    }
-
-    .slider-nav-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 0.85rem;
-    }
-
-    .institutions-slider-track {
-        gap: 14px;
-    }
-
-    .institution-logo-card {
-        width: 160px;
-        min-width: 160px;
-        min-height: 180px;
-        padding: 16px 10px 14px 10px;
-        border-radius: 16px;
-    }
-
-    .institution-img-box {
-        height: 85px;
-        min-height: 85px;
-        margin-bottom: 8px;
-    }
-
-    .institution-img-box img,
-    .institution-logo-card img {
-        width: 100px;
-        height: 80px;
-        max-width: 100px;
-        max-height: 80px;
-    }
-
-    .institution-name {
-        font-size: 0.8rem;
-        line-height: 1.25;
     }
 }
 
