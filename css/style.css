@@ -178,13 +178,32 @@ body {
     text-decoration: none;
     padding: 6px 0;
     line-height: 1.2;
-    transition: var(--transition-smooth);
+    transition: color 0.25s ease;
     display: inline-flex;
     align-items: center;
 }
 
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary-blue);
+    border-radius: 2px;
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.25s ease;
+    transform-origin: center;
+}
+
 .nav-links a:hover {
     color: var(--primary-blue);
+}
+
+.nav-links a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    background-color: var(--primary-blue);
 }
 
 .nav-links a.active {
@@ -192,30 +211,9 @@ body {
     font-weight: 600;
 }
 
-/* Underline decoration for active link */
 .nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 24px;
-    height: 3px;
+    transform: translateX(-50%) scaleX(1);
     background-color: var(--primary-blue);
-    border-radius: 2px;
-    transition: var(--transition-smooth);
-}
-
-.nav-links a:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 16px;
-    height: 2.5px;
-    background-color: var(--primary-cyan);
-    border-radius: 2px;
 }
 
 .nav-toggle {
