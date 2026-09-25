@@ -554,13 +554,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 8. Trusted Institutions Single Row Horizontal Scroll Controls
+    // 8. Trusted Institutions Seamless Marquee Auto-Scroll & Controls
     // ==========================================
     const instTrackWrap = document.getElementById('instTrackWrap');
+    const instTrack = document.getElementById('instTrack');
     const instPrevBtn = document.getElementById('instPrevBtn');
     const instNextBtn = document.getElementById('instNextBtn');
+    const instWrapper = document.querySelector('.institutions-slider-wrapper');
 
-    if (instTrackWrap) {
+    if (instTrackWrap && instTrack) {
+        let isPaused = false;
+        let isDragging = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+        let resumeTimeout = null;
+        const speed = 0.65; // ~40px per second at 60fps - slow, smooth, premium
+        let currentScroll = instTrackWrap.scrollLeft;
+
+        // Auto-scroll loop using requestAnimationFrame
+        function autoScroll() {
+            if (!isPaused && !isDragging) {
+                const maxScroll = instTrack.scrollWidth / 2;
+                if (maxScroll > 0) {
+                    currentScroll += speed;
+                    if (currentScroll >= maxScroll) {
+                        currentScroll -= maxScroll;
+                    }
+                    instTrackWrap.scrollLeft = currentScroll;
+                }
+            } else {
+                currentScroll = instTrackWrap.scrollLeft;
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        requestAnimationFrame(autoScroll);
+
+        const pauseAndResume = (delay = 2000) => {
+            isPaused = true;
+            clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                isPaused = false;
+            }, delay);
+        };
+
+        // Hover pause on desktop
+        if (instWrapper) {
+            instWrapper.addEventListener('mouseenter', () => {
+                isPaused = true;
+                clearTimeout(resumeTimeout);
+            });
+            instWrapper.addEventListener('mouseleave', () => {
+                if (!isDragging) {
+                    isPaused = false;
+                }
+            });
+        }
+
+        // Navigation arrow buttons
         const getScrollStep = () => {
             const card = instTrackWrap.querySelector('.institution-logo-card, .trusted-logo-card');
             return card ? (card.offsetWidth + 20) * 2 : 420;
@@ -568,42 +618,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (instPrevBtn) {
             instPrevBtn.addEventListener('click', () => {
-                instTrackWrap.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+                pauseAndResume(2000);
+                const maxScroll = instTrack.scrollWidth / 2;
+                let target = instTrackWrap.scrollLeft - getScrollStep();
+                if (target < 0) {
+                    instTrackWrap.scrollLeft += maxScroll;
+                    target += maxScroll;
+                }
+                instTrackWrap.scrollTo({ left: target, behavior: 'smooth' });
+                currentScroll = target;
             });
         }
 
         if (instNextBtn) {
             instNextBtn.addEventListener('click', () => {
-                instTrackWrap.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+                pauseAndResume(2000);
+                const maxScroll = instTrack.scrollWidth / 2;
+                let target = instTrackWrap.scrollLeft + getScrollStep();
+                if (target >= maxScroll * 2) {
+                    instTrackWrap.scrollLeft -= maxScroll;
+                    target -= maxScroll;
+                }
+                instTrackWrap.scrollTo({ left: target, behavior: 'smooth' });
+                currentScroll = target;
             });
         }
 
-        // Drag to scroll on desktop
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
+        // Mouse drag to scroll
         instTrackWrap.addEventListener('mousedown', (e) => {
-            isDown = true;
+            isDragging = true;
+            isPaused = true;
+            clearTimeout(resumeTimeout);
             startX = e.pageX - instTrackWrap.offsetLeft;
-            scrollLeft = instTrackWrap.scrollLeft;
+            startScrollLeft = instTrackWrap.scrollLeft;
         });
 
-        instTrackWrap.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        instTrackWrap.addEventListener('mouseup', () => {
-            isDown = false;
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                pauseAndResume(2000);
+            }
         });
 
         instTrackWrap.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
+            if (!isDragging) return;
             e.preventDefault();
             const x = e.pageX - instTrackWrap.offsetLeft;
-            const walk = (x - startX) * 1.5;
-            instTrackWrap.scrollLeft = scrollLeft - walk;
+            const walk = (x - startX) * 1.3;
+            const maxScroll = instTrack.scrollWidth / 2;
+            let target = startScrollLeft - walk;
+            if (target >= maxScroll) {
+                target -= maxScroll;
+                startX = x;
+                startScrollLeft = target;
+            } else if (target < 0) {
+                target += maxScroll;
+                startX = x;
+                startScrollLeft = target;
+            }
+            instTrackWrap.scrollLeft = target;
+            currentScroll = target;
         });
+
+        // Touch swipe on mobile
+        instTrackWrap.addEventListener('touchstart', () => {
+            isPaused = true;
+            clearTimeout(resumeTimeout);
+        }, { passive: true });
+
+        instTrackWrap.addEventListener('touchend', () => {
+            pauseAndResume(2000);
+        }, { passive: true });
+
+        // Wheel / trackpad scroll
+        instTrackWrap.addEventListener('wheel', () => {
+            pauseAndResume(2000);
+        }, { passive: true });
     }
 
     console.log('AI.LABS initialized successfully.');
