@@ -4146,18 +4146,7 @@ body.modal-open {
     font-weight: 600;
     box-shadow: 0 10px 28px rgba(0, 85, 255, 0.32);
     position: relative;
-    padding-top: 22px;
-    padding-bottom: 16px;
-}
-
-.comparison-pill.pill-to .to-badge-tab {
-    position: absolute;
-    top: 4px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
+    padding: 16px 28px;
 }
 
 .comparison-pill.pill-to .pill-keyword {
@@ -4230,11 +4219,6 @@ body.modal-open {
         padding: 14px 22px;
     }
 
-    .comparison-pill.pill-to {
-        padding-top: 20px;
-        padding-bottom: 14px;
-    }
-
     .comparison-arrow-divider {
         font-size: 1.8rem;
         margin-top: 24px;
@@ -4279,11 +4263,7 @@ body.modal-open {
 
     .comparison-box-col {
         width: 100%;
-        gap: 6px;
-    }
-
-    .comparison-box-col:last-child .comparison-label-top {
-        display: none;
+        gap: 8px;
     }
 
     .comparison-pill {
@@ -4291,16 +4271,11 @@ body.modal-open {
         font-size: 1rem;
         padding: 14px 18px;
     }
-
-    .comparison-pill.pill-to {
-        padding-top: 18px;
-        padding-bottom: 14px;
-    }
     
     .comparison-arrow-divider {
         transform: rotate(90deg) !important;
         font-size: 1.5rem;
-        margin: 2px 0;
+        margin: 4px 0;
     }
 
     .transformation-comparison-wrap:hover .comparison-arrow-divider {
@@ -4332,16 +4307,6 @@ body.modal-open {
     .comparison-pill {
         font-size: 0.92rem;
         padding: 12px 14px;
-    }
-
-    .comparison-pill.pill-to {
-        padding-top: 18px;
-        padding-bottom: 12px;
-    }
-
-    .comparison-pill.pill-to .to-badge-tab {
-        font-size: 0.68rem;
-        top: 3px;
     }
 }
 
