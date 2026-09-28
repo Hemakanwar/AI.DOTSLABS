@@ -45,13 +45,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Active Link Underline Handling
+    // 2. Active Link Underline Handling & Smooth Scrolling for Anchors
     const links = document.querySelectorAll('.nav-links a');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Remove active class from all links
+            const href = link.getAttribute('href');
+
+            // Handle internal in-page hash links (e.g. #contact, #our-labs)
+            if (href && href.startsWith('#') && href.length > 1) {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    if (history.pushState) {
+                        history.pushState(null, null, href);
+                    } else {
+                        location.hash = href;
+                    }
+                }
+            }
+
+            // Remove active class from all links and add to clicked
             links.forEach(l => l.classList.remove('active'));
-            // Add active class to clicked link
             link.classList.add('active');
             
             // Close mobile menu after clicking a link
@@ -63,6 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Handle hash scrolling on page load (e.g., if navigating from another page to index.html#contact)
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
+        }
+    }
 
     // 3. Package Detail Popups & Modal Interaction
     const packageData = {
@@ -232,160 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
-
-    // 4. Contact Form Validation and Success Modal Handling
-    const contactForm = document.getElementById('contact-enquiry-form');
-    const successModal = document.getElementById('contact-success-modal');
-    const successModalClose = document.getElementById('success-modal-close');
-
-    if (contactForm) {
-        const nameInput = document.getElementById('contact-name');
-        const emailInput = document.getElementById('contact-email');
-        const phoneInput = document.getElementById('contact-phone');
-        const orgInput = document.getElementById('contact-org');
-        const typeSelect = document.getElementById('contact-type');
-        const messageInput = document.getElementById('contact-message');
-        const submitBtn = document.getElementById('contact-submit-btn');
-
-        function validateEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        function validatePhone(phone) {
-            return phone.trim().length >= 8;
-        }
-
-        function setFieldStatus(inputElement, isValid) {
-            const group = inputElement ? inputElement.closest('.form-group') : null;
-            if (!group) return;
-
-            if (isValid) {
-                group.classList.remove('has-error');
-            } else {
-                group.classList.add('has-error');
-            }
-        }
-
-        // Real-time input error clearing
-        [nameInput, emailInput, phoneInput, orgInput, typeSelect, messageInput].forEach(field => {
-            if (field) {
-                field.addEventListener('input', () => {
-                    setFieldStatus(field, true);
-                });
-                field.addEventListener('change', () => {
-                    setFieldStatus(field, true);
-                });
-            }
-        });
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            let hasError = false;
-
-            // Validate Name
-            if (!nameInput.value.trim()) {
-                setFieldStatus(nameInput, false);
-                hasError = true;
-            } else {
-                setFieldStatus(nameInput, true);
-            }
-
-            // Validate Email
-            if (!emailInput.value.trim() || !validateEmail(emailInput.value)) {
-                setFieldStatus(emailInput, false);
-                hasError = true;
-            } else {
-                setFieldStatus(emailInput, true);
-            }
-
-            // Validate Phone
-            if (!phoneInput.value.trim() || !validatePhone(phoneInput.value)) {
-                setFieldStatus(phoneInput, false);
-                hasError = true;
-            } else {
-                setFieldStatus(phoneInput, true);
-            }
-
-            // Validate Org
-            if (!orgInput.value.trim()) {
-                setFieldStatus(orgInput, false);
-                hasError = true;
-            } else {
-                setFieldStatus(orgInput, true);
-            }
-
-            // Validate Type
-            if (!typeSelect.value) {
-                setFieldStatus(typeSelect, false);
-                hasError = true;
-            } else {
-                setFieldStatus(typeSelect, true);
-            }
-
-            // Validate Message
-            if (!messageInput.value.trim()) {
-                setFieldStatus(messageInput, false);
-                hasError = true;
-            } else {
-                setFieldStatus(messageInput, true);
-            }
-
-            if (hasError) return;
-
-            // Show loading state on button
-            if (submitBtn) {
-                const btnText = submitBtn.querySelector('.btn-text');
-                const btnArrow = submitBtn.querySelector('.btn-arrow');
-                const btnSpinner = submitBtn.querySelector('.btn-spinner');
-
-                if (btnText) btnText.textContent = 'Sending...';
-                if (btnArrow) btnArrow.style.display = 'none';
-                if (btnSpinner) btnSpinner.style.display = 'inline-block';
-                submitBtn.disabled = true;
-
-                // Simulate asynchronous form submission
-                setTimeout(() => {
-                    // Populate success modal summary
-                    const modalType = document.getElementById('modal-summary-type');
-                    const modalOrg = document.getElementById('modal-summary-org');
-
-                    if (modalType) modalType.textContent = typeSelect.value;
-                    if (modalOrg) modalOrg.textContent = orgInput.value.trim();
-
-                    // Open success modal
-                    if (successModal) {
-                        successModal.classList.add('active');
-                        successModal.setAttribute('aria-hidden', 'false');
-                        document.body.classList.add('modal-open');
-                    }
-
-                    // Reset form and button
-                    contactForm.reset();
-                    if (btnText) btnText.textContent = 'Submit Enquiry';
-                    if (btnArrow) btnArrow.style.display = 'inline-block';
-                    if (btnSpinner) btnSpinner.style.display = 'none';
-                    submitBtn.disabled = false;
-                }, 600);
-            }
-        });
-    }
-
-    if (successModalClose && successModal) {
-        successModalClose.addEventListener('click', () => {
-            successModal.classList.remove('active');
-            successModal.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('modal-open');
-        });
-
-        successModal.addEventListener('click', (e) => {
-            if (e.target === successModal || e.target.classList.contains('success-modal-backdrop')) {
-                successModal.classList.remove('active');
-                successModal.setAttribute('aria-hidden', 'true');
-                document.body.classList.remove('modal-open');
-            }
-        });
-    }
 
     // 7. "Built. Tested. Taught." Project Carousel
     const projTrack = document.getElementById('projCarouselTrack');
