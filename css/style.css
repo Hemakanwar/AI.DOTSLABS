@@ -3269,20 +3269,21 @@ body.modal-open {
     margin: 0 auto;
 }
 
-/* 5 Real Photographs Showcase */
+/* 4 Real Photographs Showcase */
 .eco-photos-showcase {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
+    gap: 20px;
     width: 100%;
-    margin-bottom: 60px;
+    max-width: 1200px;
+    margin-bottom: 50px;
     position: relative;
 }
 
 .eco-photo-card {
     flex: 1 1 0;
-    max-width: 275px;
+    max-width: 285px;
     height: 195px;
     background: #ffffff;
     border-radius: 18px;
@@ -3321,28 +3322,28 @@ body.modal-open {
 
 .eco-photo-badge {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    background: rgba(7, 19, 39, 0.8);
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(7, 19, 39, 0.82);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     color: #ffffff;
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 9999px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    font-size: 0.76rem;
+    gap: 8px;
+    font-size: 0.78rem;
     font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     transition: var(--transition-smooth);
 }
 
 .eco-photo-badge i {
     color: var(--primary-cyan);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
 }
 
 .eco-photo-card:hover .eco-photo-badge {
@@ -3354,67 +3355,51 @@ body.modal-open {
     color: #ffffff;
 }
 
-/* Featured Center Card */
-.eco-photo-card.eco-photo-featured {
-    flex: 1.35 1 0;
-    max-width: 310px;
-    height: 220px;
-    border-radius: 22px;
-    border: 2px solid rgba(0, 85, 255, 0.22);
-    box-shadow: 0 16px 45px rgba(0, 85, 255, 0.16);
-    z-index: 3;
-}
-
-.eco-photo-card.eco-photo-featured:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 24px 55px rgba(0, 85, 255, 0.22);
-}
-
-.eco-featured-badge {
-    background: rgba(0, 85, 255, 0.9) !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
-}
-
-/* 6 Ecosystem Feature Cards Grid */
+/* 4 Ecosystem Feature Cards Grid */
 .eco-features-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .eco-feature-card {
     background: #ffffff;
     border: 1.5px solid rgba(0, 85, 255, 0.08);
-    border-radius: 16px;
-    padding: 26px 18px;
+    border-radius: 18px;
+    padding: 32px 22px;
     box-shadow: 0 6px 20px rgba(0, 85, 255, 0.04);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    height: 100%;
+    box-sizing: border-box;
     transition: var(--transition-smooth);
 }
 
 .eco-feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 14px 32px rgba(0, 85, 255, 0.1);
+    box-shadow: 0 16px 36px rgba(0, 85, 255, 0.1);
     border-color: rgba(0, 85, 255, 0.24);
 }
 
 .eco-feature-icon-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     background: #eef5ff;
     color: var(--primary-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    margin-bottom: 16px;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 85, 255, 0.1);
+    flex-shrink: 0;
 }
 
 .eco-feature-card:hover .eco-feature-icon-box {
@@ -3424,37 +3409,52 @@ body.modal-open {
 }
 
 .eco-feature-title {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--dark-navy);
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     line-height: 1.3;
 }
 
 .eco-feature-text {
-    font-size: 0.8rem;
+    font-size: 0.88rem;
     color: var(--text-dark);
-    opacity: 0.82;
-    line-height: 1.5;
+    opacity: 0.85;
+    line-height: 1.55;
     margin: 0;
 }
 
 /* Responsiveness */
-@media (max-width: 1200px) {
-    .eco-features-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
 @media (max-width: 1024px) {
     .eco-photos-showcase {
         gap: 14px;
     }
     
     .eco-photo-card {
-        max-width: 210px;
-        height: 165px;
+        max-width: 230px;
+        height: 175px;
+    }
+
+    .eco-features-grid {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .eco-photos-showcase {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    
+    .eco-photo-card {
+        flex: 1 1 calc(50% - 16px);
+        max-width: calc(50% - 16px);
+        height: 170px;
+    }
+    
+    .eco-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 }
 
@@ -3467,27 +3467,8 @@ body.modal-open {
         font-size: clamp(2.1rem, 6vw, 2.8rem);
     }
     
-    .eco-photos-showcase {
-        flex-wrap: wrap;
-        gap: 14px;
-    }
-    
     .eco-photo-card {
-        flex: 1 1 calc(50% - 14px);
-        max-width: calc(50% - 14px);
-        height: 150px;
-    }
-    
-    .eco-photo-card.eco-photo-featured {
-        flex: 1 1 100%;
-        max-width: 100%;
-        height: 200px;
-        order: -1;
-    }
-    
-    .eco-features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        height: 155px;
     }
 }
 
@@ -3496,15 +3477,24 @@ body.modal-open {
         padding: 55px 16px 65px 16px;
     }
     
-    .eco-features-grid {
-        grid-template-columns: 1fr;
+    .eco-photos-showcase {
+        flex-direction: column;
         gap: 14px;
     }
     
     .eco-photo-card {
         flex: 1 1 100%;
         max-width: 100%;
-        height: 170px;
+        height: 180px;
+    }
+
+    .eco-features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    
+    .eco-feature-card {
+        padding: 26px 18px;
     }
 }
 
