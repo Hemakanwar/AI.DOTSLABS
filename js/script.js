@@ -599,29 +599,88 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Emotional Storytelling ("They should build it.") Section Scroll Animations
+    // 7. Emotional Storytelling ("They should build it.") Real Scroll-Driven Interaction
     const storySection = document.querySelector('.story-build-section');
-    if (storySection) {
-        if ('IntersectionObserver' in window) {
-            storySection.classList.add('story-animated');
+    const stageInitial = document.getElementById('storyStageInitial');
+    const stageRevealed = document.getElementById('storyStageRevealed');
+    const underlinePath = storySection ? storySection.querySelector('.story-underline-svg path') : null;
 
-            const storyObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        storySection.classList.add('in-view');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.15,
-                rootMargin: '0px 0px -40px 0px'
-            });
+    if (storySection && stageInitial && stageRevealed) {
+        let isTicking = false;
 
-            storyObserver.observe(storySection);
-        }
+        const handleStoryScroll = () => {
+            const rect = storySection.getBoundingClientRect();
+            const totalScrollable = storySection.offsetHeight - window.innerHeight;
+
+            if (totalScrollable <= 0) return;
+
+            // Calculate progress through the section (0.0 when top hits top of viewport, 1.0 when bottom hits bottom)
+            const rawProgress = -rect.top / totalScrollable;
+            const progress = Math.max(0, Math.min(1, rawProgress));
+
+            if (progress <= 0.18) {
+                // Phase 1: Fully visible
+                stageInitial.style.opacity = '1';
+                stageInitial.style.transform = 'translateY(0px)';
+                stageInitial.style.pointerEvents = 'auto';
+
+                stageRevealed.style.opacity = '0';
+                stageRevealed.style.transform = 'translateY(28px)';
+                stageRevealed.style.pointerEvents = 'none';
+
+                if (underlinePath) underlinePath.style.strokeDashoffset = '200';
+            } else if (progress > 0.18 && progress < 0.68) {
+                // Smooth transition window
+                const t = (progress - 0.18) / 0.50; // 0 to 1
+                const easeT = t * t * (3 - 2 * t); // smoothstep easing
+
+                stageInitial.style.opacity = Math.max(0, 1 - easeT).toFixed(3);
+                stageInitial.style.transform = `translateY(${(-easeT * 26).toFixed(1)}px)`;
+                stageInitial.style.pointerEvents = easeT > 0.5 ? 'none' : 'auto';
+
+                stageRevealed.style.opacity = Math.min(1, easeT).toFixed(3);
+                stageRevealed.style.transform = `translateY(${((1 - easeT) * 28).toFixed(1)}px)`;
+                stageRevealed.style.pointerEvents = easeT > 0.5 ? 'auto' : 'none';
+
+                if (underlinePath) {
+                    underlinePath.style.strokeDashoffset = `${(200 * (1 - easeT)).toFixed(1)}`;
+                }
+            } else {
+                // Phase 2: Fully revealed
+                stageInitial.style.opacity = '0';
+                stageInitial.style.transform = 'translateY(-26px)';
+                stageInitial.style.pointerEvents = 'none';
+
+                stageRevealed.style.opacity = '1';
+                stageRevealed.style.transform = 'translateY(0px)';
+                stageRevealed.style.pointerEvents = 'auto';
+
+                if (underlinePath) underlinePath.style.strokeDashoffset = '0';
+            }
+
+            isTicking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!isTicking) {
+                requestAnimationFrame(handleStoryScroll);
+                isTicking = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            if (!isTicking) {
+                requestAnimationFrame(handleStoryScroll);
+                isTicking = true;
+            }
+        }, { passive: true });
+
+        // Initial setup
+        handleStoryScroll();
     }
 
     console.log('AI.LABS initialized successfully.');
 });
+
 
 

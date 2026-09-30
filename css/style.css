@@ -4564,27 +4564,38 @@ body.modal-open {
 
 /* ==========================================================================
    EMOTIONAL STORYTELLING SECTION: "THE FUTURE ISN'T SOMETHING... THEY SHOULD BUILD IT."
+   (Scroll-Driven Interactive Storytelling)
    ========================================================================== */
 .story-build-section {
     position: relative;
     width: 100%;
-    min-height: 90vh;
+    height: 190vh; /* Smooth scroll track for cinematic reveal */
     background-color: #f7faff;
-    background-image: url('../images/story-student-robot.jpg');
-    background-size: cover;
-    background-position: center right;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    padding: 90px 0;
     border-top: 1px solid rgba(0, 85, 255, 0.06);
     border-bottom: 1px solid rgba(0, 85, 255, 0.06);
     box-sizing: border-box;
 }
 
+.story-sticky-viewport {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('../images/story-student-robot.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
 /* Subtle pale-blue gradient wash on left side for crystal-clear readability */
-.story-build-section::before {
+.story-sticky-viewport::before {
     content: '';
     position: absolute;
     top: 0;
@@ -4643,19 +4654,23 @@ body.modal-open {
 }
 
 .story-content-col {
+    position: relative;
     max-width: 580px;
+    width: 100%;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: center;
 }
 
-/* Step 1: Main Statement */
-.story-step-1 {
+/* Stage 1: Initial Statement */
+.story-stage-initial {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 16px;
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    will-change: transform, opacity;
 }
 
 .story-top-accent {
@@ -4678,24 +4693,14 @@ body.modal-open {
     font-weight: 800;
 }
 
-/* Step 2: Scroll Indicator */
-.story-step-2 {
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
-}
-
+/* Minimal Animated Downward Scroll Indicator (Zero text) */
 .story-scroll-indicator {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
-    margin: 2px 0;
-}
-
-.story-scroll-text {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #64748b;
-    letter-spacing: 0.2px;
+    margin-top: 8px;
+    cursor: default;
+    user-select: none;
 }
 
 .story-scroll-widget {
@@ -4714,8 +4719,8 @@ body.modal-open {
 }
 
 .story-scroll-circle {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     border: 1.5px solid #0088ff;
     background: #ffffff;
@@ -4723,9 +4728,9 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     color: #0088ff;
-    font-size: 0.65rem;
-    box-shadow: 0 2px 8px rgba(0, 136, 255, 0.15);
-    animation: storyScrollBounce 2s infinite ease-in-out;
+    font-size: 0.7rem;
+    box-shadow: 0 3px 10px rgba(0, 136, 255, 0.18);
+    animation: storyScrollBounce 1.8s infinite ease-in-out;
 }
 
 @keyframes storyScrollBounce {
@@ -4733,21 +4738,34 @@ body.modal-open {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(4px);
+        transform: translateY(5px);
     }
 }
 
-/* Step 3: Reveal Statement */
-.story-step-3 {
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+/* Stage 2: Revealed Statement & Brand Signature */
+.story-stage-revealed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    opacity: 0;
+    transform: translateY(28px);
+    pointer-events: none;
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    will-change: transform, opacity;
 }
 
 .story-statement-reveal {
-    font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+    font-size: clamp(2.3rem, 4.2vw, 3.6rem);
     font-weight: 800;
     color: #0d1e3d;
-    line-height: 1.2;
-    letter-spacing: -0.9px;
+    line-height: 1.18;
+    letter-spacing: -1px;
     margin: 0;
 }
 
@@ -4773,16 +4791,7 @@ body.modal-open {
 .story-underline-svg path {
     stroke-dasharray: 200;
     stroke-dashoffset: 200;
-    transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
-}
-
-.story-build-section.in-view .story-underline-svg path {
-    stroke-dashoffset: 0;
-}
-
-/* Step 4: Brand & Tagline */
-.story-step-4 {
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+    transition: stroke-dashoffset 0.4s ease-out;
 }
 
 .story-brand-wrap {
@@ -4822,50 +4831,34 @@ body.modal-open {
     letter-spacing: -0.2px;
 }
 
-/* Scroll Animation States */
-.story-build-section.story-animated .story-step-1,
-.story-build-section.story-animated .story-step-2,
-.story-build-section.story-animated .story-step-3,
-.story-build-section.story-animated .story-step-4 {
-    opacity: 0;
-    transform: translateY(22px);
-}
-
-.story-build-section.story-animated.in-view .story-step-1,
-.story-build-section.story-animated.in-view .story-step-2,
-.story-build-section.story-animated.in-view .story-step-3,
-.story-build-section.story-animated.in-view .story-step-4 {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Responsive Styles */
 @media (max-width: 1200px) {
-    .story-build-section::before {
+    .story-sticky-viewport::before {
         width: 65%;
     }
     
     .story-content-col {
         max-width: 520px;
-        gap: 20px;
     }
 }
 
 @media (max-width: 992px) {
     .story-build-section {
-        min-height: 80vh;
-        padding: 75px 0;
+        height: 160vh;
+    }
+
+    .story-sticky-viewport {
         background-position: 70% center;
     }
 
-    .story-build-section::before {
+    .story-sticky-viewport::before {
         width: 78%;
         background: linear-gradient(90deg, rgba(246, 250, 255, 0.97) 0%, rgba(246, 250, 255, 0.92) 70%, rgba(246, 250, 255, 0.2) 100%);
     }
 
     .story-content-col {
         max-width: 480px;
-        gap: 18px;
+        min-height: 340px;
     }
 
     .story-circuit-top-left,
@@ -4876,19 +4869,21 @@ body.modal-open {
 
 @media (max-width: 768px) {
     .story-build-section {
-        min-height: 75vh;
-        padding: 65px 0;
+        height: 150vh;
+    }
+
+    .story-sticky-viewport {
         background-position: 75% center;
     }
 
-    .story-build-section::before {
+    .story-sticky-viewport::before {
         width: 100%;
         background: linear-gradient(180deg, rgba(246, 250, 255, 0.96) 0%, rgba(246, 250, 255, 0.92) 65%, rgba(246, 250, 255, 0.75) 100%);
     }
 
     .story-content-col {
         max-width: 100%;
-        gap: 16px;
+        min-height: 320px;
     }
 
     .story-statement-main {
@@ -4905,9 +4900,8 @@ body.modal-open {
 }
 
 @media (max-width: 480px) {
-    .story-build-section {
-        min-height: 70vh;
-        padding: 50px 0;
+    .story-content-col {
+        min-height: 300px;
     }
 
     .story-statement-main br {
@@ -4918,6 +4912,7 @@ body.modal-open {
         display: none;
     }
 }
+
 
 
 

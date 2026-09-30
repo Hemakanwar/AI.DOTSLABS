@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=3.9">
+    <link rel="stylesheet" href="css/style.css?v=4.0">
 </head>
 <body>
     <!-- Header / Navbar -->
@@ -1293,63 +1293,57 @@
 
         <!-- SECTION: EMOTIONAL STORYTELLING ("THE FUTURE ISN'T SOMETHING... THEY SHOULD BUILD IT.") -->
         <section class="story-build-section" id="build-the-future">
-            <!-- Ambient Circuit Background Traces -->
-            <svg class="story-circuit-svg story-circuit-top-left" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M 0 35 L 75 35 L 110 70 L 170 70" stroke="rgba(0, 140, 255, 0.14)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="170" cy="70" r="3" fill="rgba(0, 195, 255, 0.4)"/>
-                <path d="M 0 85 L 45 85 L 65 105 L 125 105" stroke="rgba(0, 85, 255, 0.09)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="125" cy="105" r="2.5" fill="rgba(0, 85, 255, 0.3)"/>
-            </svg>
-            <svg class="story-circuit-svg story-circuit-top-right" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M 240 35 L 165 35 L 130 70 L 70 70" stroke="rgba(0, 140, 255, 0.14)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="70" cy="70" r="3" fill="rgba(0, 195, 255, 0.4)"/>
-            </svg>
-            <div class="story-dots-bottom-left"></div>
+            <div class="story-sticky-viewport">
+                <!-- Ambient Circuit Background Traces -->
+                <svg class="story-circuit-svg story-circuit-top-left" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M 0 35 L 75 35 L 110 70 L 170 70" stroke="rgba(0, 140, 255, 0.14)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="170" cy="70" r="3" fill="rgba(0, 195, 255, 0.4)"/>
+                    <path d="M 0 85 L 45 85 L 65 105 L 125 105" stroke="rgba(0, 85, 255, 0.09)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="125" cy="105" r="2.5" fill="rgba(0, 85, 255, 0.3)"/>
+                </svg>
+                <svg class="story-circuit-svg story-circuit-top-right" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M 240 35 L 165 35 L 130 70 L 70 70" stroke="rgba(0, 140, 255, 0.14)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="70" cy="70" r="3" fill="rgba(0, 195, 255, 0.4)"/>
+                </svg>
+                <div class="story-dots-bottom-left"></div>
 
-            <div class="story-build-container">
-                <div class="story-content-col">
-                    <!-- Step 1: Main Statement -->
-                    <div class="story-step-1">
-                        <svg class="story-top-accent" width="36" height="12" viewBox="0 0 36 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M 0 4 L 28 4 L 36 1" stroke="#0066ff" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M 6 10 L 26 10" stroke="#00c3ff" stroke-width="1.5" stroke-linecap="round" opacity="0.75"/>
-                        </svg>
-                        <h2 class="story-statement-main">
-                            The future isn’t something<br>
-                            students should only<br>
-                            <span class="story-highlight-blue">learn about.</span>
-                        </h2>
-                    </div>
-
-                    <!-- Step 2: Scroll Indicator -->
-                    <div class="story-step-2">
-                        <div class="story-scroll-indicator">
-                            <span class="story-scroll-text">Scroll.</span>
-                            <div class="story-scroll-widget">
-                                <span class="story-scroll-stem"></span>
-                                <div class="story-scroll-circle">
-                                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="story-build-container">
+                    <div class="story-content-col">
+                        <!-- Stage 1: Initial Statement & Minimal Animated Downward Scroll Indicator -->
+                        <div class="story-stage-initial" id="storyStageInitial">
+                            <svg class="story-top-accent" width="36" height="12" viewBox="0 0 36 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M 0 4 L 28 4 L 36 1" stroke="#0066ff" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M 6 10 L 26 10" stroke="#00c3ff" stroke-width="1.5" stroke-linecap="round" opacity="0.75"/>
+                            </svg>
+                            <h2 class="story-statement-main">
+                                The future isn’t something<br>
+                                students should only<br>
+                                <span class="story-highlight-blue">learn about.</span>
+                            </h2>
+                            <div class="story-scroll-indicator" aria-label="Scroll down to continue">
+                                <div class="story-scroll-widget">
+                                    <span class="story-scroll-stem"></span>
+                                    <div class="story-scroll-circle">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Step 3: Reveal Statement ("They should build it.") -->
-                    <div class="story-step-3">
-                        <h3 class="story-statement-reveal">
-                            They should <span class="story-build-wrap"><span class="story-build-text">build it.</span><svg class="story-underline-svg" viewBox="0 0 160 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M 4 8 Q 80 14, 156 6" stroke="#0066ff" stroke-width="3.5" stroke-linecap="round"/></svg></span>
-                        </h3>
-                    </div>
+                        <!-- Stage 2: Revealed Statement ("They should build it.") & Brand Block -->
+                        <div class="story-stage-revealed" id="storyStageRevealed">
+                            <h3 class="story-statement-reveal">
+                                They should <span class="story-build-wrap"><span class="story-build-text">build it.</span><svg class="story-underline-svg" viewBox="0 0 160 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M 4 8 Q 80 14, 156 6" stroke="#0066ff" stroke-width="3.5" stroke-linecap="round"/></svg></span>
+                            </h3>
 
-                    <!-- Step 4: Brand Name & Sub-headline -->
-                    <div class="story-step-4">
-                        <div class="story-brand-wrap">
-                            <div class="story-brand-name">
-                                <span class="story-brand-ai">AI</span>
-                                <span class="story-brand-dot">DOT</span>
-                                <span class="story-brand-labs">LABS</span>
+                            <div class="story-brand-wrap">
+                                <div class="story-brand-name">
+                                    <span class="story-brand-ai">AI</span>
+                                    <span class="story-brand-dot">DOT</span>
+                                    <span class="story-brand-labs">LABS</span>
+                                </div>
+                                <p class="story-brand-tagline">Building Tomorrow’s AI Innovators.</p>
                             </div>
-                            <p class="story-brand-tagline">Building Tomorrow’s AI Innovators.</p>
                         </div>
                     </div>
                 </div>
