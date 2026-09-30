@@ -567,6 +567,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    // 6. "What Happens When Students Get to Build?" Section Scroll Animations
+    const buildSection = document.querySelector('.students-build-section');
+    if (buildSection) {
+        const buildHeader = buildSection.querySelector('.students-build-header');
+        const buildCards = buildSection.querySelectorAll('.build-card');
+
+        if ('IntersectionObserver' in window) {
+            // Enable animation classes
+            if (buildHeader) buildHeader.classList.add('build-animated');
+            buildCards.forEach(card => card.classList.add('build-animated'));
+
+            const buildObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (buildHeader) buildHeader.classList.add('in-view');
+                        buildCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('in-view');
+                            }, 100 + (index * 110));
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            buildObserver.observe(buildSection);
+        }
+    }
+
     console.log('AI.LABS initialized successfully.');
 });
+
 

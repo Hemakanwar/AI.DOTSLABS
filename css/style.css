@@ -3498,6 +3498,484 @@ body.modal-open {
     }
 }
 
+/* ==========================================================================
+   WHAT HAPPENS WHEN STUDENTS GET TO BUILD? SECTION
+   ========================================================================== */
+.students-build-section {
+    position: relative;
+    background: linear-gradient(180deg, #f8faff 0%, #ffffff 50%, #f6faff 100%);
+    padding: 100px 24px 115px 24px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 85, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 85, 255, 0.05);
+}
+
+.students-build-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Background Gradients & Tech Decorative Elements */
+.build-bg-glow-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle at 0% 0%, rgba(0, 195, 255, 0.08) 0%, rgba(0, 85, 255, 0.02) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.build-bg-glow-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at 100% 100%, rgba(0, 85, 255, 0.07) 0%, rgba(0, 195, 255, 0.02) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.build-bg-dots-left {
+    position: absolute;
+    top: 18%;
+    left: 28px;
+    width: 70px;
+    height: 90px;
+    background-image: radial-gradient(#0055ff 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.build-bg-dots-right {
+    position: absolute;
+    top: 20%;
+    right: 28px;
+    width: 70px;
+    height: 90px;
+    background-image: radial-gradient(#0055ff 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.build-circuit-svg {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.build-circuit-left {
+    top: 30px;
+    left: 15px;
+    width: 220px;
+    height: auto;
+}
+
+.build-circuit-right {
+    top: 30px;
+    right: 15px;
+    width: 220px;
+    height: auto;
+}
+
+/* Header */
+.students-build-header {
+    text-align: center;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.build-eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.build-eyebrow-line-left,
+.build-eyebrow-line-right {
+    width: 44px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.build-eyebrow-pill {
+    background: rgba(0, 110, 255, 0.08);
+    border: 1px solid rgba(0, 110, 255, 0.28);
+    color: #0066ff;
+    padding: 7px 22px;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.06);
+    line-height: 1.2;
+}
+
+.students-build-title {
+    font-size: clamp(3.2rem, 6.2vw, 5.2rem);
+    font-weight: 900;
+    letter-spacing: -1.8px;
+    line-height: 1.06;
+    margin: 8px 0 16px 0;
+    text-align: center;
+}
+
+.build-title-text {
+    background: linear-gradient(135deg, #0b1f3a 0%, #0055ff 55%, #00c3ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--primary-blue);
+    display: inline-block;
+}
+
+.students-build-desc {
+    font-size: 1.12rem;
+    color: #334155;
+    font-weight: 500;
+    line-height: 1.55;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.build-desc-highlight {
+    font-weight: 800;
+    color: #0d1e3d;
+}
+
+/* Underline with Glowing Cyan Dot */
+.build-title-line-accent {
+    position: relative;
+    width: 80px;
+    height: 4px;
+    background: #0055ff;
+    border-radius: 4px;
+    margin: 18px auto 0;
+    display: flex;
+    align-items: center;
+}
+
+.build-line-bar {
+    width: 100%;
+    height: 100%;
+    background: #0055ff;
+    border-radius: 4px;
+}
+
+.build-line-dot {
+    position: absolute;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background: #00d4ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00d4ff, 0 0 4px #0055ff;
+}
+
+/* 4 Project Cards Grid */
+.students-build-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.build-card {
+    background: #ffffff;
+    border: 1.5px solid rgba(0, 85, 255, 0.09);
+    border-radius: 20px;
+    padding: 14px 14px 16px 14px;
+    box-shadow: 0 8px 24px rgba(0, 85, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.build-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 38px rgba(0, 85, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 85, 255, 0.26);
+}
+
+.build-card-img-wrap {
+    width: 100%;
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f1f5f9;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.build-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.build-card:hover .build-card-img-wrap img {
+    transform: scale(1.05);
+}
+
+.build-card-body {
+    padding: 14px 4px 0 4px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.build-category-badge {
+    background: rgba(0, 110, 255, 0.08);
+    color: #0066ff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    border: 1px solid rgba(0, 110, 255, 0.14);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.build-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0d1e3d;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+    line-height: 1.25;
+}
+
+.build-card-desc {
+    font-size: 0.86rem;
+    color: #556987;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+    min-height: 42px;
+}
+
+/* Technologies Bottom Bar */
+.build-tech-bar {
+    background: #f4f8fe;
+    border: 1px solid rgba(0, 85, 255, 0.08);
+    border-radius: 12px;
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #334155;
+    white-space: nowrap;
+}
+
+.tech-chip i {
+    font-size: 0.8rem;
+    color: #1e293b;
+    flex-shrink: 0;
+}
+
+.tech-chip svg,
+.tech-chip-svg {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+    color: #1e293b;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tech-chip:hover {
+    color: #0055ff;
+}
+
+.tech-chip:hover i,
+.tech-chip:hover svg,
+.tech-chip:hover .tech-chip-svg {
+    color: #0055ff;
+}
+
+/* Scroll Animation States */
+.students-build-header.build-animated {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.students-build-header.build-animated.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.build-card.build-animated {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.build-card.build-animated.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    .students-build-grid {
+        gap: 18px;
+    }
+    
+    .build-card {
+        padding: 12px 12px 14px 12px;
+    }
+    
+    .build-card-img-wrap {
+        height: 165px;
+    }
+    
+    .build-card-title {
+        font-size: 1.05rem;
+    }
+    
+    .build-tech-bar {
+        padding: 8px 8px;
+    }
+    
+    .tech-chip {
+        font-size: 0.68rem;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 992px) {
+    .students-build-section {
+        padding: 80px 20px 90px 20px;
+    }
+
+    .students-build-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 720px;
+    }
+
+    .build-card-img-wrap {
+        height: 190px;
+    }
+    
+    .build-card-title {
+        font-size: 1.15rem;
+    }
+    
+    .tech-chip {
+        font-size: 0.74rem;
+        gap: 5px;
+    }
+
+    .build-circuit-left,
+    .build-circuit-right {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .students-build-section {
+        padding: 70px 18px 80px 18px;
+    }
+
+    .students-build-title {
+        font-size: clamp(2.4rem, 8vw, 3.6rem);
+    }
+    
+    .students-build-desc {
+        font-size: 1rem;
+    }
+
+    .build-eyebrow-pill {
+        font-size: 0.72rem;
+        padding: 6px 16px;
+    }
+
+    .build-eyebrow-line-left,
+    .build-eyebrow-line-right {
+        width: 30px;
+    }
+}
+
+@media (max-width: 540px) {
+    .students-build-section {
+        padding: 55px 16px 65px 16px;
+    }
+
+    .students-build-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        max-width: 100%;
+    }
+
+    .build-card-img-wrap {
+        height: 200px;
+    }
+
+    .build-card-desc {
+        min-height: auto;
+    }
+
+    .build-bg-dots-left,
+    .build-bg-dots-right {
+        display: none;
+    }
+    
+    .build-tech-bar {
+        padding: 8px 10px;
+    }
+    
+    .tech-chip {
+        font-size: 0.72rem;
+    }
+}
+
 /* ==========================================
    POWERED BY ROBOAI HUB & TRUSTED INSTITUTIONS
    ========================================== */
