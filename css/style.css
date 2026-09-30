@@ -3277,7 +3277,7 @@ body.modal-open {
     gap: 20px;
     width: 100%;
     max-width: 1200px;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     position: relative;
 }
 
@@ -3355,75 +3355,6 @@ body.modal-open {
     color: #ffffff;
 }
 
-/* 4 Ecosystem Feature Cards Grid */
-.eco-features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.eco-feature-card {
-    background: #ffffff;
-    border: 1.5px solid rgba(0, 85, 255, 0.08);
-    border-radius: 18px;
-    padding: 32px 22px;
-    box-shadow: 0 6px 20px rgba(0, 85, 255, 0.04);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    box-sizing: border-box;
-    transition: var(--transition-smooth);
-}
-
-.eco-feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 36px rgba(0, 85, 255, 0.1);
-    border-color: rgba(0, 85, 255, 0.24);
-}
-
-.eco-feature-icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: #eef5ff;
-    color: var(--primary-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 18px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 85, 255, 0.1);
-    flex-shrink: 0;
-}
-
-.eco-feature-card:hover .eco-feature-icon-box {
-    background: var(--primary-blue);
-    color: #ffffff;
-    transform: scale(1.08);
-}
-
-.eco-feature-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--dark-navy);
-    margin: 0 0 10px 0;
-    line-height: 1.3;
-}
-
-.eco-feature-text {
-    font-size: 0.88rem;
-    color: var(--text-dark);
-    opacity: 0.85;
-    line-height: 1.55;
-    margin: 0;
-}
-
 /* Responsiveness */
 @media (max-width: 1024px) {
     .eco-photos-showcase {
@@ -3433,10 +3364,6 @@ body.modal-open {
     .eco-photo-card {
         max-width: 230px;
         height: 175px;
-    }
-
-    .eco-features-grid {
-        gap: 18px;
     }
 }
 
@@ -3450,11 +3377,6 @@ body.modal-open {
         flex: 1 1 calc(50% - 16px);
         max-width: calc(50% - 16px);
         height: 170px;
-    }
-    
-    .eco-features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
     }
 }
 
@@ -3486,15 +3408,6 @@ body.modal-open {
         flex: 1 1 100%;
         max-width: 100%;
         height: 180px;
-    }
-
-    .eco-features-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-    
-    .eco-feature-card {
-        padding: 26px 18px;
     }
 }
 
