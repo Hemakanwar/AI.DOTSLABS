@@ -599,6 +599,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 7. Emotional Storytelling ("They should build it.") Section Scroll Animations
+    const storySection = document.querySelector('.story-build-section');
+    if (storySection) {
+        if ('IntersectionObserver' in window) {
+            storySection.classList.add('story-animated');
+
+            const storyObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        storySection.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            storyObserver.observe(storySection);
+        }
+    }
+
     console.log('AI.LABS initialized successfully.');
 });
 

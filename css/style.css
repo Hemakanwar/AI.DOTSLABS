@@ -4562,5 +4562,363 @@ body.modal-open {
     }
 }
 
+/* ==========================================================================
+   EMOTIONAL STORYTELLING SECTION: "THE FUTURE ISN'T SOMETHING... THEY SHOULD BUILD IT."
+   ========================================================================== */
+.story-build-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    background-color: #f7faff;
+    background-image: url('../images/story-student-robot.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 90px 0;
+    border-top: 1px solid rgba(0, 85, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 85, 255, 0.06);
+    box-sizing: border-box;
+}
+
+/* Subtle pale-blue gradient wash on left side for crystal-clear readability */
+.story-build-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 58%;
+    background: linear-gradient(90deg, rgba(246, 250, 255, 0.97) 0%, rgba(246, 250, 255, 0.92) 58%, rgba(246, 250, 255, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ambient Circuit Background Traces */
+.story-circuit-svg {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.85;
+}
+
+.story-circuit-top-left {
+    top: 25px;
+    left: 20px;
+    width: 220px;
+    height: auto;
+}
+
+.story-circuit-top-right {
+    top: 25px;
+    right: 20px;
+    width: 220px;
+    height: auto;
+}
+
+.story-dots-bottom-left {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    width: 90px;
+    height: 70px;
+    background-image: radial-gradient(#0055ff 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.story-build-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 80px);
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+
+.story-content-col {
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Step 1: Main Statement */
+.story-step-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-top-accent {
+    width: 36px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.story-statement-main {
+    font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+    font-weight: 800;
+    color: #0d1e3d;
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+    margin: 0;
+}
+
+.story-highlight-blue {
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+/* Step 2: Scroll Indicator */
+.story-step-2 {
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.story-scroll-indicator {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin: 2px 0;
+}
+
+.story-scroll-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+    letter-spacing: 0.2px;
+}
+
+.story-scroll-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2px;
+}
+
+.story-scroll-stem {
+    width: 2px;
+    height: 14px;
+    background: #0088ff;
+    opacity: 0.65;
+    border-radius: 1px;
+}
+
+.story-scroll-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid #0088ff;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0088ff;
+    font-size: 0.65rem;
+    box-shadow: 0 2px 8px rgba(0, 136, 255, 0.15);
+    animation: storyScrollBounce 2s infinite ease-in-out;
+}
+
+@keyframes storyScrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+/* Step 3: Reveal Statement */
+.story-step-3 {
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.story-statement-reveal {
+    font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+    font-weight: 800;
+    color: #0d1e3d;
+    line-height: 1.2;
+    letter-spacing: -0.9px;
+    margin: 0;
+}
+
+.story-build-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.story-build-text {
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+.story-underline-svg {
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 14px;
+    overflow: visible;
+}
+
+.story-underline-svg path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+.story-build-section.in-view .story-underline-svg path {
+    stroke-dashoffset: 0;
+}
+
+/* Step 4: Brand & Tagline */
+.story-step-4 {
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+.story-brand-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.story-brand-name {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.05;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.story-brand-ai {
+    color: #0d1e3d;
+}
+
+.story-brand-dot {
+    color: #00c3ff;
+}
+
+.story-brand-labs {
+    color: #0d1e3d;
+}
+
+.story-brand-tagline {
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    font-weight: 500;
+    color: #52637a;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+/* Scroll Animation States */
+.story-build-section.story-animated .story-step-1,
+.story-build-section.story-animated .story-step-2,
+.story-build-section.story-animated .story-step-3,
+.story-build-section.story-animated .story-step-4 {
+    opacity: 0;
+    transform: translateY(22px);
+}
+
+.story-build-section.story-animated.in-view .story-step-1,
+.story-build-section.story-animated.in-view .story-step-2,
+.story-build-section.story-animated.in-view .story-step-3,
+.story-build-section.story-animated.in-view .story-step-4 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .story-build-section::before {
+        width: 65%;
+    }
+    
+    .story-content-col {
+        max-width: 520px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .story-build-section {
+        min-height: 80vh;
+        padding: 75px 0;
+        background-position: 70% center;
+    }
+
+    .story-build-section::before {
+        width: 78%;
+        background: linear-gradient(90deg, rgba(246, 250, 255, 0.97) 0%, rgba(246, 250, 255, 0.92) 70%, rgba(246, 250, 255, 0.2) 100%);
+    }
+
+    .story-content-col {
+        max-width: 480px;
+        gap: 18px;
+    }
+
+    .story-circuit-top-left,
+    .story-circuit-top-right {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-build-section {
+        min-height: 75vh;
+        padding: 65px 0;
+        background-position: 75% center;
+    }
+
+    .story-build-section::before {
+        width: 100%;
+        background: linear-gradient(180deg, rgba(246, 250, 255, 0.96) 0%, rgba(246, 250, 255, 0.92) 65%, rgba(246, 250, 255, 0.75) 100%);
+    }
+
+    .story-content-col {
+        max-width: 100%;
+        gap: 16px;
+    }
+
+    .story-statement-main {
+        font-size: clamp(1.95rem, 6.5vw, 2.6rem);
+    }
+
+    .story-statement-reveal {
+        font-size: clamp(1.85rem, 6vw, 2.4rem);
+    }
+
+    .story-brand-name {
+        font-size: clamp(1.9rem, 6.2vw, 2.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .story-build-section {
+        min-height: 70vh;
+        padding: 50px 0;
+    }
+
+    .story-statement-main br {
+        display: inline;
+    }
+
+    .story-dots-bottom-left {
+        display: none;
+    }
+}
+
+
 
 
