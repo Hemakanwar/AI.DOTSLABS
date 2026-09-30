@@ -258,59 +258,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. "Built. Tested. Taught." Project Carousel
-    const projTrack = document.getElementById('projCarouselTrack');
-    const projViewport = document.getElementById('projCarouselViewport');
-    const projPrevBtn = document.getElementById('projCarouselPrev');
-    const projNextBtn = document.getElementById('projCarouselNext');
-    const projPagination = document.getElementById('projCarouselPagination');
-    const projDots = projPagination ? projPagination.querySelectorAll('.pagination-dot') : [];
-    const projCards = projTrack ? projTrack.querySelectorAll('.project-slide-card') : [];
+    // ==========================================
+    // 7. Interactive Project Carousels (Single Horizontal Row with Smooth Scroll, Auto-Play & Infinite Loop)
+    // ==========================================
+    function initProjectCarousel({
+        trackId,
+        viewportId,
+        prevBtnId,
+        nextBtnId,
+        paginationId,
+        cardSelector = '.build-card',
+        interval = 3800
+    }) {
+        const track = document.getElementById(trackId);
+        const viewport = document.getElementById(viewportId);
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+        const pagination = document.getElementById(paginationId);
 
-    if (projTrack && projCards.length > 0) {
-        let currentProjIndex = 0;
+        if (!track || !viewport) return;
+
+        const cards = track.querySelectorAll(cardSelector);
+        if (cards.length === 0) return;
+
+        let currentIndex = 0;
         let isPaused = false;
+        let isDragging = false;
+        let startX = 0;
         let autoPlayTimer = null;
-        let touchStartX = 0;
-        let touchEndX = 0;
 
         function getVisibleCardsCount() {
             const width = window.innerWidth;
-            if (width <= 600) return 1;
-            if (width <= 1024) return 2;
+            if (width <= 580) return 1;
+            if (width <= 768) return 2;
+            if (width <= 1024) return 3;
             return 4;
         }
 
         function getMaxIndex() {
             const visible = getVisibleCardsCount();
-            return Math.max(0, projCards.length - visible);
+            return Math.max(0, cards.length - visible);
         }
 
-        function updateCarousel(instant = false) {
+        function getGap() {
+            const width = window.innerWidth;
+            if (width <= 768) return 16;
+            if (width <= 1024) return 20;
+            return 24;
+        }
+
+        function updateDots() {
+            if (!pagination) return;
+            const dots = pagination.querySelectorAll('.pagination-dot');
             const maxIndex = getMaxIndex();
-            if (currentProjIndex > maxIndex) {
-                currentProjIndex = 0;
-            }
-            if (currentProjIndex < 0) {
-                currentProjIndex = maxIndex;
-            }
-
-            const card = projCards[0];
-            const gap = window.innerWidth <= 1024 ? 20 : 24;
-            const cardWidth = card ? card.offsetWidth : 0;
-            const offset = currentProjIndex * (cardWidth + gap);
-
-            projTrack.style.transition = instant ? 'none' : 'transform 0.55s cubic-bezier(0.25, 1, 0.5, 1)';
-            projTrack.style.transform = `translateX(-${offset}px)`;
-
-            // Update pagination dots
-            projDots.forEach((dot, idx) => {
+            dots.forEach((dot, idx) => {
                 if (idx > maxIndex) {
                     dot.style.display = 'none';
                 } else {
                     dot.style.display = 'inline-block';
                 }
-                if (idx === currentProjIndex) {
+                if (idx === currentIndex) {
                     dot.classList.add('active');
                 } else {
                     dot.classList.remove('active');
@@ -318,33 +325,54 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        function updateCarousel(instant = false) {
+            const maxIndex = getMaxIndex();
+            if (currentIndex > maxIndex) {
+                currentIndex = 0;
+            }
+            if (currentIndex < 0) {
+                currentIndex = maxIndex;
+            }
+
+            const card = cards[0];
+            const cardWidth = card ? card.offsetWidth : 0;
+            const gap = getGap();
+            const offset = currentIndex * (cardWidth + gap);
+
+            track.style.transition = instant ? 'none' : 'transform 0.55s cubic-bezier(0.25, 1, 0.5, 1)';
+            track.style.transform = `translateX(-${offset}px)`;
+
+            updateDots();
+        }
+
         function nextSlide() {
             const maxIndex = getMaxIndex();
-            if (currentProjIndex >= maxIndex) {
-                currentProjIndex = 0;
+            if (currentIndex >= maxIndex) {
+                currentIndex = 0;
             } else {
-                currentProjIndex++;
+                currentIndex++;
             }
             updateCarousel();
         }
 
         function prevSlide() {
             const maxIndex = getMaxIndex();
-            if (currentProjIndex <= 0) {
-                currentProjIndex = maxIndex;
+            if (currentIndex <= 0) {
+                currentIndex = maxIndex;
             } else {
-                currentProjIndex--;
+                currentIndex--;
             }
             updateCarousel();
         }
 
         function startAutoPlay() {
             stopAutoPlay();
+            if (interval <= 0) return;
             autoPlayTimer = setInterval(() => {
-                if (!isPaused) {
+                if (!isPaused && !isDragging) {
                     nextSlide();
                 }
-            }, 3500);
+            }, interval);
         }
 
         function stopAutoPlay() {
@@ -354,63 +382,89 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Arrow button listeners
-        if (projNextBtn) {
-            projNextBtn.addEventListener('click', () => {
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 nextSlide();
                 startAutoPlay();
             });
         }
 
-        if (projPrevBtn) {
-            projPrevBtn.addEventListener('click', () => {
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 prevSlide();
                 startAutoPlay();
             });
         }
 
-        // Pagination dot listeners
-        projDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const targetSlide = parseInt(dot.getAttribute('data-slide'), 10);
-                const maxIndex = getMaxIndex();
-                currentProjIndex = Math.min(targetSlide, maxIndex);
-                updateCarousel();
-                startAutoPlay();
+        if (pagination) {
+            const dots = pagination.querySelectorAll('.pagination-dot');
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetSlide = parseInt(dot.getAttribute('data-slide'), 10);
+                    const maxIndex = getMaxIndex();
+                    currentIndex = Math.min(targetSlide, maxIndex);
+                    updateCarousel();
+                    startAutoPlay();
+                });
             });
-        });
-
-        // Pause on mouse hover
-        if (projViewport) {
-            projViewport.addEventListener('mouseenter', () => {
-                isPaused = true;
-            });
-
-            projViewport.addEventListener('mouseleave', () => {
-                isPaused = false;
-            });
-
-            // Touch event listeners for mobile swipe
-            projViewport.addEventListener('touchstart', (e) => {
-                isPaused = true;
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            projViewport.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diffX = touchStartX - touchEndX;
-                if (Math.abs(diffX) > 40) {
-                    if (diffX > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                }
-                setTimeout(() => { isPaused = false; }, 1000);
-            }, { passive: true });
         }
 
-        // Recalculate on window resize
+        // Pause on mouse hover
+        viewport.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+
+        viewport.addEventListener('mouseleave', () => {
+            isPaused = false;
+        });
+
+        // Touch event listeners for mobile swipe
+        viewport.addEventListener('touchstart', (e) => {
+            isPaused = true;
+            isDragging = true;
+            startX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            isDragging = false;
+            const endX = e.changedTouches[0].screenX;
+            const diffX = startX - endX;
+            if (Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            setTimeout(() => { isPaused = false; }, 1200);
+        }, { passive: true });
+
+        // Mouse Drag Support
+        viewport.addEventListener('mousedown', (e) => {
+            isPaused = true;
+            isDragging = true;
+            startX = e.pageX;
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const endX = e.pageX;
+            const diffX = startX - endX;
+            if (Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            setTimeout(() => { isPaused = false; }, 1200);
+        });
+
+        // Window resize
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -419,10 +473,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         });
 
-        // Initial setup
+        // Init
         updateCarousel(true);
         startAutoPlay();
     }
+
+    // Initialize all project carousels across the site
+    initProjectCarousel({
+        trackId: 'buildCarouselTrack',
+        viewportId: 'buildCarouselViewport',
+        prevBtnId: 'buildCarouselPrev',
+        nextBtnId: 'buildCarouselNext',
+        paginationId: 'buildCarouselPagination',
+        cardSelector: '.build-card',
+        interval: 3800
+    });
+
+    initProjectCarousel({
+        trackId: 'swCarouselTrack',
+        viewportId: 'swCarouselViewport',
+        prevBtnId: 'swCarouselPrev',
+        nextBtnId: 'swCarouselNext',
+        paginationId: 'swCarouselPagination',
+        cardSelector: '.build-card',
+        interval: 3800
+    });
+
+    initProjectCarousel({
+        trackId: 'projCarouselTrack',
+        viewportId: 'projCarouselViewport',
+        prevBtnId: 'projCarouselPrev',
+        nextBtnId: 'projCarouselNext',
+        paginationId: 'projCarouselPagination',
+        cardSelector: '.project-slide-card',
+        interval: 3800
+    });
 
     // ==========================================
     // 8. Trusted Institutions Seamless Marquee Auto-Scroll & Controls

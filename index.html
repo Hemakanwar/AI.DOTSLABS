@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=4.2">
+    <link rel="stylesheet" href="css/style.css?v=4.3">
 </head>
 <body>
     <!-- Header / Navbar -->
@@ -478,121 +478,253 @@
                     </div>
                 </div>
 
-                <!-- 4 Real Project Cards Grid -->
-                <div class="students-build-grid">
-                    <!-- Card 1: MAGIC MIRROR -->
-                    <article class="build-card" data-card="1">
-                        <div class="build-card-img-wrap">
-                            <img src="images/project-magic-mirror.jpg" alt="Magic Mirror - Smart interactive AI and IoT display" loading="lazy">
-                        </div>
-                        <div class="build-card-body">
-                            <span class="build-category-badge">AI + IoT</span>
-                            <h3 class="build-card-title">MAGIC MIRROR</h3>
-                            <p class="build-card-desc">A smart mirror that greets, informs and interacts with you.</p>
-                            <div class="build-tech-bar">
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-microchip"></i>
-                                    <span>Raspberry Pi</span>
-                                </div>
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-camera"></i>
-                                    <span>Camera</span>
-                                </div>
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-desktop"></i>
-                                    <span>Display</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                <!-- 8 Real Project Cards Horizontal Scrolling Carousel -->
+                <div class="build-carousel-wrapper">
+                    <!-- Navigation Arrow: Previous -->
+                    <button class="carousel-arrow-btn prev-btn build-arrow-prev" id="buildCarouselPrev" aria-label="Previous Projects">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
 
-                    <!-- Card 2: SIGN LANGUAGE TRANSLATOR -->
-                    <article class="build-card" data-card="2">
-                        <div class="build-card-img-wrap">
-                            <img src="images/project-sign-translator.jpg" alt="Sign Language Translator - AI and computer vision communication tool" loading="lazy">
-                        </div>
-                        <div class="build-card-body">
-                            <span class="build-category-badge">AI + COMPUTER VISION</span>
-                            <h3 class="build-card-title">SIGN LANGUAGE TRANSLATOR</h3>
-                            <p class="build-card-desc">Bridging communication gaps with AI and computer vision.</p>
-                            <div class="build-tech-bar">
-                                <div class="tech-chip">
-                                    <i class="fa-regular fa-circle-dot"></i>
-                                    <span>Webcam</span>
+                    <!-- Carousel Viewport -->
+                    <div class="build-carousel-viewport" id="buildCarouselViewport">
+                        <!-- Carousel Track (Single Horizontal Row) -->
+                        <div class="build-carousel-track" id="buildCarouselTrack">
+                            <!-- Card 1: MAGIC MIRROR -->
+                            <article class="build-card" data-index="0">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/project-magic-mirror.jpg" alt="Magic Mirror - Smart interactive AI and IoT display" loading="lazy">
                                 </div>
-                                <div class="tech-chip">
-                                    <i class="fa-brands fa-python"></i>
-                                    <span>Python</span>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">AI + IoT</span>
+                                    <h3 class="build-card-title">MAGIC MIRROR</h3>
+                                    <p class="build-card-desc">A smart mirror that greets, informs and interacts with you.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-microchip"></i>
+                                            <span>Raspberry Pi</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-camera"></i>
+                                            <span>Camera</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-desktop"></i>
+                                            <span>Display</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="tech-chip">
-                                    <svg class="tech-chip-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                        <circle cx="12" cy="6" r="3"/>
-                                        <circle cx="6" cy="17" r="3"/>
-                                        <circle cx="18" cy="17" r="3"/>
-                                    </svg>
-                                    <span>OpenCV</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                            </article>
 
-                    <!-- Card 3: AUTONOMOUS DRONE -->
-                    <article class="build-card" data-card="3">
-                        <div class="build-card-img-wrap">
-                            <img src="images/project-drone.jpg" alt="Autonomous Drone - Intelligent autonomous navigation system" loading="lazy">
-                        </div>
-                        <div class="build-card-body">
-                            <span class="build-category-badge">ROBOTICS + AI</span>
-                            <h3 class="build-card-title">AUTONOMOUS DRONE</h3>
-                            <p class="build-card-desc">Detects, navigates and makes decisions on its own.</p>
-                            <div class="build-tech-bar">
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-microchip"></i>
-                                    <span>ESP32</span>
+                            <!-- Card 2: SIGN LANGUAGE TRANSLATOR -->
+                            <article class="build-card" data-index="1">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/project-sign-translator.jpg" alt="Sign Language Translator - AI and computer vision communication tool" loading="lazy">
                                 </div>
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>GPS</span>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">AI + COMPUTER VISION</span>
+                                    <h3 class="build-card-title">SIGN LANGUAGE TRANSLATOR</h3>
+                                    <p class="build-card-desc">Bridging communication gaps with AI and computer vision.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-regular fa-circle-dot"></i>
+                                            <span>Webcam</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-brands fa-python"></i>
+                                            <span>Python</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <svg class="tech-chip-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <circle cx="12" cy="6" r="3"/>
+                                                <circle cx="6" cy="17" r="3"/>
+                                                <circle cx="18" cy="17" r="3"/>
+                                            </svg>
+                                            <span>OpenCV</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-camera"></i>
-                                    <span>Camera</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                            </article>
 
-                    <!-- Card 4: WASTE SORTER -->
-                    <article class="build-card" data-card="4">
-                        <div class="build-card-img-wrap">
-                            <img src="images/project-waste-sorter.jpg" alt="Waste Sorter - Automated AI robotic waste separation system" loading="lazy">
+                            <!-- Card 3: AUTONOMOUS DRONE -->
+                            <article class="build-card" data-index="2">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/project-drone.jpg" alt="Autonomous Drone - Intelligent autonomous navigation system" loading="lazy">
+                                </div>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">ROBOTICS + AI</span>
+                                    <h3 class="build-card-title">AUTONOMOUS DRONE</h3>
+                                    <p class="build-card-desc">Detects, navigates and makes decisions on its own.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-microchip"></i>
+                                            <span>ESP32</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <span>GPS</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-camera"></i>
+                                            <span>Camera</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 4: WASTE SORTER -->
+                            <article class="build-card" data-index="3">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/project-waste-sorter.jpg" alt="Waste Sorter - Automated AI robotic waste separation system" loading="lazy">
+                                </div>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">AI + ROBOTICS</span>
+                                    <h3 class="build-card-title">WASTE SORTER</h3>
+                                    <p class="build-card-desc">Automatically identifies and sorts waste using AI.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <svg class="tech-chip-svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">
+                                                <path d="M16.5 6A5.5 5.5 0 0 0 12 8.5 5.5 5.5 0 0 0 7.5 6 5.5 5.5 0 0 0 2 11.5 5.5 5.5 0 0 0 7.5 17 5.5 5.5 0 0 0 12 14.5 5.5 5.5 0 0 0 16.5 17 5.5 5.5 0 0 0 22 11.5 5.5 5.5 0 0 0 16.5 6zm-9 9A3.5 3.5 0 0 1 4 11.5 3.5 3.5 0 0 1 7.5 8a3.5 3.5 0 0 1 3.5 3.5A3.5 3.5 0 0 1 7.5 15zm9 0a3.5 3.5 0 0 1-3.5-3.5A3.5 3.5 0 0 1 16.5 8a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5z"/>
+                                            </svg>
+                                            <span>Arduino</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-gauge-high"></i>
+                                            <span>Servo Motor</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <svg class="tech-chip-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+                                                <path d="M7 7a7 7 0 0 0 0 10"/>
+                                                <path d="M17 7a7 7 0 0 1 0 10"/>
+                                            </svg>
+                                            <span>Sensors</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 5: AI VISION BOT -->
+                            <article class="build-card" data-index="4">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/ai-vision-bot.jpg" alt="AI Vision Bot - Autonomous edge computing rover" loading="lazy">
+                                </div>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">AI + EMBEDDED AI</span>
+                                    <h3 class="build-card-title">AI VISION BOT</h3>
+                                    <p class="build-card-desc">Self-driving robotic vehicle with on-device computer vision for lane and obstacle tracking.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-robot"></i>
+                                            <span>Edge AI</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-brands fa-python"></i>
+                                            <span>Python</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-camera"></i>
+                                            <span>Sensors</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 6: PEOPLE COUNTING SYSTEM -->
+                            <article class="build-card" data-index="5">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/people-counter.jpg" alt="People Counting System - Computer vision occupancy tracking" loading="lazy">
+                                </div>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">COMPUTER VISION</span>
+                                    <h3 class="build-card-title">PEOPLE COUNTING SYSTEM</h3>
+                                    <p class="build-card-desc">Smart camera analytics tracking foot traffic, occupancy, and crowd dynamics in real time.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-users"></i>
+                                            <span>YOLO</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-shapes"></i>
+                                            <span>OpenCV</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-brands fa-python"></i>
+                                            <span>Python</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 7: SMART TRAFFIC SYSTEM -->
+                            <article class="build-card" data-index="6">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/smart-traffic.jpg" alt="Smart Traffic System - Adaptive AI traffic management" loading="lazy">
+                                </div>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">AI + SMART CITY</span>
+                                    <h3 class="build-card-title">SMART TRAFFIC SYSTEM</h3>
+                                    <p class="build-card-desc">Adaptive junction controller that dynamically adjusts traffic signals based on vehicle density.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-traffic-light"></i>
+                                            <span>Smart Sensors</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-microchip"></i>
+                                            <span>Microcontroller</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                            <span>Analytics</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 8: AI TUTOR ASSISTANT -->
+                            <article class="build-card" data-index="7">
+                                <div class="build-card-img-wrap">
+                                    <img src="images/ai-tutor.jpg" alt="AI Tutor Assistant - NLP and interactive learning companion" loading="lazy">
+                                </div>
+                                <div class="build-card-body">
+                                    <span class="build-category-badge">NLP + AI TUTOR</span>
+                                    <h3 class="build-card-title">AI TUTOR ASSISTANT</h3>
+                                    <p class="build-card-desc">Natural language AI companion providing 24/7 concept explanations and interactive quizzes.</p>
+                                    <div class="build-tech-bar">
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-brain"></i>
+                                            <span>LLM</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-brands fa-python"></i>
+                                            <span>Python</span>
+                                        </div>
+                                        <div class="tech-chip">
+                                            <i class="fa-solid fa-comments"></i>
+                                            <span>NLP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        <div class="build-card-body">
-                            <span class="build-category-badge">AI + ROBOTICS</span>
-                            <h3 class="build-card-title">WASTE SORTER</h3>
-                            <p class="build-card-desc">Automatically identifies and sorts waste using AI.</p>
-                            <div class="build-tech-bar">
-                                <div class="tech-chip">
-                                    <svg class="tech-chip-svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">
-                                        <path d="M16.5 6A5.5 5.5 0 0 0 12 8.5 5.5 5.5 0 0 0 7.5 6 5.5 5.5 0 0 0 2 11.5 5.5 5.5 0 0 0 7.5 17 5.5 5.5 0 0 0 12 14.5 5.5 5.5 0 0 0 16.5 17 5.5 5.5 0 0 0 22 11.5 5.5 5.5 0 0 0 16.5 6zm-9 9A3.5 3.5 0 0 1 4 11.5 3.5 3.5 0 0 1 7.5 8a3.5 3.5 0 0 1 3.5 3.5A3.5 3.5 0 0 1 7.5 15zm9 0a3.5 3.5 0 0 1-3.5-3.5A3.5 3.5 0 0 1 16.5 8a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5z"/>
-                                    </svg>
-                                    <span>Arduino</span>
-                                </div>
-                                <div class="tech-chip">
-                                    <i class="fa-solid fa-gauge-high"></i>
-                                    <span>Servo Motor</span>
-                                </div>
-                                <div class="tech-chip">
-                                    <svg class="tech-chip-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                        <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
-                                        <path d="M7 7a7 7 0 0 0 0 10"/>
-                                        <path d="M17 7a7 7 0 0 1 0 10"/>
-                                    </svg>
-                                    <span>Sensors</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                    </div>
+
+                    <!-- Navigation Arrow: Next -->
+                    <button class="carousel-arrow-btn next-btn build-arrow-next" id="buildCarouselNext" aria-label="Next Projects">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="projects-pagination build-pagination" id="buildCarouselPagination">
+                    <button class="pagination-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="pagination-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="pagination-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="pagination-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                    <button class="pagination-dot" data-slide="4" aria-label="Go to slide 5"></button>
+                    <button class="pagination-dot" data-slide="5" aria-label="Go to slide 6"></button>
+                    <button class="pagination-dot" data-slide="6" aria-label="Go to slide 7"></button>
+                    <button class="pagination-dot" data-slide="7" aria-label="Go to slide 8"></button>
                 </div>
             </div>
         </section>
@@ -1514,6 +1646,6 @@
     </div>
 
     <!-- Custom Script -->
-    <script src="js/script.js?v=4.2"></script>
+    <script src="js/script.js?v=4.3"></script>
 </body>
 </html>

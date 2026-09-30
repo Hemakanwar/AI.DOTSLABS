@@ -3606,17 +3606,45 @@ body.modal-open {
     box-shadow: 0 0 10px #00d4ff, 0 0 4px #0055ff;
 }
 
-/* 4 Project Cards Grid */
-.students-build-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+/* ==========================================================================
+   WHAT HAPPENS WHEN STUDENTS GET TO BUILD? SECTION - HORIZONTAL CAROUSEL
+   ========================================================================== */
+.build-carousel-wrapper {
+    position: relative;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.build-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 16px 4px 26px 4px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.build-carousel-viewport:active {
+    cursor: grabbing;
+}
+
+.build-carousel-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
 }
 
 .build-card {
+    flex: 0 0 calc((100% - (24px * 3)) / 4);
+    min-width: 0;
+    max-width: calc((100% - (24px * 3)) / 4);
     background: #ffffff;
     border: 1.5px solid rgba(0, 85, 255, 0.09);
     border-radius: 20px;
@@ -3624,7 +3652,6 @@ body.modal-open {
     box-shadow: 0 8px 24px rgba(0, 85, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
-    height: 100%;
     box-sizing: border-box;
     transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
     position: relative;
@@ -3753,6 +3780,19 @@ body.modal-open {
     color: #0055ff;
 }
 
+/* Arrow Controls for Student Build Carousel */
+.build-arrow-prev {
+    left: -24px;
+}
+
+.build-arrow-next {
+    right: -24px;
+}
+
+.build-pagination {
+    margin-top: 28px;
+}
+
 /* Scroll Animation States */
 .students-build-header.build-animated {
     opacity: 0;
@@ -3774,12 +3814,8 @@ body.modal-open {
     transform: translateY(0);
 }
 
-/* Responsive Media Queries */
+/* Responsive Media Queries for Carousel */
 @media (max-width: 1200px) {
-    .students-build-grid {
-        gap: 18px;
-    }
-    
     .build-card {
         padding: 12px 12px 14px 12px;
     }
@@ -3802,28 +3838,39 @@ body.modal-open {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .students-build-section {
         padding: 80px 20px 90px 20px;
     }
 
-    .students-build-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .build-carousel-track {
         gap: 20px;
-        max-width: 720px;
+    }
+
+    .build-card {
+        flex: 0 0 calc((100% - (20px * 2)) / 3);
+        max-width: calc((100% - (20px * 2)) / 3);
     }
 
     .build-card-img-wrap {
-        height: 190px;
+        height: 180px;
     }
     
     .build-card-title {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
     
     .tech-chip {
-        font-size: 0.74rem;
+        font-size: 0.72rem;
         gap: 5px;
+    }
+
+    .build-arrow-prev {
+        left: -14px;
+    }
+
+    .build-arrow-next {
+        right: -14px;
     }
 
     .build-circuit-left,
@@ -3854,25 +3901,59 @@ body.modal-open {
     .build-eyebrow-line-right {
         width: 30px;
     }
+
+    .build-carousel-track {
+        gap: 16px;
+    }
+
+    .build-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+
+    .build-arrow-prev {
+        left: -8px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
+
+    .build-arrow-next {
+        right: -8px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 580px) {
     .students-build-section {
         padding: 55px 16px 65px 16px;
     }
 
-    .students-build-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+    .build-carousel-track {
+        gap: 16px;
+    }
+
+    .build-card {
+        flex: 0 0 100%;
         max-width: 100%;
     }
 
     .build-card-img-wrap {
-        height: 200px;
+        height: 190px;
     }
 
     .build-card-desc {
         min-height: auto;
+    }
+
+    .build-arrow-prev {
+        left: 4px;
+    }
+
+    .build-arrow-next {
+        right: 4px;
     }
 
     .build-bg-dots-left,
@@ -5240,21 +5321,17 @@ body.modal-open {
     box-shadow: 0 0 10px #00d4ff;
 }
 
-/* 8 Projects Grid */
+/* 8 Projects Carousel */
 .sw-showcase-section {
     padding: 70px 24px 90px 24px;
     background: #ffffff;
+    overflow: hidden;
 }
 
 .sw-showcase-container {
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
-}
-
-.sw-projects-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 26px;
+    position: relative;
 }
 
 .sw-project-card {
@@ -5265,7 +5342,6 @@ body.modal-open {
     box-shadow: 0 8px 24px rgba(0, 85, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
-    height: 100%;
     box-sizing: border-box;
     transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }

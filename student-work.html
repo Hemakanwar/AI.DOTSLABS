@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=4.2">
+    <link rel="stylesheet" href="css/style.css?v=4.3">
 </head>
 <body>
     <!-- Header / Navbar -->
@@ -71,145 +71,173 @@
             </div>
         </section>
 
-        <!-- 8 PROJECT SHOWCASE GRID -->
+        <!-- 8 PROJECT SHOWCASE HORIZONTAL SCROLLING CAROUSEL -->
         <section class="sw-showcase-section">
             <div class="sw-showcase-container">
-                <div class="sw-projects-grid">
-                    <!-- Project 1: MAGIC MIRROR -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/project-magic-mirror.jpg" alt="Magic Mirror - AI & IoT" loading="lazy">
-                            <span class="sw-category-badge">AI + IoT</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">Magic Mirror</h3>
-                            <p class="sw-card-desc">A smart interactive mirror that greets, informs and interacts in real time with facial recognition and weather intelligence.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-microchip"></i> Raspberry Pi</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-camera"></i> Camera</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-tv"></i> Display</span>
-                            </div>
-                        </div>
-                    </article>
+                <div class="build-carousel-wrapper sw-carousel-wrapper">
+                    <!-- Navigation Arrow: Previous -->
+                    <button class="carousel-arrow-btn prev-btn build-arrow-prev" id="swCarouselPrev" aria-label="Previous Projects">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
 
-                    <!-- Project 2: SIGN LANGUAGE TRANSLATOR -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/project-sign-translator.jpg" alt="Sign Language Translator - AI & Computer Vision" loading="lazy">
-                            <span class="sw-category-badge">AI + Computer Vision</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">Sign Language Translator</h3>
-                            <p class="sw-card-desc">Bridging communication gaps by recognizing hand gestures with AI and computer vision, converting signs to speech and text.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-brands fa-python"></i> Python</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-cube"></i> OpenCV</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-hand"></i> MediaPipe</span>
-                            </div>
-                        </div>
-                    </article>
+                    <!-- Carousel Viewport -->
+                    <div class="build-carousel-viewport" id="swCarouselViewport">
+                        <!-- Carousel Track (Single Horizontal Row) -->
+                        <div class="build-carousel-track sw-carousel-track" id="swCarouselTrack">
+                            <!-- Project 1: MAGIC MIRROR -->
+                            <article class="build-card sw-project-card" data-index="0">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/project-magic-mirror.jpg" alt="Magic Mirror - AI & IoT" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">AI + IoT</span>
+                                    <h3 class="build-card-title sw-card-title">Magic Mirror</h3>
+                                    <p class="build-card-desc sw-card-desc">A smart interactive mirror that greets, informs and interacts in real time with facial recognition and weather intelligence.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-microchip"></i> <span>Raspberry Pi</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-camera"></i> <span>Camera</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-tv"></i> <span>Display</span></div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Project 3: AUTONOMOUS DRONE -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/project-drone.jpg" alt="Autonomous Drone - AI & Robotics" loading="lazy">
-                            <span class="sw-category-badge">AI + Robotics</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">Autonomous Drone</h3>
-                            <p class="sw-card-desc">An intelligent autonomous quadcopter that detects obstacles, navigates waypoints, and makes real-time flight decisions on its own.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-microchip"></i> ESP32</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-location-dot"></i> GPS</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-camera"></i> Camera</span>
-                            </div>
-                        </div>
-                    </article>
+                            <!-- Project 2: SIGN LANGUAGE TRANSLATOR -->
+                            <article class="build-card sw-project-card" data-index="1">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/project-sign-translator.jpg" alt="Sign Language Translator - AI & Computer Vision" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">AI + Computer Vision</span>
+                                    <h3 class="build-card-title sw-card-title">Sign Language Translator</h3>
+                                    <p class="build-card-desc sw-card-desc">Bridging communication gaps by recognizing hand gestures with AI and computer vision, converting signs to speech and text.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-brands fa-python"></i> <span>Python</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-cube"></i> <span>OpenCV</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-hand"></i> <span>MediaPipe</span></div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Project 4: WASTE SORTER -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/project-waste-sorter.jpg" alt="Waste Sorter - AI & Robotics" loading="lazy">
-                            <span class="sw-category-badge">AI + Robotics</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">Waste Sorter</h3>
-                            <p class="sw-card-desc">Automated robotic waste classification mechanism that identifies recyclable materials using camera vision and segregates bins.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-infinity"></i> Arduino</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-gears"></i> Servo Motor</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-eye"></i> Vision AI</span>
-                            </div>
-                        </div>
-                    </article>
+                            <!-- Project 3: AUTONOMOUS DRONE -->
+                            <article class="build-card sw-project-card" data-index="2">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/project-drone.jpg" alt="Autonomous Drone - AI & Robotics" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">AI + Robotics</span>
+                                    <h3 class="build-card-title sw-card-title">Autonomous Drone</h3>
+                                    <p class="build-card-desc sw-card-desc">An intelligent autonomous quadcopter that detects obstacles, navigates waypoints, and makes real-time flight decisions on its own.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-microchip"></i> <span>ESP32</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-location-dot"></i> <span>GPS</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-camera"></i> <span>Camera</span></div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Project 5: AI VISION BOT -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/ai-vision-bot.jpg" alt="AI Vision Bot - AI & Embedded AI" loading="lazy">
-                            <span class="sw-category-badge">AI + Embedded AI</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">AI Vision Bot</h3>
-                            <p class="sw-card-desc">Self-driving robotic vehicle with on-device computer vision for lane tracking, pedestrian avoidance, and road sign recognition.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-robot"></i> Edge AI</span>
-                                <span class="sw-tech-tag"><i class="fa-brands fa-python"></i> Python</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-camera"></i> Sensors</span>
-                            </div>
-                        </div>
-                    </article>
+                            <!-- Project 4: WASTE SORTER -->
+                            <article class="build-card sw-project-card" data-index="3">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/project-waste-sorter.jpg" alt="Waste Sorter - AI & Robotics" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">AI + Robotics</span>
+                                    <h3 class="build-card-title sw-card-title">Waste Sorter</h3>
+                                    <p class="build-card-desc sw-card-desc">Automated robotic waste classification mechanism that identifies recyclable materials using camera vision and segregates bins.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-infinity"></i> <span>Arduino</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-gears"></i> <span>Servo Motor</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-eye"></i> <span>Vision AI</span></div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Project 6: PEOPLE COUNTING SYSTEM -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/people-counter.jpg" alt="People Counting System - Computer Vision" loading="lazy">
-                            <span class="sw-category-badge">Computer Vision</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">People Counting System</h3>
-                            <p class="sw-card-desc">Smart camera analytics system tracking foot traffic, room occupancy, and crowd dynamics in educational and public environments.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-users"></i> YOLO</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-shapes"></i> OpenCV</span>
-                                <span class="sw-tech-tag"><i class="fa-brands fa-python"></i> Python</span>
-                            </div>
-                        </div>
-                    </article>
+                            <!-- Project 5: AI VISION BOT -->
+                            <article class="build-card sw-project-card" data-index="4">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/ai-vision-bot.jpg" alt="AI Vision Bot - AI & Embedded AI" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">AI + Embedded AI</span>
+                                    <h3 class="build-card-title sw-card-title">AI Vision Bot</h3>
+                                    <p class="build-card-desc sw-card-desc">Self-driving robotic vehicle with on-device computer vision for lane tracking, pedestrian avoidance, and road sign recognition.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-robot"></i> <span>Edge AI</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-brands fa-python"></i> <span>Python</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-camera"></i> <span>Sensors</span></div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Project 7: SMART TRAFFIC SYSTEM -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/smart-traffic.jpg" alt="Smart Traffic System - AI & Smart City" loading="lazy">
-                            <span class="sw-category-badge">AI + Smart City</span>
-                        </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">Smart Traffic System</h3>
-                            <p class="sw-card-desc">Adaptive junction controller that dynamically adjusts traffic signals according to real-time lane vehicle density and congestion.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-traffic-light"></i> Smart Sensors</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-microchip"></i> Microcontroller</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-chart-line"></i> Analytics</span>
-                            </div>
-                        </div>
-                    </article>
+                            <!-- Project 6: PEOPLE COUNTING SYSTEM -->
+                            <article class="build-card sw-project-card" data-index="5">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/people-counter.jpg" alt="People Counting System - Computer Vision" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">Computer Vision</span>
+                                    <h3 class="build-card-title sw-card-title">People Counting System</h3>
+                                    <p class="build-card-desc sw-card-desc">Smart camera analytics system tracking foot traffic, room occupancy, and crowd dynamics in educational and public environments.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-users"></i> <span>YOLO</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-shapes"></i> <span>OpenCV</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-brands fa-python"></i> <span>Python</span></div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Project 8: AI TUTOR ASSISTANT -->
-                    <article class="sw-project-card">
-                        <div class="sw-card-img-wrap">
-                            <img src="images/ai-tutor.jpg" alt="AI Tutor Assistant - NLP & AI Tutor" loading="lazy">
-                            <span class="sw-category-badge">NLP + AI Tutor</span>
+                            <!-- Project 7: SMART TRAFFIC SYSTEM -->
+                            <article class="build-card sw-project-card" data-index="6">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/smart-traffic.jpg" alt="Smart Traffic System - AI & Smart City" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">AI + Smart City</span>
+                                    <h3 class="build-card-title sw-card-title">Smart Traffic System</h3>
+                                    <p class="build-card-desc sw-card-desc">Adaptive junction controller that dynamically adjusts traffic signals according to real-time lane vehicle density and congestion.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-traffic-light"></i> <span>Smart Sensors</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-microchip"></i> <span>Microcontroller</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-chart-line"></i> <span>Analytics</span></div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Project 8: AI TUTOR ASSISTANT -->
+                            <article class="build-card sw-project-card" data-index="7">
+                                <div class="build-card-img-wrap sw-card-img-wrap">
+                                    <img src="images/ai-tutor.jpg" alt="AI Tutor Assistant - NLP & AI Tutor" loading="lazy">
+                                </div>
+                                <div class="build-card-body sw-card-body">
+                                    <span class="build-category-badge sw-category-badge">NLP + AI Tutor</span>
+                                    <h3 class="build-card-title sw-card-title">AI Tutor Assistant</h3>
+                                    <p class="build-card-desc sw-card-desc">Natural language AI study companion providing 24/7 concept explanations, coding troubleshooting, and interactive quizzes.</p>
+                                    <div class="build-tech-bar sw-tech-stack">
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-brain"></i> <span>LLM</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-brands fa-python"></i> <span>Python</span></div>
+                                        <div class="tech-chip sw-tech-tag"><i class="fa-solid fa-comments"></i> <span>NLP</span></div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        <div class="sw-card-body">
-                            <h3 class="sw-card-title">AI Tutor Assistant</h3>
-                            <p class="sw-card-desc">Natural language AI study companion providing 24/7 concept explanations, coding troubleshooting, and interactive quizzes.</p>
-                            <div class="sw-tech-stack">
-                                <span class="sw-tech-tag"><i class="fa-solid fa-brain"></i> LLM</span>
-                                <span class="sw-tech-tag"><i class="fa-brands fa-python"></i> Python</span>
-                                <span class="sw-tech-tag"><i class="fa-solid fa-comments"></i> NLP</span>
-                            </div>
-                        </div>
-                    </article>
+                    </div>
+
+                    <!-- Navigation Arrow: Next -->
+                    <button class="carousel-arrow-btn next-btn build-arrow-next" id="swCarouselNext" aria-label="Next Projects">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="projects-pagination build-pagination" id="swCarouselPagination">
+                    <button class="pagination-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="pagination-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="pagination-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="pagination-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                    <button class="pagination-dot" data-slide="4" aria-label="Go to slide 5"></button>
+                    <button class="pagination-dot" data-slide="5" aria-label="Go to slide 6"></button>
+                    <button class="pagination-dot" data-slide="6" aria-label="Go to slide 7"></button>
+                    <button class="pagination-dot" data-slide="7" aria-label="Go to slide 8"></button>
                 </div>
             </div>
         </section>
@@ -354,6 +382,6 @@
     </footer>
 
     <!-- Custom Script -->
-    <script src="js/script.js?v=4.2"></script>
+    <script src="js/script.js?v=4.3"></script>
 </body>
 </html>
