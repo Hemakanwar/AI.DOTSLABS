@@ -1,3 +1,9 @@
+// Configuration for Demo Booking Google Sheets backend
+const DEMO_CONFIG = {
+    // Paste your Google Apps Script Web App URL here after deployment
+    APPS_SCRIPT_URL: 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     // State variables
     let currentStep = 1; // 1: Start, 2: Q1, 3: Q2, 4: Q3, 5: Form, 5.5: Submitting, 6: Success
@@ -13,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainBadge = document.getElementById('demo-main-badge');
     const btnStart = document.getElementById('btn-start');
     const detailsForm = document.getElementById('details-form');
+    const btnSubmit = document.getElementById('btn-submit');
     
     const screens = {
         1: document.getElementById('screen-start'),
@@ -324,13 +331,48 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (formIsValid) {
+                // Prevent duplicate submissions
+                if (btnSubmit) {
+                    btnSubmit.disabled = true;
+                }
+
+                // Prepare submission payload
+                const payload = {
+                    lookingFor: selections.category || 'School Partnership',
+                    demoAudience: selections.target || 'School',
+                    studentCount: selections.scale || '10–20',
+                    fullName: document.getElementById('fullName') ? document.getElementById('fullName').value.trim() : '',
+                    organization: document.getElementById('orgName') ? document.getElementById('orgName').value.trim() : '',
+                    email: document.getElementById('email') ? document.getElementById('email').value.trim() : '',
+                    mobile: document.getElementById('phone') ? document.getElementById('phone').value.trim() : ''
+                };
+
                 // Robot pushes Details form away to reveal Submitting screen
                 robotPushTransition(screens[5], screens[5.5], () => {
                     currentStep = 5.5;
                     updateStepBadge('SUBMITTING');
                     
-                    // Simulate server processing (1.6s) then robot pushes Submitting screen to reveal Success screen
-                    setTimeout(() => {
+                    const isConfigured = DEMO_CONFIG.APPS_SCRIPT_URL && 
+                                         !DEMO_CONFIG.APPS_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') &&
+                                         DEMO_CONFIG.APPS_SCRIPT_URL.startsWith('https://script.google.com/');
+
+                    const minDelayPromise = new Promise(resolve => setTimeout(resolve, 1400));
+                    
+                    const submissionPromise = isConfigured ? 
+                        fetch(DEMO_CONFIG.APPS_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'text/plain;charset=utf-8'
+                            },
+                            body: JSON.stringify(payload)
+                        }).catch(err => {
+                            console.warn('Backend submission error or notice:', err);
+                        }) : 
+                        (console.log('AI.LABS Demo Booking (Simulation Mode — Please configure APPS_SCRIPT_URL in js/book-demo.js):', payload), Promise.resolve());
+
+                    // When submission completes (or min animation delay finishes), reveal success screen
+                    Promise.all([submissionPromise, minDelayPromise]).then(() => {
                         robotPushTransition(screens[5.5], screens[6], () => {
                             currentStep = 6;
                             updateStepBadge('SUCCESS SCREEN');
@@ -340,11 +382,16 @@ document.addEventListener('DOMContentLoaded', function() {
                             const sumTarget = document.getElementById('summary-success-target');
                             const sumScale = document.getElementById('summary-success-scale');
                             
-                            if (sumCat) sumCat.textContent = selections.category || 'School Partnership';
-                            if (sumTarget) sumTarget.textContent = selections.target || 'School';
-                            if (sumScale) sumScale.textContent = selections.scale || '10–20';
+                            if (sumCat) sumCat.textContent = payload.lookingFor;
+                            if (sumTarget) sumTarget.textContent = payload.demoAudience;
+                            if (sumScale) sumScale.textContent = payload.studentCount;
+                            
+                            if (btnSubmit) btnSubmit.disabled = false;
                         });
-                    }, 1600);
+                    }).catch(err => {
+                        console.error('Submission handling error:', err);
+                        if (btnSubmit) btnSubmit.disabled = false;
+                    });
                 });
             }
         });
