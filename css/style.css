@@ -287,6 +287,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     box-sizing: border-box;
+    padding-top: clamp(35px, 5.5vh, 70px);
     padding-right: 20px;
     animation: heroFadeIn 0.8s ease-out forwards;
 }
@@ -306,7 +307,7 @@ body {
     font-size: clamp(2.8rem, 4.4vw, 4.4rem);
     font-weight: 800;
     line-height: 1.1;
-    margin: 0 0 28px 0;
+    margin: 0 0 32px 0;
     letter-spacing: -1.4px;
     font-family: var(--font-family);
     text-align: left;
@@ -315,7 +316,7 @@ body {
 .hero-desc {
     font-size: clamp(1.05rem, 1.2vw, 1.22rem);
     color: #1e293b;
-    line-height: 1.55;
+    line-height: 1.6;
     margin: 0;
     font-weight: 500;
     max-width: 580px;
@@ -492,13 +493,14 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        padding-top: 30px;
         padding-right: 16px;
     }
     
     .hero-title {
         font-size: clamp(2.3rem, 4vw, 3.2rem);
         line-height: 1.12;
-        margin-bottom: 22px;
+        margin-bottom: 24px;
     }
 
     .hero-desc {
