@@ -764,8 +764,84 @@ document.addEventListener('DOMContentLoaded', () => {
         handleStoryScroll();
     }
 
+    // ==========================================
+    // 8. "Not Just An AI Lab / An Ecosystem" Scroll-Driven Transition
+    // ==========================================
+    const ecoSection = document.getElementById('ecosystem');
+    const ecoStageInitial = document.getElementById('ecoStageInitial');
+    const ecoStageRevealed = document.getElementById('ecoStageRevealed');
+
+    if (ecoSection && ecoStageInitial && ecoStageRevealed) {
+        let isEcoTicking = false;
+
+        const handleEcoScroll = () => {
+            const rect = ecoSection.getBoundingClientRect();
+            const totalScrollable = ecoSection.offsetHeight - window.innerHeight;
+
+            if (totalScrollable <= 0) return;
+
+            // Calculate scroll progress through the section (0.0 to 1.0)
+            const rawProgress = -rect.top / totalScrollable;
+            const progress = Math.max(0, Math.min(1, rawProgress));
+
+            if (progress <= 0.18) {
+                // Phase 1: Only "NOT JUST AN AI LAB." headline visible
+                ecoStageInitial.style.opacity = '1';
+                ecoStageInitial.style.transform = 'translate(-50%, -50%) scale(1)';
+                ecoStageInitial.style.pointerEvents = 'auto';
+
+                ecoStageRevealed.style.opacity = '0';
+                ecoStageRevealed.style.transform = 'translate(-50%, -50%) translateY(32px) scale(0.96)';
+                ecoStageRevealed.style.pointerEvents = 'none';
+            } else if (progress > 0.18 && progress < 0.62) {
+                // Smooth transition window: Phase 1 fades/floats away, Phase 2 reveals smoothly
+                const t = (progress - 0.18) / 0.44; // 0 to 1
+                const easeT = t * t * (3 - 2 * t); // smoothstep easing
+
+                // Stage 1 fades out & floats up slightly
+                ecoStageInitial.style.opacity = Math.max(0, 1 - easeT).toFixed(3);
+                ecoStageInitial.style.transform = `translate(-50%, -50%) translateY(${(-easeT * 32).toFixed(1)}px) scale(${(1 - easeT * 0.05).toFixed(3)})`;
+                ecoStageInitial.style.pointerEvents = easeT > 0.5 ? 'none' : 'auto';
+
+                // Stage 2 fades in & rises to center
+                ecoStageRevealed.style.opacity = Math.min(1, easeT).toFixed(3);
+                ecoStageRevealed.style.transform = `translate(-50%, -50%) translateY(${((1 - easeT) * 32).toFixed(1)}px) scale(${(0.96 + easeT * 0.04).toFixed(3)})`;
+                ecoStageRevealed.style.pointerEvents = easeT > 0.5 ? 'auto' : 'none';
+            } else {
+                // Phase 3: "AN ECOSYSTEM." and full ecosystem showcase (cards, pillars) fully active
+                ecoStageInitial.style.opacity = '0';
+                ecoStageInitial.style.transform = 'translate(-50%, -50%) translateY(-32px) scale(0.95)';
+                ecoStageInitial.style.pointerEvents = 'none';
+
+                ecoStageRevealed.style.opacity = '1';
+                ecoStageRevealed.style.transform = 'translate(-50%, -50%) translateY(0px) scale(1)';
+                ecoStageRevealed.style.pointerEvents = 'auto';
+            }
+
+            isEcoTicking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!isEcoTicking) {
+                requestAnimationFrame(handleEcoScroll);
+                isEcoTicking = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            if (!isEcoTicking) {
+                requestAnimationFrame(handleEcoScroll);
+                isEcoTicking = true;
+            }
+        }, { passive: true });
+
+        // Initial setup
+        handleEcoScroll();
+    }
+
     console.log('AI.LABS initialized successfully.');
 });
+
 
 
 
