@@ -5027,7 +5027,7 @@ body.modal-open {
     line-height: 1.05;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 0;
 }
 
 .story-brand-ai {
@@ -5040,6 +5040,7 @@ body.modal-open {
 
 .story-brand-labs {
     color: #0d1e3d;
+    margin-left: 7px;
 }
 
 .story-brand-tagline {
