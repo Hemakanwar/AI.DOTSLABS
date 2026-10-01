@@ -283,9 +283,11 @@ body {
     height: 100%;
     min-height: 520px;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     box-sizing: border-box;
+    padding-top: clamp(35px, 5.5vh, 65px);
     padding-right: 20px;
     animation: heroFadeIn 0.8s ease-out forwards;
 }
@@ -302,12 +304,23 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(3.2rem, 5vw, 5.2rem);
+    font-size: clamp(2.8rem, 4.4vw, 4.4rem);
     font-weight: 800;
     line-height: 1.1;
-    margin: 0;
-    letter-spacing: -1.5px;
+    margin: 0 0 28px 0;
+    letter-spacing: -1.4px;
     font-family: var(--font-family);
+    text-align: left;
+}
+
+.hero-desc {
+    font-size: clamp(1.05rem, 1.2vw, 1.22rem);
+    color: #1e293b;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+    max-width: 580px;
+    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.95);
     text-align: left;
 }
 
@@ -477,14 +490,23 @@ body {
         flex: 0 0 56%;
         min-height: 480px;
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 30px;
         padding-right: 16px;
     }
     
     .hero-title {
-        font-size: clamp(2.6rem, 4.4vw, 3.6rem);
+        font-size: clamp(2.3rem, 4vw, 3.2rem);
         line-height: 1.12;
+        margin-bottom: 24px;
+    }
+
+    .hero-desc {
+        font-size: 1.05rem;
+        margin-bottom: 0;
+        max-width: 500px;
     }
 }
 
@@ -520,6 +542,7 @@ body {
         width: 100%;
         padding: 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
@@ -530,9 +553,17 @@ body {
         position: static;
         top: auto;
         transform: none;
-        font-size: clamp(2.2rem, 6.5vw, 3rem);
+        font-size: clamp(2rem, 6vw, 2.7rem);
         line-height: 1.14;
+        margin: 0 auto 18px auto;
+        text-align: center;
+    }
+
+    .hero-desc {
+        font-size: 1.02rem;
+        line-height: 1.5;
         margin: 0 auto;
+        max-width: 100%;
         text-align: center;
     }
 }
@@ -607,8 +638,15 @@ body {
 
 @media (max-width: 600px) {
     .hero-title {
-        font-size: clamp(1.8rem, 6.8vw, 2.2rem);
+        font-size: clamp(1.75rem, 6.6vw, 2.15rem);
         letter-spacing: -0.8px;
+        margin-bottom: 14px;
+    }
+
+    .hero-desc {
+        font-size: 0.94rem;
+        margin-bottom: 0;
+        line-height: 1.5;
     }
     
     .cta-demo-btn,
