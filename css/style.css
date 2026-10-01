@@ -303,35 +303,23 @@ body {
     }
 }
 
-.hero-title {
-    font-size: clamp(2.8rem, 4.4vw, 4.4rem);
+.hero-brand-title {
+    font-size: clamp(3.4rem, 5.5vw, 5.6rem);
     font-weight: 800;
-    line-height: 1.1;
-    margin: 0 0 32px 0;
-    letter-spacing: -1.4px;
+    line-height: 1.05;
+    margin: 0 0 16px 0;
+    letter-spacing: -1.6px;
     font-family: var(--font-family);
     text-align: left;
+    text-transform: uppercase;
 }
 
-.hero-desc {
-    font-size: clamp(1.05rem, 1.2vw, 1.22rem);
-    color: #1e293b;
-    line-height: 1.6;
-    margin: 0;
-    font-weight: 500;
-    max-width: 580px;
-    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.95);
-    text-align: left;
-}
-
-.hero-line-dark {
-    display: block;
+.hero-brand-dark {
     color: var(--dark-navy, #071327);
     text-shadow: 0 2px 20px rgba(255, 255, 255, 0.95), 0 0 35px rgba(255, 255, 255, 0.85);
 }
 
-.hero-line-blue {
-    display: block;
+.hero-brand-blue {
     background: linear-gradient(135deg, var(--primary-blue, #0055ff) 0%, var(--primary-cyan, #00c3ff) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -339,9 +327,21 @@ body {
     filter: drop-shadow(0 2px 18px rgba(255, 255, 255, 0.9));
 }
 
+.hero-tagline {
+    font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: -0.4px;
+    text-shadow: 0 1px 12px rgba(255, 255, 255, 0.95);
+    text-align: left;
+}
+
 @media (min-width: 901px) {
-    .hero-line-dark,
-    .hero-line-blue {
+    .hero-brand-dark,
+    .hero-brand-blue,
+    .hero-tagline {
         white-space: nowrap;
     }
 }
@@ -497,16 +497,14 @@ body {
         padding-right: 16px;
     }
     
-    .hero-title {
-        font-size: clamp(2.3rem, 4vw, 3.2rem);
-        line-height: 1.12;
-        margin-bottom: 24px;
+    .hero-brand-title {
+        font-size: clamp(2.8rem, 4.8vw, 4.2rem);
+        line-height: 1.08;
+        margin-bottom: 14px;
     }
 
-    .hero-desc {
-        font-size: 1.05rem;
-        margin-bottom: 0;
-        max-width: 500px;
+    .hero-tagline {
+        font-size: clamp(1.1rem, 1.6vw, 1.35rem);
     }
 }
 
@@ -549,19 +547,19 @@ body {
         min-height: auto;
     }
     
-    .hero-title {
+    .hero-brand-title {
         position: static;
         top: auto;
         transform: none;
-        font-size: clamp(2rem, 6vw, 2.7rem);
-        line-height: 1.14;
-        margin: 0 auto 18px auto;
+        font-size: clamp(2.4rem, 7.5vw, 3.4rem);
+        line-height: 1.08;
+        margin: 0 auto 12px auto;
         text-align: center;
     }
 
-    .hero-desc {
-        font-size: 1.02rem;
-        line-height: 1.5;
+    .hero-tagline {
+        font-size: clamp(1.05rem, 3.8vw, 1.25rem);
+        line-height: 1.4;
         margin: 0 auto;
         max-width: 100%;
         text-align: center;
@@ -631,22 +629,21 @@ body {
         width: 30px;
     }
     
-    .hero-title {
+    .hero-brand-title {
         font-size: clamp(2rem, 6vw, 2.5rem);
     }
 }
 
 @media (max-width: 600px) {
-    .hero-title {
-        font-size: clamp(1.75rem, 6.6vw, 2.15rem);
-        letter-spacing: -0.8px;
-        margin-bottom: 14px;
+    .hero-brand-title {
+        font-size: clamp(1.85rem, 8vw, 2.4rem);
+        letter-spacing: -1px;
+        margin-bottom: 10px;
     }
 
-    .hero-desc {
-        font-size: 0.94rem;
-        margin-bottom: 0;
-        line-height: 1.5;
+    .hero-tagline {
+        font-size: 0.98rem;
+        line-height: 1.4;
     }
     
     .cta-demo-btn,
