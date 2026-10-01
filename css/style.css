@@ -2516,12 +2516,28 @@ body.modal-open {
     color: inherit;
     min-height: 230px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .footer-contact-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 30px rgba(0, 85, 255, 0.08);
-    border-color: rgba(0, 85, 255, 0.2);
+    border-color: rgba(0, 85, 255, 0.25);
+}
+
+.footer-contact-card:hover .footer-card-icon {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-cyan) 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.footer-contact-card:hover .footer-card-title {
+    color: var(--primary-blue);
+}
+
+.footer-contact-card:hover .footer-card-text {
+    color: var(--dark-navy);
+    opacity: 1;
 }
 
 .footer-card-icon {
@@ -2535,6 +2551,7 @@ body.modal-open {
     justify-content: center;
     color: var(--primary-blue);
     margin-bottom: 2px;
+    transition: var(--transition-smooth);
 }
 
 .footer-card-icon i {
@@ -2545,6 +2562,7 @@ body.modal-open {
     font-size: 1.15rem;
     font-weight: 800;
     color: var(--dark-navy);
+    transition: color 0.2s ease;
 }
 
 .footer-card-text {
@@ -2552,6 +2570,7 @@ body.modal-open {
     color: var(--text-dark);
     line-height: 1.55;
     opacity: 0.85;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 /* Sub-footer bottom bar */
@@ -5027,7 +5046,6 @@ body.modal-open {
 .footer-contact-list li {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
     font-size: 0.9rem;
     color: #475569;
     line-height: 1.5;
@@ -5038,16 +5056,34 @@ body.modal-open {
     font-size: 1rem;
     margin-top: 3px;
     flex-shrink: 0;
+    margin-right: 12px;
 }
 
 .footer-contact-list li a {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0;
     color: #475569;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
+.footer-contact-list li a i {
+    color: var(--primary-blue);
+    font-size: 1rem;
+    margin-top: 3px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
 .footer-contact-list li a:hover {
     color: var(--primary-blue);
+}
+
+.footer-contact-list li a:hover i {
+    color: var(--primary-blue);
+    transform: scale(1.15);
 }
 
 /* Footer Bottom Bar */
