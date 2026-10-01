@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=4.6">
+    <link rel="stylesheet" href="css/style.css?v=4.7">
 </head>
 <body>
     <!-- Header / Navbar -->
@@ -352,7 +352,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4: AI.LABS ECOSYSTEM ("Not just an AI lab. An ecosystem.") -->
+        <!-- SECTION 4: AI.LABS ECOSYSTEM ("Not just an AI lab. An ecosystem." Scroll-Driven Storytelling Experience) -->
         <section class="home-ecosystem-section" id="ecosystem">
             <!-- Background Decorative Technology Waves & Grid -->
             <div class="home-eco-wave-left"></div>
@@ -360,63 +360,233 @@
             <div class="home-eco-dots-left"></div>
             <div class="home-eco-dots-right"></div>
 
-            <div class="home-eco-container">
-                <!-- Main Hero Heading -->
-                <div class="eco-hero-header">
-                    <h2 class="eco-hero-title">
-                        <span class="eco-title-line-1">Not just an <span class="eco-highlight-ai">AI</span> lab.</span>
-                        <span class="eco-title-line-2">An <span class="eco-highlight-ecosystem">ecosystem.</span></span>
-                    </h2>
-                    <p class="eco-hero-desc">
-                        A comprehensive, living deep-tech environment engineered to empower schools from foundational learning to cutting-edge student innovation.
-                    </p>
-                </div>
+            <!-- Left & Right Background Circuit SVG Traces -->
+            <svg class="eco-circuit-svg eco-circuit-left" viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M 0 50 L 90 50 L 135 95 L 200 95" stroke="rgba(0, 140, 255, 0.15)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="200" cy="95" r="4" fill="rgba(0, 195, 255, 0.4)"/>
+                <path d="M 0 120 L 60 120 L 90 150 L 160 150" stroke="rgba(0, 85, 255, 0.1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="160" cy="150" r="3" fill="rgba(0, 85, 255, 0.3)"/>
+            </svg>
+            <svg class="eco-circuit-svg eco-circuit-right" viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M 240 50 L 150 50 L 105 95 L 40 95" stroke="rgba(0, 140, 255, 0.15)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="40" cy="95" r="4" fill="rgba(0, 195, 255, 0.4)"/>
+                <path d="M 240 120 L 180 120 L 150 150 L 80 150" stroke="rgba(0, 85, 255, 0.1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="80" cy="150" r="3" fill="rgba(0, 85, 255, 0.3)"/>
+            </svg>
 
-                <!-- Real Project Photographs Showcase (4 Real AI Photographs) -->
-                <div class="eco-photos-showcase">
-                    <!-- Photo 1: AI Hardware -->
-                    <div class="eco-photo-card">
-                        <div class="eco-photo-img-wrap">
-                            <img src="images/gallery-ai-lab.jpg" alt="AI Hardware - Computing Boards, Sensors & Workstations" loading="lazy">
+            <!-- Sticky Storytelling Stage -->
+            <div class="eco-sticky-stage" id="ecoStickyStage">
+                <div class="eco-stage-container">
+                    
+                    <!-- Headline Storytelling Area -->
+                    <div class="eco-story-headline-area" id="ecoHeadlineArea">
+                        <!-- Eyebrow Badge -->
+                        <div class="eco-story-badge" id="ecoStoryBadge">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span id="ecoBadgeText">AI EDUCATION EVOLUTION</span>
                         </div>
-                        <div class="eco-photo-badge">
-                            <i class="fa-solid fa-microchip"></i>
-                            <span>AI Hardware</span>
+
+                        <!-- Phase 1: "Not just." / "An AI Lab." -->
+                        <div class="eco-title-phase eco-phase-initial" id="ecoTitleInitial">
+                            <h2 class="eco-giant-title">
+                                <span class="eco-word-notjust">Not just.</span>
+                                <span class="eco-word-ailab">An <span class="eco-gradient-ai">AI Lab.</span></span>
+                            </h2>
+                        </div>
+
+                        <!-- Phase 2: "An ecosystem." -->
+                        <div class="eco-title-phase eco-phase-revealed" id="ecoTitleRevealed">
+                            <h2 class="eco-giant-title">
+                                <span class="eco-word-an">An</span>
+                                <span class="eco-gradient-ecosystem">ecosystem.</span>
+                            </h2>
+                            <p class="eco-revealed-desc" id="ecoRevealedDesc">
+                                Hardware, curriculum, mentors, projects and continuous innovation — working together to create a complete AI learning ecosystem.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Photo 2: AI Curriculum -->
-                    <div class="eco-photo-card">
-                        <div class="eco-photo-img-wrap">
-                            <img src="images/gallery-coding.jpg" alt="AI Curriculum - Structured AI & Machine Learning Learning Paths" loading="lazy">
+                    <!-- Phase 3: Connected Ecosystem Components Ribbon / Track -->
+                    <div class="eco-cards-container" id="ecoCardsContainer">
+                        <!-- Navigation Arrows -->
+                        <button class="eco-nav-btn eco-nav-prev" id="ecoNavPrev" aria-label="Previous ecosystem component">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="eco-nav-btn eco-nav-next" id="ecoNavNext" aria-label="Next ecosystem component">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Track Viewport with Connecting Circuit Line -->
+                        <div class="eco-track-viewport" id="ecoTrackViewport">
+                            <div class="eco-track-circuit-line"></div>
+                            
+                            <div class="eco-cards-track" id="ecoCardsTrack">
+                                
+                                <!-- Component 1: Hardware -->
+                                <article class="eco-card" data-step="1">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">01</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/gallery-ai-lab.jpg" alt="AI Hardware - High-performance edge computing, IoT & robotics" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-microchip"></i>
+                                            <span>Hardware</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Hardware</h3>
+                                        <p class="eco-card-desc">High-performance edge AI processors, IoT sensors, robotics kits & compute workstations.</p>
+                                    </div>
+                                    <div class="eco-card-connector" aria-hidden="true">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </article>
+
+                                <!-- Component 2: Curriculum -->
+                                <article class="eco-card" data-step="2">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">02</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/gallery-coding.jpg" alt="AI Curriculum - Hands-on structured syllabus" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-book-open"></i>
+                                            <span>Curriculum</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Curriculum</h3>
+                                        <p class="eco-card-desc">Hands-on structured syllabus from AI fundamentals to deep neural networks & Python.</p>
+                                    </div>
+                                    <div class="eco-card-connector" aria-hidden="true">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </article>
+
+                                <!-- Component 3: Mentors -->
+                                <article class="eco-card" data-step="3">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">03</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/gallery-workshop.jpg" alt="AI Mentors - Dedicated deep-tech trainers" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-user-graduate"></i>
+                                            <span>Mentors</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Mentors</h3>
+                                        <p class="eco-card-desc">Dedicated deep-tech trainers & expert engineers for ongoing classroom support.</p>
+                                    </div>
+                                    <div class="eco-card-connector" aria-hidden="true">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </article>
+
+                                <!-- Component 4: Projects -->
+                                <article class="eco-card" data-step="4">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">04</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/gallery-showcase.jpg" alt="AI Projects - Autonomous robots & computer vision" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-laptop-code"></i>
+                                            <span>Projects</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Projects</h3>
+                                        <p class="eco-card-desc">Autonomous robots, computer vision algorithms & real-world practical AI prototypes.</p>
+                                    </div>
+                                    <div class="eco-card-connector" aria-hidden="true">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </article>
+
+                                <!-- Component 5: Certifications -->
+                                <article class="eco-card" data-step="5">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">05</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/gallery-events.jpg" alt="AI Certifications - Industry recognized credentials" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-award"></i>
+                                            <span>Certifications</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Certifications</h3>
+                                        <p class="eco-card-desc">Industry-recognized student skill credentials & achievement badges powered by RoboAI Hub.</p>
+                                    </div>
+                                    <div class="eco-card-connector" aria-hidden="true">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </article>
+
+                                <!-- Component 6: Continuous R&D -->
+                                <article class="eco-card" data-step="6">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">06</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/home-ai-lab.jpg" alt="Continuous R&D - Lab research and model updates" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-atom"></i>
+                                            <span>Continuous R&D</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Continuous R&D</h3>
+                                        <p class="eco-card-desc">Regular curriculum updates, newer model architectures & ongoing lab research.</p>
+                                    </div>
+                                    <div class="eco-card-connector" aria-hidden="true">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </article>
+
+                                <!-- Component 7: Annual Upgrades -->
+                                <article class="eco-card" data-step="7">
+                                    <div class="eco-card-step-badge">
+                                        <span class="step-num">07</span>
+                                    </div>
+                                    <div class="eco-card-img-wrap">
+                                        <img src="images/story-student-robot.jpg" alt="Annual Upgrades - Hardware refresh and stack expansions" loading="lazy">
+                                        <div class="eco-card-pill">
+                                            <i class="fa-solid fa-arrows-rotate"></i>
+                                            <span>Annual Upgrades</span>
+                                        </div>
+                                    </div>
+                                    <div class="eco-card-content">
+                                        <h3 class="eco-card-title">Annual Upgrades</h3>
+                                        <p class="eco-card-desc">Hardware refresh cycles, latest tech stacks & continuous lab capability expansions.</p>
+                                    </div>
+                                </article>
+
+                            </div>
                         </div>
-                        <div class="eco-photo-badge">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span>AI Curriculum</span>
+
+                        <!-- Step Indicator Progress Pills -->
+                        <div class="eco-progress-pills" id="ecoProgressPills">
+                            <button class="eco-pill-dot active" data-step="1">01 Hardware</button>
+                            <button class="eco-pill-dot" data-step="2">02 Curriculum</button>
+                            <button class="eco-pill-dot" data-step="3">03 Mentors</button>
+                            <button class="eco-pill-dot" data-step="4">04 Projects</button>
+                            <button class="eco-pill-dot" data-step="5">05 Certifications</button>
+                            <button class="eco-pill-dot" data-step="6">06 R&D</button>
+                            <button class="eco-pill-dot" data-step="7">07 Upgrades</button>
                         </div>
                     </div>
 
-                    <!-- Photo 3: AI Mentors -->
-                    <div class="eco-photo-card">
-                        <div class="eco-photo-img-wrap">
-                            <img src="images/gallery-workshop.jpg" alt="AI Mentors - Hands-On Guidance & Practical AI Workshops" loading="lazy">
-                        </div>
-                        <div class="eco-photo-badge">
-                            <i class="fa-solid fa-user-graduate"></i>
-                            <span>AI Mentors</span>
-                        </div>
+                    <!-- Scroll Prompt Hint -->
+                    <div class="eco-scroll-hint" id="ecoScrollHint">
+                        <span>SCROLL TO EXPLORE ECOSYSTEM</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </div>
 
-                    <!-- Photo 4: AI Projects -->
-                    <div class="eco-photo-card">
-                        <div class="eco-photo-img-wrap">
-                            <img src="images/gallery-showcase.jpg" alt="AI Projects - Real-World AI Project Demonstrations" loading="lazy">
-                        </div>
-                        <div class="eco-photo-badge">
-                            <i class="fa-solid fa-laptop-code"></i>
-                            <span>AI Projects</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1626,6 +1796,6 @@
     </div>
 
     <!-- Custom Script -->
-    <script src="js/script.js?v=4.6"></script>
+    <script src="js/script.js?v=4.7"></script>
 </body>
 </html>
