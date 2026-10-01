@@ -47,9 +47,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Active Link Underline Handling & Smooth Scrolling for Anchors
     const links = document.querySelectorAll('.nav-links a');
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/') || !window.location.pathname.includes('.html');
+
+    // Handle Logo click to return smoothly to top of home page
+    const logoLink = document.querySelector('.logo-link');
+    if (logoLink && isHomePage) {
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            if (history.pushState) {
+                history.pushState(null, null, window.location.pathname);
+            }
+            links.forEach(l => l.classList.remove('active'));
+            const homeLink = document.querySelector('.nav-links a[href="index.html"], .nav-links a[href="/"], .nav-links a[href="#home"]');
+            if (homeLink) homeLink.classList.add('active');
+        });
+    }
+
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
+
+            // Handle clicking "Home" while already on the home page
+            if (isHomePage && (href === 'index.html' || href === '/' || href === '#home' || href === '#')) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                if (history.pushState) {
+                    history.pushState(null, null, window.location.pathname);
+                }
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    if (toggleIcon) toggleIcon.className = 'fa-solid fa-bars';
+                }
+                return;
+            }
 
             // Handle internal in-page hash links (e.g. #contact, #our-labs)
             if (href && href.startsWith('#') && href.length > 1) {
@@ -79,8 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle hash scrolling on page load (e.g., if navigating from another page to index.html#contact)
-    if (window.location.hash) {
+    // Ensure root/home visits start at the very top (Hero section) on initial page load / refresh
+    if (!window.location.hash && isHomePage) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    } else if (window.location.hash) {
+        // Handle hash scrolling on page load (e.g., if navigating from another page to index.html#contact)
         const targetElement = document.querySelector(window.location.hash);
         if (targetElement) {
             setTimeout(() => {

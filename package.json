@@ -1,0 +1,17 @@
+{
+  "name": "ai-dot-labs",
+  "version": "1.0.0",
+  "description": "AI.LABS - Powered by RoboAI Hub",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -l 5500",
+    "dev": "npx serve -s . -l 5500"
+  },
+  "keywords": [
+    "ai",
+    "labs",
+    "education"
+  ],
+  "author": "AI.LABS",
+  "license": "ISC"
+}
